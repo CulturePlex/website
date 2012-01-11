@@ -5,9 +5,12 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Examples:
+    # Cultureplex:
      url(r'^$', 'web.views.index'),
-    # url(r'^cultureplex/', include('cultureplex.foo.urls')),
+
+    #Projects:
+    url(r'^projects/$', 'web.views.projects'),
+    url(r'^projects/(?P<project_id>\d+)/$', 'web.views.project'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
      url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
