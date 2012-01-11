@@ -1,0 +1,10 @@
+{% if publications_list %}
+    <ul>
+    {% for publication in publications_list %}
+        <li><a href="/publications/{{ publication.id }}/">{{ publication.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No publications are available.</p>
+{% endif %}
+<a href="../">Back</a>
