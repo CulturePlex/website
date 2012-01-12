@@ -1,0 +1,10 @@
+{% if projects_list %}
+    <ul>
+    {% for project in projects_list %}
+        <li><a href="/projects/{{ project.id }}/">{{ project.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No projects are available.</p>
+{% endif %}
+<a href="../">Back</a>
