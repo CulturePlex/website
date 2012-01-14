@@ -1,2 +1,6 @@
-<p>You're looking at project {{ project.name }}</p>
-<a href="../">Back</a>
+{% extends 'index.html' %}
+{% block content %}
+    <h1>{{ project.name }}</h1>
+    <p>You're looking at project {{ project.name }}</p>
+    <a href="../">Back</a>
+{% endblock %}

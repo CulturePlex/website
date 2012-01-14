@@ -1,3 +1,6 @@
+{% extends 'index.html' %}
+{% block content %}
+    <h1>Publications</h1>
 {% if publications_list %}
     <ul>
     {% for publication in publications_list %}
@@ -8,3 +11,4 @@
     <p>No publications are available.</p>
 {% endif %}
 <a href="../">Back</a>
+{% endblock %}

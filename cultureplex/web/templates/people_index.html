@@ -1,4 +1,7 @@
+{% extends 'index.html' %}
+{% block content %}
 {% if people_list %}
+    <h1>People</h1>
     <ul>
     {% for people in people_list %}
         <li><a href="/people/{{ people.id }}/">{{ people.name }}</a></li>
@@ -8,3 +11,4 @@
     <p>No people available.</p>
 {% endif %}
 <a href="../">Back</a>
+{% endblock %}
