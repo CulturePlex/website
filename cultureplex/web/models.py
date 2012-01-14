@@ -5,12 +5,12 @@ class Project(models.Model):
     contact = models.CharField(max_length=200)
     description = models.CharField(max_length=200)
     url = models.CharField(max_length=200)
-    active = models.BooleanField()
+    active = models.IntegerField()
 
 class Publication(models.Model):
     authors = models.CharField(max_length=200)
     title = models.CharField(max_length=200)
-    year =  models.IntegerField(max_length=4)
+    year = models.CharField(max_length=200)
     publication_type = models.CharField(max_length=200)
     pdf = models.CharField(max_length=200)
 

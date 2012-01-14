@@ -1,12 +1,14 @@
 from django.conf.urls.defaults import patterns, include, url
+from django.conf import settings
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Cultureplex:
-     url(r'^$', 'web.views.index'),
+    # Examples:
+    # url(r'^$', 'web.views.index'),
+    # url(r'^cultureplex/', include('cultureplex.foo.urls')),
 
     #Projects:
     url(r'^projects/$', 'web.views.projects'),
@@ -25,4 +27,17 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
      url(r'^admin/', include(admin.site.urls)),
+
+    #Fiber:
+    url(r'^api/v1/', include('fiber.api.urls')),
+    url(r'^admin/fiber/', include('fiber.admin_urls')),
+    url(r'^jsi18n/$', 'django.views.i18n.javascript_catalog', {'packages': ('fiber',),}),
+
+
+
 )
+
+if settings.DEBUG:
+    urlpatterns += patterns('django.contrib.staticfiles.views',
+        url(r'^static/(?P<path>.*)$', 'serve'),
+    )

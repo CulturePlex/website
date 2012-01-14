@@ -1,7 +1,8 @@
-{% extends 'index.html' %}
+{% load fiber_tags %}
+{% show_menu "mainmenu" 1 1 %}
 {% block content %}
-{% if projects_list %}
     <h1>Projects</h1>
+{% if projects_list %}
     <ul>
     {% for project in projects_list %}
         <li><a href="/projects/{{ project.id }}/">{{ project.name }}</a></li>

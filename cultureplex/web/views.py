@@ -4,11 +4,6 @@ from web.models import Publication
 from web.models import People
 from django.http import HttpResponse
 
-def index(request):
-    i = loader.get_template('index.html')
-    c = Context({
-    })
-    return HttpResponse(i.render(c))
 
 def projects(request):
     projects_list = Project.objects.all()
@@ -57,6 +52,4 @@ def people(request, people_id):
         'people': people,
     })
     return HttpResponse(t.render(c))
-
-
 

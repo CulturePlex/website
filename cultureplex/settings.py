@@ -1,3 +1,5 @@
+import django.conf.global_settings as DEFAULT_SETTINGS
+
 # Django settings for cultureplex project.
 
 DEBUG = True
@@ -92,18 +94,27 @@ TEMPLATE_LOADERS = (
 #     'django.template.loaders.eggs.Loader',
 )
 
+
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'fiber.middleware.ObfuscateEmailAddressMiddleware',
+    'fiber.middleware.AdminPageMiddleware',
+    'fiber.middleware.PageFallbackMiddleware',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS + (
+    'django.core.context_processors.request',
+    'fiber.context_processors.page_info',
 )
 
 ROOT_URLCONF = 'cultureplex.urls'
 
 TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+    "/templates/"
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
 )
@@ -120,6 +131,20 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
     'web',
+    'django.contrib.staticfiles',
+    'piston',
+    'mptt',
+    'compressor',
+    'fiber',
+)
+
+import os
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_URL = '/static/'
+STATICFILES_FINDERS = DEFAULT_SETTINGS.STATICFILES_FINDERS + (
+    'compressor.finders.CompressorFinder',
 )
 
 # A sample logging configuration. The only tangible logging

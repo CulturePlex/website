@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+{% load fiber_tags %}
 <html>
 <head>
     <title>The CulturePlex </title>
@@ -5,12 +7,7 @@
 <body>
 {% block header %}
 Cultureplex Web.
-    <ul>
-        <li><a href="/projects/">Projects</a></li>
-        <li><a href="/publications/">Publications</a></li>
-        <li><a href="/people/">People</a></li>
-        <li><a href="http://blogs.cultureplex.ca/activity/">Blogs</a></li>
-    </ul>
+{% show_menu "mainmenu" 1 1 %}
     <hr size="5" align="left" width="100%" color="black">
 {% endblock %}
 {% block content %}

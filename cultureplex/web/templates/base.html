@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load fiber_tags %}
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>{% block title %}{{ fiber_page.title }}{% endblock %}</title>
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/base.css">
+</head>
+<body class="{% block body_class %}{{ fiber_page.title|slugify }}{% endblock %}">
+	<div id="wpr-page">
+		<div id="page">
+			<header>
+				<div id="logo">CulturePlex</div>
+				<nav id="mainmenu" class="clearfix">
+					{% show_menu "mainmenu" 1 1 %}
+				</nav>
+			</header>
+			<aside id="aside-left">
+				<nav id="submenu">
+					{% show_menu "mainmenu" 2 3 %}
+				</nav>
+			</aside>
+			<section id="main">
+						{% for fiber_page in fiber_current_pages %}
+						<h1>
+							{{ fiber_page.title }}
+						</h1>
+						{% endfor %}
+				<article>
+					{% show_page_content "content" %}
+				</article>
+			</section>
+			<aside id="aside-right">
+
+			</aside>
+		</div>
+	</div>
+</body>
+</html>
