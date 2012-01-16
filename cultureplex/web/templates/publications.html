@@ -1,15 +1,31 @@
-{% load fiber_tags %}
-
+{% extends 'index.html' %}
 {% block content %}
     <h1>Publications</h1>
-{% if publications_list %}
+{% if publications %}
     <ul>
-    {% for publication in publications_list %}
+    {% for publication in publications.object_list %}
         <li><a href="/publications/{{ publication.id }}/">{{ publication.title }}</a></li>
     {% endfor %}
     </ul>
 {% else %}
     <p>No publications are available.</p>
 {% endif %}
+
+<div class="pagination">
+    <span class="step-links">
+        {% if publications.has_previous %}
+            <a href="?page={{ contacts.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ publications.number }} of {{ publications.paginator.num_pages }}.
+        </span>
+
+        {% if publications.has_next %}
+            <a href="?page={{ publications.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
+
 <a href="../">Back</a>
 {% endblock %}

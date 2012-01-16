@@ -7,7 +7,12 @@
 <body>
 {% block header %}
 Cultureplex Web.
-{% show_menu "mainmenu" 1 1 %}
+    <ul>
+        <li><a href="/projects/">Projects</a></li>
+        <li><a href="/publications/">Publications</a></li>
+        <li><a href="/persons/">People</a></li>
+        <li><a href="http://blogs.cultureplex.ca/activity/">Blogs</a></li>
+    </ul>
     <hr size="5" align="left" width="100%" color="black">
 {% endblock %}
 {% block content %}

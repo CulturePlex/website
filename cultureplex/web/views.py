@@ -1,15 +1,29 @@
+from django.core.paginator import Paginator, InvalidPage, EmptyPage
+
 from django.template import Context, loader
 from web.models import Project
 from web.models import Publication
-from web.models import People
+from web.models import Person
 from django.http import HttpResponse
 
 
 def projects(request):
     projects_list = Project.objects.all()
+    paginator = Paginator(projects_list, 4) 
+    # Make sure page request is an int. If not, deliver first page.
+    try:
+        page = int(request.GET.get('page', '1'))
+    except ValueError:
+        page = 1
+
+    # If page request (9999) is out of range, deliver last page of results.
+    try:
+        projects = paginator.page(page)
+    except (EmptyPage, InvalidPage):
+        projects = paginator.page(paginator.num_pages)
     t = loader.get_template('projects.html')
     c = Context({
-        'projects_list': projects_list,
+        'projects': projects,
     })
     return HttpResponse(t.render(c))
 
@@ -22,10 +36,23 @@ def project(request, project_id):
     return HttpResponse(t.render(c))
 
 def publications(request):
-    publications_list = Publication.objects.all().order_by('-year')[:5]
+    publications_list = Publication.objects.all().order_by('-year')
+    paginator = Paginator(publications_list, 4) 
+    # Make sure page request is an int. If not, deliver first page.
+    try:
+        page = int(request.GET.get('page', '1'))
+    except ValueError:
+        page = 1
+
+    # If page request (9999) is out of range, deliver last page of results.
+    try:
+        publications = paginator.page(page)
+    except (EmptyPage, InvalidPage):
+        publications = paginator.page(paginator.num_pages)
+
     t = loader.get_template('publications.html')
     c = Context({
-        'publications_list': publications_list,
+        'publications': publications,
     })
     return HttpResponse(t.render(c))
 
@@ -37,19 +64,31 @@ def publication(request, publication_id):
     })
     return HttpResponse(t.render(c))
 
-def people_index(request):
-    people_list = People.objects.all()
-    t = loader.get_template('people_index.html')
+def persons(request):
+    persons_list = Person.objects.all()
+    paginator = Paginator(persons_list, 4) 
+    # Make sure page request is an int. If not, deliver first page.
+    try:
+        page = int(request.GET.get('page', '1'))
+    except ValueError:
+        page = 1
+
+    # If page request (9999) is out of range, deliver last page of results.
+    try:
+        persons = paginator.page(page)
+    except (EmptyPage, InvalidPage):
+        persons = paginator.page(paginator.num_pages)
+    t = loader.get_template('persons.html')
     c = Context({
-        'people_list': people_list,
+        'persons': persons,
     })
     return HttpResponse(t.render(c))
 
-def people(request, people_id):
-    people = People.objects.get(pk=people_id)
-    t = loader.get_template('people.html')
+def person(request, person_id):
+    person = Person.objects.get(pk=person_id)
+    t = loader.get_template('person.html')
     c = Context({
-        'people': people,
+        'person': person,
     })
     return HttpResponse(t.render(c))
 

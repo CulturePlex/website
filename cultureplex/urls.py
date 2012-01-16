@@ -19,8 +19,8 @@ urlpatterns = patterns('',
     url(r'^publications/(?P<publication_id>\d+)/$', 'web.views.publication'),
 
     #People:
-    url(r'^people/$', 'web.views.people_index'),
-    url(r'^people/(?P<people_id>\d+)/$', 'web.views.people'),
+    url(r'^persons/$', 'web.views.persons'),
+    url(r'^persons/(?P<person_id>\d+)/$', 'web.views.person'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
      url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

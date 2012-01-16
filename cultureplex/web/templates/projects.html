@@ -1,15 +1,32 @@
-{% load fiber_tags %}
+{% extends 'index.html' %}
 
 {% block content %}
     <h1>Projects</h1>
-{% if projects_list %}
+{% if projects %}
     <ul>
-    {% for project in projects_list %}
+    {% for project in projects.object_list %}
         <li><a href="/projects/{{ project.id }}/">{{ project.name }}</a></li>
     {% endfor %}
     </ul>
 {% else %}
     <p>No projects are available.</p>
 {% endif %}
+
+<div class="pagination">
+    <span class="step-links">
+        {% if projectsv.has_previous %}
+            <a href="?page={{ projects.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ projects.number }} of {{ projects.paginator.num_pages }}.
+        </span>
+
+        {% if peoples.has_next %}
+            <a href="?page={{ projects.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
+
 <a href="../">Back</a>
 {% endblock %}
