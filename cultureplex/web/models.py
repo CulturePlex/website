@@ -5,7 +5,9 @@ class Project(models.Model):
     contact = models.CharField(max_length=200)
     description = models.CharField(max_length=200)
     url = models.CharField(max_length=200)
-    active = models.IntegerField()
+    active = models.BooleanField()
+    def __unicode__(self):
+        return self.name
 
 class Publication(models.Model):
     authors = models.CharField(max_length=200)
