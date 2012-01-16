@@ -22,7 +22,7 @@ def project(request, project_id):
     return HttpResponse(t.render(c))
 
 def publications(request):
-    publications_list = Publication.objects.all()
+    publications_list = Publication.objects.all().order_by('-year')[:5]
     t = loader.get_template('publications.html')
     c = Context({
         'publications_list': publications_list,

@@ -15,6 +15,8 @@ class Publication(models.Model):
     year = models.CharField(max_length=200)
     publication_type = models.CharField(max_length=200)
     pdf = models.CharField(max_length=200)
+    def __unicode__(self):
+        return self.title
 
 class People(models.Model):
     name = models.CharField(max_length=200)
@@ -22,4 +24,6 @@ class People(models.Model):
     description = models.CharField(max_length=200)
     blog = models.CharField(max_length=200)
     social = models.CharField(max_length=200)
+    def __unicode__(self):
+        return self.name
 
