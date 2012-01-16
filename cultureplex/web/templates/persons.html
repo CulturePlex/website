@@ -2,7 +2,7 @@
 
 {% block content %}
     <h1>People</h1>
-{% if persons %}
+{% if persons.object_list %}
     <ul>
     {% for person in persons.object_list %}
         <li><a href="/persons/{{ person.id }}/">{{ person.name }}</a></li>

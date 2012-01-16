@@ -2,7 +2,7 @@
 
 {% block content %}
     <h1>Projects</h1>
-{% if projects %}
+{% if projects.object_list %}
     <ul>
     {% for project in projects.object_list %}
         <li><a href="/projects/{{ project.id }}/">{{ project.name }}</a></li>
