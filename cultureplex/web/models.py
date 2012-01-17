@@ -3,7 +3,7 @@ from django.db import models
 class Project(models.Model):
     name = models.CharField(max_length=200)
     contact = models.CharField(max_length=200)
-    description = models.CharField(max_length=200)
+    description = models.TextField(max_length=2000)
     url = models.CharField(max_length=200)
     active = models.BooleanField()
     def __unicode__(self):
@@ -12,7 +12,7 @@ class Project(models.Model):
 class Person(models.Model):
     name = models.CharField(max_length=200)
     contact = models.CharField(max_length=200)
-    description = models.CharField(max_length=200)
+    description = models.TextField(max_length=2000)
     blog = models.CharField(max_length=200)
     social = models.CharField(max_length=200)
     def __unicode__(self):
