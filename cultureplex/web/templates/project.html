@@ -1,6 +1,16 @@
 {% extends 'index.html' %}
 {% block content %}
     <h1>{{ project.name }}</h1>
-    <p>You're looking at project {{ project.name }}</p>
+    <p>{{ project.description }}</p>
+    <p>This project is managed by <a href="/persons/{{ project.contact.id }}">{{ project.contact.name }}</a></p>
+{% if project.members%}
+    <p>Members of this project:</p>
+    <ul>
+    {% for person in project.members.all %}
+        <li><a href="/persons/{{ person.id }}/">{{ person.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% endif %}
+    <p>On-line version of {{ project.name }}: <a href="{{ project.url }}/">{{ project.url }}</a></p>
     <a href="../">Back</a>
 {% endblock %}

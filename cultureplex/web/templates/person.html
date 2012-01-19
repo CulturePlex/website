@@ -1,7 +1,23 @@
 {% extends 'index.html' %}
 {% block content %}
 <h1>{{ person.name }}</h1>
-<p>You're looking at person {{ person.name }}</p>
+<p>{{ person.bio }}</p>
+{% if projects %}
+    <p>Projects where is working:</p>
+    <ul>
+    {% for project in projects %}
+        <li><a href="/projects/{{ project.id }}/">{{ project.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% endif %}
+{% if publications %}
+    <p>Publications where is working:</p>
+    <ul>
+    {% for publication in publications %}
+        <li><a href="/publications/{{ publication.id }}/">{{ publication.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% endif %}
 <a href="../">Back</a>
 {% endblock %}
 

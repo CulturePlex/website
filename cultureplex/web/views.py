@@ -36,7 +36,7 @@ def project(request, project_id):
     return HttpResponse(t.render(c))
 
 def publications(request):
-    publications_list = Publication.objects.all().order_by('-year')
+    publications_list = Publication.objects.all().order_by('-publication_date')
     paginator = Paginator(publications_list, 4) 
     # Make sure page request is an int. If not, deliver first page.
     try:
@@ -86,9 +86,13 @@ def persons(request):
 
 def person(request, person_id):
     person = Person.objects.get(pk=person_id)
+    projects = Project.objects.filter(members__id=person_id)
+    publications = Publication.objects.filter(authors__id=person_id)
     t = loader.get_template('person.html')
     c = Context({
         'person': person,
+        'projects': projects,
+        'publications': publications,
     })
     return HttpResponse(t.render(c))
 

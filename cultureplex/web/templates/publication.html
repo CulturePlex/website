@@ -1,6 +1,15 @@
 {% extends 'index.html' %}
 {% block content %}
     <h1>{{ publication.title }}</h1>
-    <p>You're looking at publication {{ publication.title }}</p>
+    <p>Abstract:</p>
+    <p>{{ publication.abstract }}</p>
+{% if publication.authors %}
+    <p>Authors of this publication:</p>
+    <ul>
+    {% for person in publication.authors.all %}
+        <li><a href="/persons/{{ person.id }}/">{{ person.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% endif %}
     <a href="../">Back</a>
 {% endblock %}
