@@ -11,5 +11,13 @@
     {% endfor %}
     </ul>
 {% endif %}
+{% if publication.related_projects.all %}
+    <p>Projects related with this publication:</p>
+    <ul>
+    {% for project in publication.related_projects.all %}
+        <li><a href="/projects/{{ project.id }}/">{{ project.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% endif %}
     <a href="../">Back</a>
 {% endblock %}

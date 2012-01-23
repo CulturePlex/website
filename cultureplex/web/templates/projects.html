@@ -17,11 +17,11 @@
             <b>Url: </b><a href={{ project.url }}>{{ project.url }}</a>
             <b>Active: </b>{{ project.active }}
             <b>Contact: </b><a href=/persons/{{ project.contact.id }}>{{ project.contact }}</a>
-{% if project.members.objects_list %}
+{% if project.members.all %}
             Members:
             <ul>
-{% for person1 in project.members.objects_list %}
-                <li>{{ person1.name }}
+{% for person in project.members.all %}
+                <li><a href=/persons/{{ project.contact.id }}>{{ person.name }}</a>
 {% thumbnail person.image "100x100" crop="center" as im %}
                      <img style="margin:{{ im|margin:"100x100" }}" src="{{ im.url }}" width="{{ im.x }}" height="{{ im.y }}">
 {% endthumbnail %}

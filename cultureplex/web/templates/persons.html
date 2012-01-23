@@ -1,11 +1,17 @@
 {% extends 'index.html' %}
 
+{% load thumbnail %}
+
 {% block content %}
     <h1>People</h1>
 {% if persons.object_list %}
     <ul>
     {% for person in persons.object_list %}
-        <li><a href="/persons/{{ person.id }}/">{{ person.name }}</a></li>
+        <li><a href="/persons/{{ person.id }}/">{{ person.name }}
+{% thumbnail person.image "100x100" crop="bottom" as im %}
+            <img style="margin:{{ im|margin:"100x100" }}" src="{{ im.url }}" width="{{ im.x }}" height="{{ im.y }}">
+{% endthumbnail %}
+    </a></li>
     {% endfor %}
     </ul>
 {% else %}
