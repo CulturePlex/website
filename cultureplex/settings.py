@@ -139,6 +139,7 @@ INSTALLED_APPS = (
     'mptt',
     'compressor',
     'fiber',
+    'sorl.thumbnail'
 )
 
 import os
