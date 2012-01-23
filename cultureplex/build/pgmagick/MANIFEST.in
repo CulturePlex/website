@@ -1,0 +1,4 @@
+include Makefile
+include src/Makefile
+include LICENSE
+include README.rst

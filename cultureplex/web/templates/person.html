@@ -1,6 +1,12 @@
 {% extends 'index.html' %}
+
+{% load thumbnail %}
+
 {% block content %}
-<h1>{{ person.name }} <img src="/media/{{ person.image }}"></img></h1>
+<h1>{{ person.name }}</h1>
+{% thumbnail person.image "100x100" crop="center" as im %}
+    <img style="margin:{{ im|margin:"100x100" }}" src="{{ im.url }}" width="{{ im.x }}" height="{{ im.y }}">
+{% endthumbnail %}
 <p>{{ person.bio }}</p>
 {% if projects %}
     <p>Projects where is working:</p>

@@ -1,6 +1,14 @@
 {% extends 'index.html' %}
+
+{% load thumbnail %}
+
 {% block content %}
+{% thumbnail project.image "100x100" crop="bottom" as im %}
+    <img style="margin:{{ im|margin:"100x100" }}" src="{{ im.url }}" width="{{ im.x }}" height="{{ im.y }}">
+{% endthumbnail %}
     <h1>{{ project.name }}</h1>
+    <b>Url: </b><a href={{ project.url }}>{{ project.url }}</a>
+    <b>Active: </b>{{ project.active }}
     <p>{{ project.description }}</p>
     <p>This project is managed by <a href="/persons/{{ project.contact.id }}">{{ project.contact.name }}</a></p>
 {% if project.members%}

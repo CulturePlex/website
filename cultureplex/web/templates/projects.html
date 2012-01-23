@@ -1,13 +1,37 @@
 {% extends 'index.html' %}
 
+{% load thumbnail %}
+
 {% block content %}
     <h1>Projects</h1>
+    <p>En esta sección se encontrarán todos los proyectos en los que está trabajando en el lab</p>
 {% if projects.object_list %}
     <ul>
-    {% for project in projects.object_list %}
-        <li><a href="/projects/{{ project.id }}/">{{ project.name }}</a></li>
-    {% endfor %}
-    </ul>
+{% for project in projects.object_list %}
+            <li><a href="/projects/{{ project.id }}/">
+{% thumbnail project.image "100x100" crop="bottom" as im %}
+            <img style="margin:{{ im|margin:"100x100" }}" src="{{ im.url }}" width="{{ im.x }}" height="{{ im.y }}">
+{% endthumbnail %}
+            <p>{{ project.name }}</p></a>
+            <p>{{ project.description }}</p>
+            <b>Url: </b><a href={{ project.url }}>{{ project.url }}</a>
+            <b>Active: </b>{{ project.active }}
+            <b>Contact: </b><a href=/persons/{{ project.contact.id }}>{{ project.contact }}</a>
+{% if project.members.objects_list %}
+            Members:
+            <ul>
+{% for person1 in project.members.objects_list %}
+                <li>{{ person1.name }}
+{% thumbnail person.image "100x100" crop="center" as im %}
+                     <img style="margin:{{ im|margin:"100x100" }}" src="{{ im.url }}" width="{{ im.x }}" height="{{ im.y }}">
+{% endthumbnail %}
+                </li>
+{% endfor %}
+            </ul>
+{% else %}
+            <p>No Members are available.</p>
+{% endif %}
+{% endfor %}
 {% else %}
     <p>No projects are available.</p>
 {% endif %}
