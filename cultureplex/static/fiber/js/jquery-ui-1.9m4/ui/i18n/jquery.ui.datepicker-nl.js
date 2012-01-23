@@ -1,1 +1,23 @@
-/usr/local/lib/python2.7/dist-packages/django_fiber-0.9.5.2-py2.7.egg/fiber/static/fiber/js/jquery-ui-1.9m4/ui/i18n/jquery.ui.datepicker-nl.js
+﻿/* Dutch (UTF-8) initialisation for the jQuery UI date picker plugin. */
+/* Written by Mathias Bynens <http://mathiasbynens.be/> */
+jQuery(function($){
+	$.datepicker.regional.nl = {
+		closeText: 'Sluiten',
+		prevText: '←',
+		nextText: '→',
+		currentText: 'Vandaag',
+		monthNames: ['januari', 'februari', 'maart', 'april', 'mei', 'juni',
+		'juli', 'augustus', 'september', 'oktober', 'november', 'december'],
+		monthNamesShort: ['jan', 'feb', 'maa', 'apr', 'mei', 'jun',
+		'jul', 'aug', 'sep', 'okt', 'nov', 'dec'],
+		dayNames: ['zondag', 'maandag', 'dinsdag', 'woensdag', 'donderdag', 'vrijdag', 'zaterdag'],
+		dayNamesShort: ['zon', 'maa', 'din', 'woe', 'don', 'vri', 'zat'],
+		dayNamesMin: ['zo', 'ma', 'di', 'wo', 'do', 'vr', 'za'],
+		weekHeader: 'Wk',
+		dateFormat: 'dd/mm/yy',
+		firstDay: 1,
+		isRTL: false,
+		showMonthAfterYear: false,
+		yearSuffix: ''};
+	$.datepicker.setDefaults($.datepicker.regional.nl);
+});

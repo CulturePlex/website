@@ -1,1 +1,12 @@
-/usr/local/lib/python2.7/dist-packages/django_fiber-0.9.5.2-py2.7.egg/fiber/static/fiber/js/jsTree.v.1.0rc2/_docs/_xml_flat.xml
+<root>
+	<item parent_id="0" id="node_1" state="closed">
+		<content>
+			<name><![CDATA[Node 1]]></name>
+		</content>
+	</item>
+	<item parent_id="0" id="node_2">
+		<content>
+			<name><![CDATA[Node 2]]></name>
+		</content>
+	</item>
+</root>

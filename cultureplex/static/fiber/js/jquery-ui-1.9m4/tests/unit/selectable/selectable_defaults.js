@@ -1,1 +1,16 @@
-/usr/local/lib/python2.7/dist-packages/django_fiber-0.9.5.2-py2.7.egg/fiber/static/fiber/js/jquery-ui-1.9m4/tests/unit/selectable/selectable_defaults.js
+/*
+ * selectable_defaults.js
+ */
+
+var selectable_defaults = {
+	appendTo: 'body',
+	autoRefresh: true,
+	cancel: ':input,option',
+	delay: 0,
+	disabled: false,
+	distance: 0,
+	filter: '*',
+	tolerance: 'touch'
+};
+
+commonWidgetTests('selectable', { defaults: selectable_defaults });

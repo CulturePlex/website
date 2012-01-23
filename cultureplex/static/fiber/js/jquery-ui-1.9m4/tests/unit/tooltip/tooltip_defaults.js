@@ -1,1 +1,16 @@
-/usr/local/lib/python2.7/dist-packages/django_fiber-0.9.5.2-py2.7.egg/fiber/static/fiber/js/jquery-ui-1.9m4/tests/unit/tooltip/tooltip_defaults.js
+/*
+ * tooltip_defaults.js
+ */
+
+var tooltip_defaults = {
+	disabled: false,
+	items: "[title]",
+	content: $.ui.tooltip.prototype.options.content,
+	position: {
+		my: "left center",
+		at: "right center",
+		offset: "15 0"
+	}
+};
+
+commonWidgetTests('tooltip', { defaults: tooltip_defaults });

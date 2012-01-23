@@ -1,1 +1,30 @@
-/usr/local/lib/python2.7/dist-packages/django_fiber-0.9.5.2-py2.7.egg/fiber/static/fiber/js/jquery-ui-1.9m4/tests/unit/tooltip/tooltip_methods.js
+/*
+ * tooltip_methods.js
+ */
+(function($) {
+
+
+module("tooltip: methods");
+
+test("destroy", function() {
+	var beforeHtml = $("#tooltipped1").parent().html();
+	var afterHtml = $("#tooltipped1").tooltip().tooltip("destroy").parent().html();
+	equal( afterHtml, beforeHtml );
+});
+
+test("open", function() {
+	var e = $("#tooltipped1").tooltip();
+	ok( $(".ui-tooltip").is(":hidden") );
+	e.tooltip("open");
+	ok( $(".ui-tooltip").is(":visible") );
+	$(":ui-tooltip").tooltip("destroy");
+});
+
+test("widget", function() {
+	var tooltip = $("#tooltipped1").tooltip();
+	same(tooltip.tooltip("widget")[0], $(".ui-tooltip")[0]);
+	same(tooltip.tooltip("widget").end()[0], tooltip[0]);
+});
+
+
+})(jQuery);

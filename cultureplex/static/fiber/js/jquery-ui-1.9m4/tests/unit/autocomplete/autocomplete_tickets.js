@@ -1,1 +1,14 @@
-/usr/local/lib/python2.7/dist-packages/django_fiber-0.9.5.2-py2.7.egg/fiber/static/fiber/js/jquery-ui-1.9m4/tests/unit/autocomplete/autocomplete_tickets.js
+/*
+ * autocomplete_tickets.js
+ */
+(function($) {
+
+module("autocomplete: tickets", {
+	teardown: function() {
+		$( ":ui-autocomplete" ).autocomplete( "destroy" );
+	}
+});
+
+
+
+})(jQuery);

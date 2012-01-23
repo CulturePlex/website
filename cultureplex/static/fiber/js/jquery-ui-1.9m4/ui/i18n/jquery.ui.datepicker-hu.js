@@ -1,1 +1,23 @@
-/usr/local/lib/python2.7/dist-packages/django_fiber-0.9.5.2-py2.7.egg/fiber/static/fiber/js/jquery-ui-1.9m4/ui/i18n/jquery.ui.datepicker-hu.js
+/* Hungarian initialisation for the jQuery UI date picker plugin. */
+/* Written by Istvan Karaszi (jquery@spam.raszi.hu). */
+jQuery(function($){
+	$.datepicker.regional['hu'] = {
+		closeText: 'bezárás',
+		prevText: '&#xAB;&#xA0;vissza',
+		nextText: 'előre&#xA0;&#xBB;',
+		currentText: 'ma',
+		monthNames: ['Január', 'Február', 'Március', 'Április', 'Május', 'Június',
+		'Július', 'Augusztus', 'Szeptember', 'Október', 'November', 'December'],
+		monthNamesShort: ['Jan', 'Feb', 'Már', 'Ápr', 'Máj', 'Jún',
+		'Júl', 'Aug', 'Szep', 'Okt', 'Nov', 'Dec'],
+		dayNames: ['Vasárnap', 'Hétfö', 'Kedd', 'Szerda', 'Csütörtök', 'Péntek', 'Szombat'],
+		dayNamesShort: ['Vas', 'Hét', 'Ked', 'Sze', 'Csü', 'Pén', 'Szo'],
+		dayNamesMin: ['V', 'H', 'K', 'Sze', 'Cs', 'P', 'Szo'],
+		weekHeader: 'Hé',
+		dateFormat: 'yy-mm-dd',
+		firstDay: 1,
+		isRTL: false,
+		showMonthAfterYear: true,
+		yearSuffix: ''};
+	$.datepicker.setDefaults($.datepicker.regional['hu']);
+});

@@ -1,1 +1,51 @@
-/usr/local/lib/python2.7/dist-packages/django_fiber-0.9.5.2-py2.7.egg/fiber/static/fiber/js/jquery-ui-1.9m4/tests/unit/progressbar/progressbar_events.js
+/*
+ * progressbar_events.js
+ */
+(function($) {
+
+module("progressbar: events");
+
+test("create", function() {
+	expect(1);
+	$("#progressbar").progressbar({
+		value: 5,
+		create: function() {
+			same(5, $(this).progressbar("value") );
+		},
+		change: function() {
+			ok(false, 'create() has triggered change()');
+		}
+	})
+});
+
+test("change", function() {
+	expect(1);
+	$("#progressbar").progressbar({
+		change: function() {
+			same( 5, $(this).progressbar("value") );
+		}
+	}).progressbar("value", 5);
+});
+
+test( "complete", function() {
+	expect( 3 );
+	var changes = 0,
+		value;
+	
+	$( "#progressbar" ).progressbar({
+		change: function() {
+			changes++;
+			same( $( this ).progressbar( "value" ), value, "change at " + value );
+		},
+		complete: function() {
+			equal( changes, 2, "complete triggered after change" );
+		}
+	});
+	
+	value = 5;
+	$( "#progressbar" ).progressbar( "value", value );
+	value = 100;
+	$( "#progressbar" ).progressbar( "value", value );
+});
+
+})(jQuery);

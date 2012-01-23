@@ -6,8 +6,6 @@ from os import path
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-PROJECT_NAME = u"CulturePlex Website"
-PROJECT_ROOT = path.dirname(path.abspath(__file__))
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -52,6 +50,7 @@ USE_L10N = True
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
 MEDIA_ROOT = 'media/'
+
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.

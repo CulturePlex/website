@@ -1,1 +1,24 @@
-/usr/local/lib/python2.7/dist-packages/django_fiber-0.9.5.2-py2.7.egg/fiber/static/fiber/js/jquery-ui-1.9m4/tests/unit/menu/menu_events.js
+/*
+ * menu_events.js
+ */
+(function($) {
+
+module("menu: events");
+
+test("handle click on menu", function() {
+	expect(1);
+	var ac = $('#menu1').menu({
+		select: function(event, ui) {
+			log();
+		}
+	});
+	log("click",true);
+	clickMenu($('#menu1'),"1");
+	log("afterclick");
+	clickMenu( ac,"2");
+	clickMenu($('#menu1'),"3");
+	clickMenu( ac,"1");
+	equals( $("#log").html(), "1,3,2,afterclick,1,click,", "Click order not valid.");
+});
+
+})(jQuery);

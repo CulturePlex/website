@@ -1,1 +1,86 @@
-/usr/local/lib/python2.7/dist-packages/django_fiber-0.9.5.2-py2.7.egg/fiber/static/fiber/js/jquery-ui-1.9m4/tests/unit/droppable/droppable_methods.js
+/*
+ * droppable_methods.js
+ */
+(function($) {
+
+module("droppable: methods");
+
+test("init", function() {
+	expect(6);
+
+	$("<div></div>").appendTo('body').droppable().remove();
+	ok(true, '.droppable() called on element');
+
+	$([]).droppable();
+	ok(true, '.droppable() called on empty collection');
+
+	$("<div></div>").droppable();
+	ok(true, '.droppable() called on disconnected DOMElement');
+
+	$("<div></div>").droppable().droppable("foo");
+	ok(true, 'arbitrary method called after init');
+
+	$("<div></div>").droppable().droppable("option", "foo");
+	ok(true, 'arbitrary option getter after init');
+
+	$("<div></div>").droppable().droppable("option", "foo", "bar");
+	ok(true, 'arbitrary option setter after init');
+});
+
+test("destroy", function() {
+	$("<div></div>").appendTo('body').droppable().droppable("destroy").remove();
+	ok(true, '.droppable("destroy") called on element');
+
+	$([]).droppable().droppable("destroy");
+	ok(true, '.droppable("destroy") called on empty collection');
+
+	$("<div></div>").droppable().droppable("destroy");
+	ok(true, '.droppable("destroy") called on disconnected DOMElement');
+
+	$("<div></div>").droppable().droppable("destroy").droppable("foo");
+	ok(true, 'arbitrary method called after destroy');
+	
+	var expected = $('<div></div>').droppable(),
+		actual = expected.droppable('destroy');
+	equals(actual, expected, 'destroy is chainable');
+});
+
+test("enable", function() {
+	expect(7);
+	el = $("#droppable1").droppable({ disabled: true });
+	shouldNotBeDroppable();
+	el.droppable("enable");
+	shouldBeDroppable();
+	equals(el.droppable("option", "disabled"), false, "disabled option getter");
+	el.droppable("destroy");
+	el.droppable({ disabled: true });
+	shouldNotBeDroppable();
+	el.droppable("option", "disabled", false);
+	equals(el.droppable("option", "disabled"), false, "disabled option setter");
+	shouldBeDroppable();
+	
+	var expected = $('<div></div>').droppable(),
+		actual = expected.droppable('enable');
+	equals(actual, expected, 'enable is chainable');
+});
+
+test("disable", function() {
+	expect(7);
+	el = $("#droppable1").droppable({ disabled: false });
+	shouldBeDroppable();
+	el.droppable("disable");
+	shouldNotBeDroppable();
+	equals(el.droppable("option", "disabled"), true, "disabled option getter");
+	el.droppable("destroy");
+	el.droppable({ disabled: false });
+	shouldBeDroppable();
+	el.droppable("option", "disabled", true);
+	equals(el.droppable("option", "disabled"), true, "disabled option setter");
+	shouldNotBeDroppable();
+	
+	var expected = $('<div></div>').droppable(),
+		actual = expected.droppable('disable');
+	equals(actual, expected, 'disable is chainable');
+});
+
+})(jQuery);

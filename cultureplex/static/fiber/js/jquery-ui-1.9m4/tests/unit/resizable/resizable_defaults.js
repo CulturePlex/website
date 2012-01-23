@@ -1,1 +1,28 @@
-/usr/local/lib/python2.7/dist-packages/django_fiber-0.9.5.2-py2.7.egg/fiber/static/fiber/js/jquery-ui-1.9m4/tests/unit/resizable/resizable_defaults.js
+/*
+ * resizable_defaults.js
+ */
+
+var resizable_defaults = {
+	alsoResize: false,
+	animate: false,
+	animateDuration: 'slow',
+	animateEasing: 'swing',
+	aspectRatio: false,
+	autoHide: false,
+	cancel: ':input,option',
+	containment: false,
+	delay: 0,
+	disabled: false,
+	distance: 1,
+	ghost: false,
+	grid: false,
+	handles: 'e,s,se',
+	helper: false,
+	maxHeight: null,
+	maxWidth: null,
+	minHeight: 10,
+	minWidth: 10,
+	zIndex: 1000
+};
+
+commonWidgetTests('resizable', { defaults: resizable_defaults });

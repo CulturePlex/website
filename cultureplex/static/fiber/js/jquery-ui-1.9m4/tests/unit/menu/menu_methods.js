@@ -1,1 +1,19 @@
-/usr/local/lib/python2.7/dist-packages/django_fiber-0.9.5.2-py2.7.egg/fiber/static/fiber/js/jquery-ui-1.9m4/tests/unit/menu/menu_methods.js
+/*
+ * menu_methods.js
+ */
+(function($) {
+
+module("menu: methods");
+
+test("destroy", function() {
+	var beforeHtml = $("#menu1").find("div").css("font-style", "normal").end().parent().html();
+	var afterHtml = $("#menu1").menu().menu("destroy").parent().html();
+	// Opera 9 outputs role="" instead of removing the attribute like everyone else
+	if ($.browser.opera) {
+		afterHtml = afterHtml.replace(/ role=""/g, "");
+	}
+	equal( afterHtml, beforeHtml );
+});
+
+
+})(jQuery);

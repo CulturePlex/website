@@ -1,1 +1,11 @@
-/usr/local/lib/python2.7/dist-packages/django_fiber-0.9.5.2-py2.7.egg/fiber/static/fiber/js/jquery-ui-1.9m4/tests/unit/progressbar/progressbar_defaults.js
+/*
+ * progressbar_defaults.js
+ */
+
+var progressbar_defaults = {
+	disabled: false,
+	value: 0,
+	max: 100
+};
+
+commonWidgetTests('progressbar', { defaults: progressbar_defaults });

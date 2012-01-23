@@ -1,1 +1,23 @@
-/usr/local/lib/python2.7/dist-packages/django_fiber-0.9.5.2-py2.7.egg/fiber/static/fiber/js/jquery-ui-1.9m4/ui/i18n/jquery.ui.datepicker-de.js
+﻿/* German initialisation for the jQuery UI date picker plugin. */
+/* Written by Milian Wolff (mail@milianw.de). */
+jQuery(function($){
+	$.datepicker.regional['de'] = {
+		closeText: 'schließen',
+		prevText: '&#x3C;zurück',
+		nextText: 'Vor&#x3E;',
+		currentText: 'heute',
+		monthNames: ['Januar','Februar','März','April','Mai','Juni',
+		'Juli','August','September','Oktober','November','Dezember'],
+		monthNamesShort: ['Jan','Feb','Mär','Apr','Mai','Jun',
+		'Jul','Aug','Sep','Okt','Nov','Dez'],
+		dayNames: ['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'],
+		dayNamesShort: ['So','Mo','Di','Mi','Do','Fr','Sa'],
+		dayNamesMin: ['So','Mo','Di','Mi','Do','Fr','Sa'],
+		weekHeader: 'Wo',
+		dateFormat: 'dd.mm.yy',
+		firstDay: 1,
+		isRTL: false,
+		showMonthAfterYear: false,
+		yearSuffix: ''};
+	$.datepicker.setDefaults($.datepicker.regional['de']);
+});

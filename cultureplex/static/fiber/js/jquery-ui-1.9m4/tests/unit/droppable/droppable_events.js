@@ -1,1 +1,28 @@
-/usr/local/lib/python2.7/dist-packages/django_fiber-0.9.5.2-py2.7.egg/fiber/static/fiber/js/jquery-ui-1.9m4/tests/unit/droppable/droppable_events.js
+/*
+ * droppable_events.js
+ */
+(function($) {
+
+module("droppable: events");
+
+test("activate", function() {
+	ok(false, 'missing test - untested code is broken code');
+});
+
+test("deactivate", function() {
+	ok(false, 'missing test - untested code is broken code');
+});
+
+test("over", function() {
+	ok(false, 'missing test - untested code is broken code');
+});
+
+test("out", function() {
+	ok(false, 'missing test - untested code is broken code');
+});
+
+test("drop", function() {
+	ok(false, 'missing test - untested code is broken code');
+});
+
+})(jQuery);

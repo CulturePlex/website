@@ -1,1 +1,23 @@
-/usr/local/lib/python2.7/dist-packages/django_fiber-0.9.5.2-py2.7.egg/fiber/static/fiber/js/jquery-ui-1.9m4/ui/i18n/jquery.ui.datepicker-sk.js
+/* Slovak initialisation for the jQuery UI date picker plugin. */
+/* Written by Vojtech Rinik (vojto@hmm.sk). */
+jQuery(function($){
+	$.datepicker.regional['sk'] = {
+		closeText: 'Zavrieť',
+		prevText: '&#x3C;Predchádzajúci',
+		nextText: 'Nasledujúci&#x3E;',
+		currentText: 'Dnes',
+		monthNames: ['Január','Február','Marec','Apríl','Máj','Jún',
+		'Júl','August','September','Október','November','December'],
+		monthNamesShort: ['Jan','Feb','Mar','Apr','Máj','Jún',
+		'Júl','Aug','Sep','Okt','Nov','Dec'],
+		dayNames: ['Nedel\'a','Pondelok','Utorok','Streda','Štvrtok','Piatok','Sobota'],
+		dayNamesShort: ['Ned','Pon','Uto','Str','Štv','Pia','Sob'],
+		dayNamesMin: ['Ne','Po','Ut','St','Št','Pia','So'],
+		weekHeader: 'Ty',
+		dateFormat: 'dd.mm.yy',
+		firstDay: 1,
+		isRTL: false,
+		showMonthAfterYear: false,
+		yearSuffix: ''};
+	$.datepicker.setDefaults($.datepicker.regional['sk']);
+});

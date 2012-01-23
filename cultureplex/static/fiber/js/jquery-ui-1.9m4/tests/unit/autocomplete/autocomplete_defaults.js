@@ -1,1 +1,18 @@
-/usr/local/lib/python2.7/dist-packages/django_fiber-0.9.5.2-py2.7.egg/fiber/static/fiber/js/jquery-ui-1.9m4/tests/unit/autocomplete/autocomplete_defaults.js
+/*
+ * autocomplete_defaults.js
+ */
+
+var autocomplete_defaults = {
+	appendTo: "body",
+	delay: 300,
+	disabled: false,
+	minLength: 1,
+	position: {
+		my: "left top",
+		at: "left bottom",
+		collision: "none"
+	},
+	source: null
+};
+
+commonWidgetTests('autocomplete', { defaults: autocomplete_defaults });

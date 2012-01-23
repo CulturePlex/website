@@ -1,1 +1,19 @@
-/usr/local/lib/python2.7/dist-packages/django_fiber-0.9.5.2-py2.7.egg/fiber/static/fiber/js/jquery-ui-1.9m4/tests/unit/button/button_methods.js
+/*
+ * button_methods.js
+ */
+(function($) {
+
+
+module("button: methods");
+
+test("destroy", function() {
+	var beforeHtml = $("#button").parent().html();
+	var afterHtml = $("#button").button().button("destroy").parent().html();
+	// Opera 9 outputs role="" instead of removing the attribute like everyone else
+	if ($.browser.opera) {
+		afterHtml = afterHtml.replace(/ role=""/g, "");
+	}
+	equal( afterHtml, beforeHtml );
+});
+
+})(jQuery);

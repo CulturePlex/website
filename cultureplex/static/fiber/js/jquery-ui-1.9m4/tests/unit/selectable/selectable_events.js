@@ -1,1 +1,32 @@
-/usr/local/lib/python2.7/dist-packages/django_fiber-0.9.5.2-py2.7.egg/fiber/static/fiber/js/jquery-ui-1.9m4/tests/unit/selectable/selectable_events.js
+/*
+ * selectable_events.js
+ */
+(function($) {
+
+module("selectable: events");
+
+test("start", function() {
+	expect(2);
+	el = $("#selectable1");
+	el.selectable({
+		start: function(ev, ui) {
+			ok(true, "drag fired start callback");
+			equals(this, el[0], "context of callback");
+		}
+	});
+	el.simulate("drag", 20, 20);
+});
+
+test("stop", function() {
+	expect(2);
+	el = $("#selectable1");
+	el.selectable({
+		start: function(ev, ui) {
+			ok(true, "drag fired stop callback");
+			equals(this, el[0], "context of callback");
+		}
+	});
+	el.simulate("drag", 20, 20);
+});
+
+})(jQuery);

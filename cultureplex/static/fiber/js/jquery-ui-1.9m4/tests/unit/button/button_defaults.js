@@ -1,1 +1,15 @@
-/usr/local/lib/python2.7/dist-packages/django_fiber-0.9.5.2-py2.7.egg/fiber/static/fiber/js/jquery-ui-1.9m4/tests/unit/button/button_defaults.js
+/*
+ * button_defaults.js
+ */
+
+var button_defaults = {
+	disabled: null,
+	text: true,
+	label: null,
+	icons: {
+		primary: null,
+		secondary: null
+	}
+};
+
+commonWidgetTests('button', { defaults: button_defaults });

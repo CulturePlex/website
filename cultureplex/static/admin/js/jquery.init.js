@@ -1,1 +1,4 @@
-/usr/local/lib/python2.7/dist-packages/django/contrib/admin/media/js/jquery.init.js
+// Puts the included jQuery into our own namespace
+var django = {
+    "jQuery": jQuery.noConflict(true)
+};

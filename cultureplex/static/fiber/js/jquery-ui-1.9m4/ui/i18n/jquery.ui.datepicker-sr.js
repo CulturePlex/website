@@ -1,1 +1,23 @@
-/usr/local/lib/python2.7/dist-packages/django_fiber-0.9.5.2-py2.7.egg/fiber/static/fiber/js/jquery-ui-1.9m4/ui/i18n/jquery.ui.datepicker-sr.js
+﻿/* Serbian i18n for the jQuery UI date picker plugin. */
+/* Written by Dejan Dimić. */
+jQuery(function($){
+	$.datepicker.regional['sr'] = {
+		closeText: 'Затвори',
+		prevText: '&#x3C;',
+		nextText: '&#x3E;',
+		currentText: 'Данас',
+		monthNames: ['Јануар','Фебруар','Март','Април','Мај','Јун',
+		'Јул','Август','Септембар','Октобар','Новембар','Децембар'],
+		monthNamesShort: ['Јан','Феб','Мар','Апр','Мај','Јун',
+		'Јул','Авг','Сеп','Окт','Нов','Дец'],
+		dayNames: ['Недеља','Понедељак','Уторак','Среда','Четвртак','Петак','Субота'],
+		dayNamesShort: ['Нед','Пон','Уто','Сре','Чет','Пет','Суб'],
+		dayNamesMin: ['Не','По','Ут','Ср','Че','Пе','Су'],
+		weekHeader: 'Сед',
+		dateFormat: 'dd/mm/yy',
+		firstDay: 1,
+		isRTL: false,
+		showMonthAfterYear: false,
+		yearSuffix: ''};
+	$.datepicker.setDefaults($.datepicker.regional['sr']);
+});

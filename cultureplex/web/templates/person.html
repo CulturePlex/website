@@ -1,6 +1,6 @@
 {% extends 'index.html' %}
 {% block content %}
-<h1>{{ person.name }}</h1>
+<h1>{{ person.name }} <img src="/media/{{ person.image }}"></img></h1>
 <p>{{ person.bio }}</p>
 {% if projects %}
     <p>Projects where is working:</p>

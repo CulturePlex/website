@@ -1,1 +1,21 @@
-/usr/local/lib/python2.7/dist-packages/django_fiber-0.9.5.2-py2.7.egg/fiber/static/fiber/js/jquery-ui-1.9m4/tests/unit/accordion/accordion_defaults_deprecated.js
+commonWidgetTests( "accordion", {
+	defaults: {
+		active: 0,
+		animated: "slide",
+		autoHeight: true,
+		clearStyle: false,
+		collapsible: false,
+		disabled: false,
+		event: "click",
+		fillSpace: false,
+		header: "> li > :first-child,> :not(li):even",
+		heightStyle: null,
+		icons: {
+			"activeHeader": null,
+			"header": "ui-icon-triangle-1-e",
+			"headerSelected": "ui-icon-triangle-1-s"
+		},
+		navigation: false,
+		navigationFilter: function() {}
+	}
+});
