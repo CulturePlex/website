@@ -3,6 +3,7 @@
     <h1>{{ publication.title }}</h1>
     <p>Abstract:</p>
     <p>{{ publication.abstract }}</p>
+    <p>Download this publication: <a href="/media/{{ publication.document }}">Download</a></p>
 {% if publication.authors %}
     <p>Authors of this publication:</p>
     <ul>
