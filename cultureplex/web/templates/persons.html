@@ -1,9 +1,11 @@
-{% extends 'index.html' %}
-
+<!doctype html>
+{% load fiber_tags %}
+{% load web_extras %}
 {% load thumbnail %}
 
 {% block content %}
     <h1>People</h1>
+              <img src="{{ STATIC_URL }}web/images/content/sample-02.png" />
 {% if persons.object_list %}
     <ul>
     {% for person in persons.object_list %}
