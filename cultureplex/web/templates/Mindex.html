@@ -18,7 +18,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <![endif]-->
 
-  <title>Hoasssde - The CulturePlex</title>
+  <title>Home - The CulturePlex</title>
 
   <!-- Styles -->
   <link href="{{ STATIC_URL }}web/css/bootstrap.css" rel="stylesheet" />
@@ -86,49 +86,24 @@
     </nav><!-- nav -->
 {% endblock %}
 {% block content %}
+         
     <div id="content">
       <div class="container">
         <div class="scrolli">
           
+          {% for project in 0|test:"0" %}
+
           <div class="scrolli-element row">
             <div class="span9">
-              <img src="{{ STATIC_URL }}web/images/content/sample-02.png" />
+              <img src="/media/{{ project.image }}" />
             </div>
             <div class="span6">
-              <h2>Título del proyecto</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et ornare risus. Cras vitae dui diam, et tincidunt libero. Integer eros ligula, ultricies eget consequat non, adipiscing eget odio.</p>
-
-              <p>Curabitur rutrum, augue a lacinia faucibus, metus enim consectetur ante, quis fermentum lacus dolor a tellus.</p>
-              <p><a class="btn primary">Ver proyecto &raquo;</a></p>
+              <h2>{{ project.name }}</h2>
+              <p>{{ project.description }}</p>
+              <p><a class="btn primary" href="projects/{{ project.id}}">Ver proyecto &raquo;</a></p>
             </div>
           </div><!-- .scrolli-element -->
-          
-          <div class="scrolli-element row">
-            <div class="span9">
-              <img src="{{ STATIC_URL }}web/images/content/sample-02.png" />
-            </div>
-            <div class="span6">
-              <h2>Título del proyecto</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et ornare risus. Cras vitae dui diam, et tincidunt libero. Integer eros ligula, ultricies eget consequat non, adipiscing eget odio.</p>
-
-              <p>Curabitur rutrum, augue a lacinia faucibus, metus enim consectetur ante, quis fermentum lacus dolor a tellus.</p>
-              <p><a class="btn primary">Ver proyecto &raquo;</a></p>
-            </div>
-          </div><!-- .scrolli-element -->
-          
-          <div class="scrolli-element row">
-            <div class="span9">
-              <img src="{{ STATIC_URL }}web/images/content/sample-02.png" />
-            </div>
-            <div class="span6">
-              <h2>Título del proyecto</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et ornare risus. Cras vitae dui diam, et tincidunt libero. Integer eros ligula, ultricies eget consequat non, adipiscing eget odio.</p>
-
-              <p>Curabitur rutrum, augue a lacinia faucibus, metus enim consectetur ante, quis fermentum lacus dolor a tellus.</p>
-              <p><a class="btn primary">Ver proyecto &raquo;</a></p>
-            </div>
-          </div><!-- .scrolli-element -->
-          
+          {% endfor %}
         </div><!-- .scrolli -->
 
         
@@ -136,21 +111,16 @@
 
 
 <h2>Bienvenidos a CulturePlex, <small>cultural complexity and digital humanities</small></h2>
-
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et ornare risus. Cras vitae dui diam, et tincidunt libero. Integer eros ligula, ultricies eget consequat non, adipiscing eget odio.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et ornare risus. Cras vitae dui diam, et tincidunt libero. Integer eros ligula, ultricies eget consequat non, adipiscing eget odio.</p>
+<p>{% show_page_content "content" %}</p>
 
 <hr class="separator-01" />
 
 <div class="row">
   
   <div class="span8">
-    <h2>Título del bloque <small class="block">subtítulo del bloque de contenido extra</small></h2>
+    <h2>{% show_page_content "titulobloque1" %}<small class="block">{% show_page_content "subtitulobloque1" %}</small></h2>
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et ornare risus. Cras vitae dui diam, et tincidunt libero. Integer eros ligula, ultricies eget consequat non, adipiscing eget odio.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et ornare risus. Cras vitae dui diam, et tincidunt libero. Integer eros ligula, ultricies eget consequat non, adipiscing eget odio.</p>
-
-    <p><img src="{{ STATIC_URL }}web/images/content/sample-01.png" /></p>
-
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et ornare risus. Cras vitae dui diam, et tincidunt libero. Integer eros ligula, ultricies eget consequat non, adipiscing eget odio.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et ornare risus. Cras vitae dui diam, et tincidunt libero. Integer eros ligula, ultricies eget consequat non, adipiscing eget odio.</p>
+    <p>{% show_page_content "bloque1" %}</p>
 
     <ul class="numerical">
       <li>
@@ -183,13 +153,9 @@
   </div>
   
   <div class="span8">
-    <h2>Título del bloque <small class="block">subtítulo del bloque de contenido extra</small></h2>
+    <h2>{% show_page_content "titulobloque2" %}<small class="block">{% show_page_content "subtitulobloque2" %}</small></h2>
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et ornare risus. Cras vitae dui diam, et tincidunt libero. Integer eros ligula, ultricies eget consequat non, adipiscing eget odio.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et ornare risus. Cras vitae dui diam, et tincidunt libero. Integer eros ligula, ultricies eget consequat non, adipiscing eget odio.</p>
-
-    <p><img src="{{ STATIC_URL }}web/images/content/sample-01.png" /></p>
-
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et ornare risus. Cras vitae dui diam, et tincidunt libero. Integer eros ligula, ultricies eget consequat non, adipiscing eget odio.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et ornare risus. Cras vitae dui diam, et tincidunt libero. Integer eros ligula, ultricies eget consequat non, adipiscing eget odio.</p>
+    <p>{% show_page_content "bloque2" %}</p>
 
     <ul class="numerical">
       <li>
