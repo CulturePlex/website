@@ -2,13 +2,13 @@ from django.db import models
 
 class Person(models.Model):
     POSITION_TYPES = (
-        (u'F', u'Faculty'),
-        (u'S', u'Staff'),
-        (u'P', u'PhD'),
-        (u'ST', u'Student'),
-        (u'US', u'Undergraduate Student'),
-        (u'P', u'Collaborator'),
-        (U'A', u'Alumnus/a')
+        (u'Faculty', u'Faculty'),
+        (u'Staff', u'Staff'),
+        (u'PhD', u'PhD'),
+        (u'Student', u'Student'),
+        (u'Undergraduate Student', u'Undergraduate Student'),
+        (u'Collaborator', u'Collaborator'),
+        (U'Alumnus/a', u'Alumnus/a')
     )
     name = models.CharField(max_length=200)
     phone = models.CharField(max_length=200,blank=True)
@@ -40,13 +40,13 @@ class Project(models.Model):
 
 class Publication(models.Model):
     PUB_TYPES = (
-        (u'Pa', u'Paper'),
-        (u'PhDT', u'PhD Thesis'),
-        (u'MsT', u'Ms Thesis'),
+        (u'Paper', u'Paper'),
+        (u'PhD Thesis', u'PhD Thesis'),
+        (u'Ms Thesis', u'Ms Thesis'),
         (u'Talk', u'Talk'),
-        (u'Present', u'Presentation'),
+        (u'Presentation', u'Presentation'),
         (u'Book', u'Book'),
-        (u'Chapter', u'Chapter Book'),
+        (u'Chapter Book', u'Chapter Book'),
         (u'Procceding', u'Procceding'),
     )
     authors = models.ManyToManyField(Person,related_name='-')

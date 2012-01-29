@@ -1,0 +1,101 @@
+{% extends 'Mindex.html' %}
+
+{% load thumbnail %}
+
+{% block content %}
+
+
+    <div id="content">
+      <div class="container">
+        
+
+
+
+<h2>
+  {{ publication.title }}
+  <span class="inner-pager">
+    <a href="/publications">&lt; back to publications</a>
+  </span>
+</h2>
+
+
+<div class="row">
+  <div class="span5">
+    <div class="box box-01">
+      <div class="box-content">
+        <p>
+          <a href="/media/{{ publication.document }}" class="btn primary block">Download Publication</a>
+        </p>
+        <ul class="data-02">
+{% if publication.url_hosted_at %}
+          <li>
+            <strong><span class="icon info"></span> Host URL:</strong> {{ publication.url_hosted_at }}
+          </li>
+{% endif %}
+{% if publication.aceptation_date %}
+          <li>
+            <strong><span class="icon calendar"></span> Acceptation Date:</strong> {{ publication.aceptation_date }}
+          </li>
+{% endif %}
+{% if publication.publication_date %}
+          <li>
+            <strong><span class="icon calendar"></span> Publication Date:</strong> {{ publication.publication_date }}
+          </li>
+{% endif %}
+{% if publication.hosted_at %}
+          <li>
+            <strong><span class="icon cloud"></span> Hosted at:</strong> {{ publication.hosted_at }}
+          </li>
+{% endif %}
+          <li>
+            <strong><span class="icon book"></span> Type:</strong> {{ publication.publication_type }}
+          </li>
+{% if publication.keywords %}
+          <li>
+            <strong><span class="icon tag"></span> Keyworkds:</strong> {{ publication.keywords }}
+          </li>
+{% endif %}
+        </ul>
+      </div>
+    </div><!-- .box-01 -->
+  </div>
+  <div class="span11">
+    <p>{{ publication.abstract }}</p>
+
+
+    <h3 class="box-title">Authors</h3>
+    <ul class="members">
+      {% for person in publication.authors.all %}
+      <li>
+        <a href="/persons/{{ person.id }}/">
+{% thumbnail person.image "50x50" crop="center" as im %}
+                     <img src="{{ im.url }}" width="{{ im.x }}" height="{{ im.y }}">
+{% endthumbnail %}
+          <strong>{{ person.name }}</strong>
+          <em>{{ person.email }}</em>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+
+{% if publication.related_projects %}
+    <h3 class="box-title">Related projects</h3>
+      {% for project in publication.related_projects.all %}
+    <div class="box box-01">
+      <div class="box-content">
+        <h3 class="box-title">{{ project.name }}</h3>
+
+        <p>{{ project.description }}</p>
+
+        <a href="/projects/{{ project.id }}/">&gt; View project</a>
+      </div>
+    </div><!-- .box-01 -->
+{% endfor %}
+{% endif %}
+  </div>
+</div>
+      </div><!-- .container -->
+    </div>
+
+
+{% endblock %}

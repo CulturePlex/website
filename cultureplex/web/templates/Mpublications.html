@@ -1,0 +1,91 @@
+{% extends 'Mindex.html' %}
+
+{% load thumbnail %}
+
+{% block content %}
+
+    <div id="content">
+      <div class="container">
+
+<h2>Publications</h2>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et ornare risus. Cras vitae dui diam, et tincidunt libero. Integer eros ligula, ultricies eget consequat non, adipiscing eget odio.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et ornare risus. Cras vitae dui diam, et tincidunt libero. Integer eros ligula, ultricies eget consequat non, adipiscing eget odio.</p>
+
+{% for publication in publications.object_list %}
+<div class="box box-01">
+  <div class="box-content">
+    <h3 class="box-title">{{ publication.title }}</h3>
+
+    <p>{{ publication.abstract }}</p>
+
+    <p><a href="/publications/{{ publication.id }}/" class="btn primary">View Publication</a></p>
+
+    <ul class="data">
+{% if publication.hosted_at %}
+      <li>
+        <strong><span class="icon info"></span> Hosted at:</strong> {{ publication.hosted_at }}
+      </li>
+{% endif %}
+      <li>
+{% if publication.aceptation_date %}
+        <strong><span class="icon calendar"></span> Aceptation date:</strong> {{ publication.aceptation_date }}
+      </li>
+{% endif %}
+      <li>
+{% if publication.publication_date %}
+        <strong><span class="icon calendar"></span> Publication date:</strong> {{ publication.publication_date }}
+      </li>
+{% endif %}
+    </ul>
+
+    <h3><span class="icon users"></span> Authors</h3>
+    <ul class="members">
+      
+{% for person in publication.authors.all %}
+      <li>
+        <a href="/persons/{{ person.id }}">
+{% if person.image %}
+{% thumbnail person.image "50x50" crop="center" as im %}
+                     <img src="{{ im.url }}" width="{{ im.x }}" height="{{ im.y }}">
+{% endthumbnail %}
+{% else %}
+    <img class="block" src="{{ STATIC_URL }}web/images/content/default-member.png" />
+{% endif %}
+          <strong>{{ person.name }}</strong>
+          <em>{{ person.email }}</em>
+        </a>
+      </li>
+{% endfor %}
+    </ul>
+  </div>
+</div><!-- .box-01 -->
+{% endfor %}
+
+<div class="pager">
+  <p>
+    <span class="icon info"></span>
+
+    <strong>Showing:</strong> Page {{ publications.number }} of {{ publications.paginator.num_pages }}.
+    <span class="separator"></span>
+
+    <strong>Publications:</strong> {{ publications.paginator.count }}
+  </p>
+
+  <div class="links">
+        {% if publications.has_previous %}
+            <a href="?page={{ publications.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ publications.number }} of {{ publications.paginator.num_pages }}.
+        </span>
+
+        {% if publications.has_next %}
+            <a href="?page={{ publications.next_page_number }}">next</a>
+        {% endif %}
+  </div>
+</div>
+      </div><!-- .container -->
+    </div>
+
+{% endblock %}

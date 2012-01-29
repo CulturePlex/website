@@ -1,0 +1,133 @@
+{% extends 'Mindex.html' %}
+
+{% load thumbnail %}
+
+{% block content %}
+
+
+    <div id="content">
+      <div class="container">
+        
+
+
+
+<h2>
+  {{ person.name }}
+  <span class="inner-pager">
+    <a href="/persons">&lt; back to people</a>
+  </span>
+</h2>
+
+
+<div class="row">
+  <div class="span5">
+    <div class="box box-01">
+      <div class="box-content">
+{% if person.image %}
+{% thumbnail person.image "100x100" crop="bottom" as im %}
+    <img class="black" style="margin:{{ im|margin:"100x100" }}" src="{{ im.url }}" width="{{ im.x }}" height="{{ im.y }}">
+{% endthumbnail %}
+{% else %}
+    <img class="block" src="{{ STATIC_URL }}web/images/content/default-member.png" />
+{% endif %}
+
+        <ul class="data-02">
+          <li>
+{% if person.phone %}
+            <strong><span class="icon phone"></span> Phone:</strong> {{ person.phone }}
+          </li>
+{% endif %}
+{% if person.mobile %}
+          <li>
+            <strong><span class="icon mobile"></span> Mobile:</strong> {{ person.mobile }}
+          </li>
+{% endif %}
+          <li>
+            <strong><span class="icon mail"></span> Contact:</strong> {{ person.email }}
+          </li>
+          <li>
+            <strong><span class="icon tick"></span> Active:</strong> {% if person.active %}Yes{% else %}No{% endif %}
+          </li>
+{% if person.blog %}
+          <li>
+            <strong><span class="icon bubble"></span> Blog:</strong> <a href="{{ person.blog }}">{{ person.blog }}</a>
+          </li>
+{% endif %}
+          <li>
+            <strong><span class="icon user"></span> Position:</strong> {{ person.position }}
+          </li>
+
+          <li>
+            <strong><span class="icon bubbles"></span> Social:</strong>
+{% if person.facebook %}
+            <a href="http://www.facebook.com/{{ person.facebook }}"><span class="icon facebook"></span></a>
+{% endif %}
+{% if person.twitter %}
+            <a href="http://www.twitter.com/{{ person.twitter }}"><span class="icon twitter"></span></a>
+{% endif %}
+{% if person.googleplus %}
+            <a href="http://plus.google.com/{{ person.googleplus }}"><span class="icon googleplus"></span></a>
+{% endif %}
+{% if person.github %}
+            <a href="http://github.com/{{ person.github }}"><span class="icon github"></span></a>
+{% endif %}
+          </li>
+        </ul>
+      </div>
+    </div><!-- .box-01 -->
+  </div>
+  <div class="span11">
+    <p>{{ person.bio }}</p>
+
+
+
+    <h3 class="box-title">Projects</h3>
+
+{% for project in projects %}
+    <div class="box box-01 with-image small-image">
+      <div class="box-image text-align-center">
+{% if project.image %}
+{% thumbnail project.image "100x100" crop="bottom" as im %}
+    <img class="black" style="margin:{{ im|margin:"100x100" }}" src="{{ im.url }}" width="{{ im.x }}" height="{{ im.y }}">
+{% endthumbnail %}
+{% else %}
+    <img class="block" src="{{ STATIC_URL }}web/images/content/sample-03.png" />
+{% endif %}
+      </div>
+      <div class="box-content">
+        <h3 class="box-title">{{ project.name }}</h3>
+
+        <p>{{ project.description }}</p>
+
+        <a href="/projects/{{ project.id }}/">&gt; View project</a>
+      </div>
+    </div><!-- .box-01 -->
+{% endfor %}
+
+
+    <h3 class="box-title">Publications</h3>
+
+{% for publication in publications %}
+    <div class="box box-01 without-image small-image">
+      <div class="box-image text-align-center">
+
+      </div>
+      <div class="box-content">
+        <h3 class="box-title">{{ publication.title }}</h3>
+
+        <p>{{ publication.abstract }}</p>
+
+        <a href="/publications/{{ publication.id }}/">&gt; View publication</a>
+      </div>
+    </div><!-- .box-01 -->
+{% endfor %}
+
+    
+  </div>
+</div>
+      </div><!-- .container -->
+    </div>
+
+
+{% endblock %}
+

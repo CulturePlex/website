@@ -38,8 +38,6 @@
   <script src="{{ STATIC_URL }}web/js/main.js"></script>
 </head>
 <body>
-
-
   <script>
     jQuery('body:not(.js)').addClass('js');
   </script>
@@ -86,13 +84,10 @@
     </nav><!-- nav -->
 {% endblock %}
 {% block content %}
-         
     <div id="content">
       <div class="container">
         <div class="scrolli">
-          
           {% for project in 0|test:"0" %}
-
           <div class="scrolli-element row">
             <div class="span9">
               <img src="/media/{{ project.image }}" />
@@ -106,11 +101,7 @@
           {% endfor %}
         </div><!-- .scrolli -->
 
-        
-
-
-
-<h2>Bienvenidos a CulturePlex, <small>cultural complexity and digital humanities</small></h2>
+{% show_page_content "welcome" %}
 <p>{% show_page_content "content" %}</p>
 
 <hr class="separator-01" />
@@ -119,79 +110,26 @@
   
   <div class="span8">
     <h2>{% show_page_content "titulobloque1" %}<small class="block">{% show_page_content "subtitulobloque1" %}</small></h2>
-
     <p>{% show_page_content "bloque1" %}</p>
-
-    <ul class="numerical">
-      <li>
-        <strong class="number">01.</strong>
-        <div class="content">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
-        </div>
-      </li>
-
-      <li>
-        <strong class="number">02.</strong>
-        <div class="content">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
-        </div>
-      </li>
-
-      <li>
-        <strong class="number">03.</strong>
-        <div class="content">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
-        </div>
-      </li>
-    </ul>
-
-    <p class="text-align-center">
+.   <p class="text-align-center">
       <a href="#" class="btn primary">Más información</a>
     </p>
-
     <hr class="separator-01" />
   </div>
-  
   <div class="span8">
     <h2>{% show_page_content "titulobloque2" %}<small class="block">{% show_page_content "subtitulobloque2" %}</small></h2>
-
     <p>{% show_page_content "bloque2" %}</p>
-
-    <ul class="numerical">
-      <li>
-        <strong class="number">01.</strong>
-        <div class="content">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
-        </div>
-      </li>
-
-      <li>
-        <strong class="number">02.</strong>
-        <div class="content">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
-        </div>
-      </li>
-
-      <li>
-        <strong class="number">03.</strong>
-        <div class="content">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.
-        </div>
-      </li>
-    </ul>
-
     <p class="text-align-center">
       <a href="#" class="btn primary">Más información</a>
     </p>
-
     <hr class="separator-01" />
   </div>
-  
 </div>
       </div><!-- .container -->
     </div>
 {% endblock %}
 {% block footer %}
+
     <footer>
       <div class="container">
         <div class="content">
@@ -206,7 +144,7 @@
 
         <ul>
           <li class="facebook"><a href="#">Facebook</a></li>
-          <li class="twitter"><a href="#">Twitter</a></li>
+          <li class="twitter"><a href="http://www.twitter.com/cultureplex">Twitter</a></li>
           <li class="googleplus"><a href="#">Google+</a></li>
           <li class="up"><a href="#">Volver arriba</a></li>
         </ul>
