@@ -4,6 +4,9 @@ from os import path
 # Django settings for cultureplex project.
 
 DEBUG = True
+
+THUMBNAIL_CAjjssCHE_TIMEOUT = 3600 * 24 * 365
+THUMBNAIL_DEBUG = DEBUG
 TEMPLATE_DEBUG = DEBUG
 
 
