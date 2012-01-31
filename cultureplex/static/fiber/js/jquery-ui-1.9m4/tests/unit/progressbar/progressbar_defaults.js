@@ -1,11 +1,1 @@
-/*
- * progressbar_defaults.js
- */
-
-var progressbar_defaults = {
-	disabled: false,
-	value: 0,
-	max: 100
-};
-
-commonWidgetTests('progressbar', { defaults: progressbar_defaults });
+/home/pedro/.venvs/website/local/lib/python2.7/site-packages/fiber/static/fiber/js/jquery-ui-1.9m4/tests/unit/progressbar/progressbar_defaults.js

@@ -1,15 +1,16 @@
 {% extends 'Mindex.html' %}
 
 {% load thumbnail %}
+{% load i18n %}
 
 {% block content %}
 
     <div id="content">
       <div class="container">
         
-<h2>Projects</h2>
+<h2>{% trans "Projects" %}</h2>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et ornare risus. Cras vitae dui diam, et tincidunt libero. Integer eros ligula, ultricies eget consequat non, adipiscing eget odio.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et ornare risus. Cras vitae dui diam, et tincidunt libero. Integer eros ligula, ultricies eget consequat non, adipiscing eget odio.</p>
+<p>{% trans "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et ornare risus. Cras vitae dui diam, et tincidunt libero. Integer eros ligula, ultricies eget consequat non, adipiscing eget odio.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et ornare risus. Cras vitae dui diam, et tincidunt libero. Integer eros ligula, ultricies eget consequat non, adipiscing eget odio." %}</p>
 
 {% for project in projects.object_list %}
 
@@ -22,26 +23,26 @@
 {% else %}
     <img class="block" src="{{ STATIC_URL }}web/images/content/default-image.png" />
 {% endif %}
-    <a href="/projects/{{ project.id }}/" class="btn primary">View project</a>
+    <a href="/projects/{{ project.id }}/" class="btn primary">{% trans "View project" %}</a>
   </div>
   <div class="box-content">
     <h3 class="box-title">{{ project.name }}</h3>
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et ornare risus. Cras vitae dui diam, et tincidunt libero. Integer eros ligula, ultricies eget consequat non, adipiscing eget odio.Lorem ipsum dolor sit amet, consectetur adipiscing elit.  Cras vitae dui diam, et tincidunt libero. Integer eros ligula, ultricies eget consequat non, adipiscing eget odio.Lorem ipsum dolor sit amet, consectetur adipiscing elit ... </p>
+    <p>{{ project.description }}</p>
 
     <ul class="data">
       <li>
-        <strong><span class="icon link"></span> URL:</strong> {{ project.url }}
+        <strong><span class="icon link"></span> {% trans "URL:" %}</strong> {{ project.url }}
       </li>
       <li>
-        <strong><span class="icon tick"></span> Active:</strong> {% if project.active %}Yes{% else %}No{% endif %}
+        <strong><span class="icon tick"></span> {% trans "Active:" %}</strong> {% if project.active %}Yes{% else %}No{% endif %}
       </li>
       <li>
-        <strong><span class="icon mail"></span> Contact:</strong> {{ project.contact }}
+        <strong><span class="icon mail"></span> {% trans "Contact:" %}</strong> {{ project.contact }}
       </li>
     </ul>
 
-    <h3><span class="icon users"></span> Members</h3>
+    <h3><span class="icon users"></span> {% trans "Members" %}</h3>
     <ul class="members">
 {% for person in project.members.all %}
       <li>
@@ -68,23 +69,23 @@
   <p>
     <span class="icon info"></span>
 
-    <strong>Showing:</strong> Page {{ projects.number }} of {{ projects.paginator.num_pages }}.
+    <strong>{% trans "Showing:" %}</strong> {% trans "Page" %} {{ projects.number }} {% trans "of" %} {{ projects.paginator.num_pages }}.
     <span class="separator"></span>
 
-    <strong>Projects:</strong> {{ projects.paginator.count }}
+    <strong>{% trans "Projects:" %}</strong> {{ projects.paginator.count }}
   </p>
 
   <div class="links">
         {% if projects.has_previous %}
-            <a href="?page={{ projects.previous_page_number }}">previous</a>
+            <a href="?page={{ projects.previous_page_number }}">{% trans "previous" %}</a>
         {% endif %}
 
         <span class="current">
-            Page {{ projects.number }} of {{ projects.paginator.num_pages }}.
+            {% trans "Page" %} {{ projects.number }} {% trans "of" %} {{ projects.paginator.num_pages }}.
         </span>
 
         {% if projects.has_next %}
-            <a href="?page={{ projects.next_page_number }}">next</a>
+            <a href="?page={{ projects.next_page_number }}">{% trans "next" %}</a>
         {% endif %}
   </div>
 </div>

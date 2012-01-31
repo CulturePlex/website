@@ -1,5 +1,1 @@
-== Aristo for jQuery UI
-
-The "Aristo" theme for Cappuccino ported to a jQuery UI Theme, with permission by 280North and Pinvoke.
-
-More information available at http://taitems.tumblr.com
+/home/pedro/.venvs/website/local/lib/python2.7/site-packages/fiber/static/fiber/css/Aristo-jQuery-UI-Theme/README.rdoc

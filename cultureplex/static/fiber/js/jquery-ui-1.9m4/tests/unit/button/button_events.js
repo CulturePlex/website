@@ -1,8 +1,1 @@
-/*
- * button_events.js
- */
-(function($) {
-
-module("button: events");
-
-})(jQuery);
+/home/pedro/.venvs/website/local/lib/python2.7/site-packages/fiber/static/fiber/js/jquery-ui-1.9m4/tests/unit/button/button_events.js

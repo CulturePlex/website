@@ -1,16 +1,1 @@
-/*
- * selectable_defaults.js
- */
-
-var selectable_defaults = {
-	appendTo: 'body',
-	autoRefresh: true,
-	cancel: ':input,option',
-	delay: 0,
-	disabled: false,
-	distance: 0,
-	filter: '*',
-	tolerance: 'touch'
-};
-
-commonWidgetTests('selectable', { defaults: selectable_defaults });
+/home/pedro/.venvs/website/local/lib/python2.7/site-packages/fiber/static/fiber/js/jquery-ui-1.9m4/tests/unit/selectable/selectable_defaults.js

@@ -1,6 +1,1 @@
-1) Create a database and a user with all privileges for this database.
-2) Edit the config.php file and update the configuration for the database at the top of the file
-3) Import the _dump.sql in your newly created database
-4) You are ready to go
-
-*) PLEASE NOTE THAT THE PHP TREE CLASS HAS NOT BEEN THOROUGHLY TESTED
+/home/pedro/.venvs/website/local/lib/python2.7/site-packages/fiber/static/fiber/js/jsTree.v.1.0rc2/_demo/_install.txt

@@ -1,8 +1,1 @@
-/*
- * progressbar_tickets.js
- */
-(function($) {
-
-module("progressbar: tickets");
-
-})(jQuery);
+/home/pedro/.venvs/website/local/lib/python2.7/site-packages/fiber/static/fiber/js/jquery-ui-1.9m4/tests/unit/progressbar/progressbar_tickets.js

@@ -1,15 +1,16 @@
 {% extends 'Mindex.html' %}
 
 {% load thumbnail %}
+{% load i18n %}
 
 {% block content %}
 
     <div id="content">
       <div class="container">
 
-<h2>Publications</h2>
+<h2>{% trans "Publications" %}</h2>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et ornare risus. Cras vitae dui diam, et tincidunt libero. Integer eros ligula, ultricies eget consequat non, adipiscing eget odio.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et ornare risus. Cras vitae dui diam, et tincidunt libero. Integer eros ligula, ultricies eget consequat non, adipiscing eget odio.</p>
+<p>{% trans "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et ornare risus. Cras vitae dui diam, et tincidunt libero. Integer eros ligula, ultricies eget consequat non, adipiscing eget odio.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et ornare risus. Cras vitae dui diam, et tincidunt libero. Integer eros ligula, ultricies eget consequat non, adipiscing eget odio." %}</p>
 
 {% for publication in publications.object_list %}
 <div class="box box-01">
@@ -18,27 +19,27 @@
 
     <p>{{ publication.abstract }}</p>
 
-    <p><a href="/publications/{{ publication.id }}/" class="btn primary">View Publication</a></p>
+    <p><a href="/publications/{{ publication.id }}/" class="btn primary">{% trans "View Publication" %}</a></p>
 
     <ul class="data">
 {% if publication.hosted_at %}
       <li>
-        <strong><span class="icon info"></span> Hosted at:</strong> {{ publication.hosted_at }}
+        <strong><span class="icon info"></span> {% trans "Hosted at:" %}</strong> {{ publication.hosted_at }}
       </li>
 {% endif %}
       <li>
 {% if publication.aceptation_date %}
-        <strong><span class="icon calendar"></span> Aceptation date:</strong> {{ publication.aceptation_date }}
+        <strong><span class="icon calendar"></span> {% trans "Aceptation date:" %}</strong> {{ publication.aceptation_date }}
       </li>
 {% endif %}
       <li>
 {% if publication.publication_date %}
-        <strong><span class="icon calendar"></span> Publication date:</strong> {{ publication.publication_date }}
+        <strong><span class="icon calendar"></span> {% trans "Publication date:" %}</strong> {{ publication.publication_date }}
       </li>
 {% endif %}
     </ul>
 
-    <h3><span class="icon users"></span> Authors</h3>
+    <h3><span class="icon users"></span> {% trans "Authors" %}</h3>
     <ul class="members">
       
 {% for person in publication.authors.all %}
@@ -65,23 +66,23 @@
   <p>
     <span class="icon info"></span>
 
-    <strong>Showing:</strong> Page {{ publications.number }} of {{ publications.paginator.num_pages }}.
+    <strong>Showing:</strong> {% trans "Page" %} {{ publications.number }} {% trans "of" %} {{ publications.paginator.num_pages }}.
     <span class="separator"></span>
 
-    <strong>Publications:</strong> {{ publications.paginator.count }}
+    <strong>{% trans "Publications:" %}</strong> {{ publications.paginator.count }}
   </p>
 
   <div class="links">
         {% if publications.has_previous %}
-            <a href="?page={{ publications.previous_page_number }}">previous</a>
+            <a href="?page={{ publications.previous_page_number }}">{% trans "previous" %}</a>
         {% endif %}
 
         <span class="current">
-            Page {{ publications.number }} of {{ publications.paginator.num_pages }}.
+            {% trans "Page" %} {{ publications.number }} {% trans "of" %} {{ publications.paginator.num_pages }}.
         </span>
 
         {% if publications.has_next %}
-            <a href="?page={{ publications.next_page_number }}">next</a>
+            <a href="?page={{ publications.next_page_number }}">{% trans "next" %}</a>
         {% endif %}
   </div>
 </div>

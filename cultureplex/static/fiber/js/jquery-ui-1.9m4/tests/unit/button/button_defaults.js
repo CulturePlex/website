@@ -1,15 +1,1 @@
-/*
- * button_defaults.js
- */
-
-var button_defaults = {
-	disabled: null,
-	text: true,
-	label: null,
-	icons: {
-		primary: null,
-		secondary: null
-	}
-};
-
-commonWidgetTests('button', { defaults: button_defaults });
+/home/pedro/.venvs/website/local/lib/python2.7/site-packages/fiber/static/fiber/js/jquery-ui-1.9m4/tests/unit/button/button_defaults.js

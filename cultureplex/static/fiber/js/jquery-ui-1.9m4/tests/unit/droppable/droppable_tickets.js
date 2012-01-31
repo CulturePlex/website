@@ -1,8 +1,1 @@
-/*
- * droppable_tickets.js
- */
-(function($) {
-
-module("droppable: tickets");
-
-})(jQuery);
+/home/pedro/.venvs/website/local/lib/python2.7/site-packages/fiber/static/fiber/js/jquery-ui-1.9m4/tests/unit/droppable/droppable_tickets.js

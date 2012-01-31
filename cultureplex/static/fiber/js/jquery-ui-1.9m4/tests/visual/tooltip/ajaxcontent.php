@@ -1,2 +1,1 @@
-<?php sleep(1); ?>
-<strong>Hello</strong> world!
+/home/pedro/.venvs/website/local/lib/python2.7/site-packages/fiber/static/fiber/js/jquery-ui-1.9m4/tests/visual/tooltip/ajaxcontent.php

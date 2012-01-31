@@ -1,6 +1,7 @@
 {% extends 'Mindex.html' %}
 
 {% load thumbnail %}
+{% load i18n %}
 
 {% block content %}
     <div id="content">
@@ -9,9 +10,9 @@
 
 
 
-<h2>People</h2>
+<h2>{% trans "People" %}</h2>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et ornare risus. Cras vitae dui diam, et tincidunt libero. Integer eros ligula, ultricies eget consequat non, adipiscing eget odio.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et ornare risus. Cras vitae dui diam, et tincidunt libero. Integer eros ligula, ultricies eget consequat non, adipiscing eget odio.</p>
+<p>{% trans "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et ornare risus. Cras vitae dui diam, et tincidunt libero. Integer eros ligula, ultricies eget consequat non, adipiscing eget odio.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et ornare risus. Cras vitae dui diam, et tincidunt libero. Integer eros ligula, ultricies eget consequat non, adipiscing eget odio." %}</p>
 
 {% for person in persons.object_list %}
 <div class="box box-01 with-image small-image">
@@ -23,7 +24,7 @@
 {% else %}
     <img class="block" src="{{ STATIC_URL }}web/images/content/default-member.png" />
 {% endif %}
-    <a href="/persons/{{ person.id }}/" class="btn primary">View details</a>
+    <a href="/persons/{{ person.id }}/" class="btn primary">{% trans "View details" %}</a>
   </div>
   <div class="box-content">
     <h3 class="box-title">{{ person.name }}</h3>
@@ -33,19 +34,19 @@
     <ul class="data">
 {% if person.phone %}
       <li>
-        <strong><span class="icon phone"></span> Phone:</strong> {{ person.phone }}
+        <strong><span class="icon phone"></span> {% trans "Phone:" %}</strong> {{ person.phone }}
       </li>
 {% endif %}
 {% if person.mobile %}
       <li>
-        <strong><span class="icon mobile"></span> Mobile:</strong> {{ person.mobile }}
+        <strong><span class="icon mobile"></span> {% trans "Mobile:" %}</strong> {{ person.mobile }}
       </li>
 {% endif %}
       <li>
-        <strong><span class="icon mail"></span> Email:</strong> <a href="#">{{ person.email }}</a>
+        <strong><span class="icon mail"></span> {% trans "Email:" %}</strong> <a href="#">{{ person.email }}</a>
       </li>
       <li>
-        <strong><span class="icon tick"></span> Active:</strong> {% if person.active %}Yes{% else %}No{% endif %}
+        <strong><span class="icon tick"></span> {% trans "Active:" %}</strong> {% if person.active %}{% trans "Yes" %}{% else %}{% trans "No" %}{% endif %}
       </li>
     </ul>
   </div>
@@ -56,23 +57,23 @@
   <p>
     <span class="icon info"></span>
 
-    <strong>Showing:</strong> Page {{ persons.number }} of {{ persons.paginator.num_pages }}.
+    <strong>{% trans "Showing:" %}</strong> {% trans "Page" %} {{ persons.number }} {% trans "of" %} {{ persons.paginator.num_pages }}.
     <span class="separator"></span>
 
-    <strong>People:</strong> {{ persons.paginator.count }}
+    <strong>{% trans "People:" %}</strong> {{ persons.paginator.count }}
   </p>
 
   <div class="links">
         {% if persons.has_previous %}
-            <a href="?page={{ persons.previous_page_number }}">previous</a>
+            <a href="?page={{ persons.previous_page_number }}">{% trans "previous" %}</a>
         {% endif %}
 
         <span class="current">
-            Page {{ persons.number }} of {{ persons.paginator.num_pages }}.
+            {% trans "Page" %} {{ persons.number }} {% trans "of" %} {{ persons.paginator.num_pages }}.
         </span>
 
         {% if persons.has_next %}
-            <a href="?page={{ persons.next_page_number }}">next</a>
+            <a href="?page={{ persons.next_page_number }}">{% trans "next" %}</a>
         {% endif %}
   </div>
 </div>
