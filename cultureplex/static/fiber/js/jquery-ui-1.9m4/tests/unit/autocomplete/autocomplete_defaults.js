@@ -1,18 +1,1 @@
-/*
- * autocomplete_defaults.js
- */
-
-var autocomplete_defaults = {
-	appendTo: "body",
-	delay: 300,
-	disabled: false,
-	minLength: 1,
-	position: {
-		my: "left top",
-		at: "left bottom",
-		collision: "none"
-	},
-	source: null
-};
-
-commonWidgetTests('autocomplete', { defaults: autocomplete_defaults });
+/home/pedro/.venvs/website/local/lib/python2.7/site-packages/fiber/static/fiber/js/jquery-ui-1.9m4/tests/unit/autocomplete/autocomplete_defaults.js

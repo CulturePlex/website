@@ -1,16 +1,1 @@
-/*
- * selectable_core.js
- */
-
-var el;
-
-var drag = function(dx, dy) {
-	var off = el.offset(), pos = { clientX: off.left, clientY: off.top };
-	el.simulate("mousedown", pos);
-	$(document).simulate("mousemove", pos);
-	pos.clientX += dx;
-	pos.clientY += dy;
-	$(document).simulate("mousemove", pos);
-	$(document).simulate("mouseup", pos);
-};
-
+/home/pedro/.venvs/website/local/lib/python2.7/site-packages/fiber/static/fiber/js/jquery-ui-1.9m4/tests/unit/selectable/selectable_core.js

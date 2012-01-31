@@ -1,13 +1,1 @@
-/*
- * jQuery UI Autocomplete 1.9m4
- *
- * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
- * Dual licensed under the MIT or GPL Version 2 licenses.
- * http://jquery.org/license
- *
- * http://docs.jquery.com/UI/Autocomplete#theming
- */
-.ui-autocomplete { position: absolute; cursor: default; }	
-
-/* workarounds */
-* html .ui-autocomplete { width:1px; } /* without this, the menu expands to 100% in IE6 */
+/home/pedro/.venvs/website/local/lib/python2.7/site-packages/fiber/static/fiber/js/jquery-ui-1.9m4/themes/base/jquery.ui.autocomplete.css

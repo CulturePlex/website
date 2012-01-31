@@ -1,9 +1,1 @@
-/*
- * datepicker_defaults.js
- */
-
-var datepicker_defaults = {
-	disabled: false
-};
-
-//commonWidgetTests('datepicker', { defaults: datepicker_defaults });
+/home/pedro/.venvs/website/local/lib/python2.7/site-packages/fiber/static/fiber/js/jquery-ui-1.9m4/tests/unit/datepicker/datepicker_defaults.js

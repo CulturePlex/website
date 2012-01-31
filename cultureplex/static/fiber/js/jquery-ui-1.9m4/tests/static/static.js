@@ -1,9 +1,1 @@
-/* static_helpers.js
- */
-$(function(){
-	//add hover states on the static widgets
-	$('.ui-state-default:not(.ui-state-disabled, .ui-slider-range, .ui-progressbar-value), a.ui-datepicker-next, a.ui-datepicker-prev, .ui-dialog-titlebar-close').hover(
-		function(){ $(this).addClass('ui-state-hover'); }, 
-		function(){ $(this).removeClass('ui-state-hover'); }
-	);
-});
+/home/pedro/.venvs/website/local/lib/python2.7/site-packages/fiber/static/fiber/js/jquery-ui-1.9m4/tests/static/static.js

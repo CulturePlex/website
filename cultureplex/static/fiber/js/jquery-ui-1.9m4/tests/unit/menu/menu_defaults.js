@@ -1,9 +1,1 @@
-/*
- * menu_defaults.js
- */
-
-var menu_defaults = {
-	disabled: false
-};
-
-commonWidgetTests('menu', { defaults: menu_defaults });
+/home/pedro/.venvs/website/local/lib/python2.7/site-packages/fiber/static/fiber/js/jquery-ui-1.9m4/tests/unit/menu/menu_defaults.js

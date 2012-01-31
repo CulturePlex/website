@@ -1,16 +1,1 @@
-/*
- * spinner_defaults.js
- */
-
-var spinner_defaults = {
-	disabled: false,
-	incremental: true,
-	max: null,
-	min: null,
-	numberformat: null,
-	page: 10,
-	step: null,
-	value: null
-};
-
-commonWidgetTests('spinner', { defaults: spinner_defaults });
+/home/pedro/.venvs/website/local/lib/python2.7/site-packages/fiber/static/fiber/js/jquery-ui-1.9m4/tests/unit/spinner/spinner_defaults.js

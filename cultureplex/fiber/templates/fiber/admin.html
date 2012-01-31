@@ -1,0 +1,52 @@
+{% load fiber_tags i18n %}
+<div id="df-wpr-layer">
+	<div id="df-layer"></div>
+</div>
+
+<div id="df-wpr-sidebar">
+	<div id="df-sidebar">
+		<div id="df-sidebar-top-section">
+			<p class="logout"><a href="{{ logout_url }}">{% trans 'Log out' %}</a></p>
+			<p class="backend"><a href="{% url admin:index %}" title="{% trans 'Backend' %}"><span class="icon"></span>{% trans 'Backend' %}</a></p>
+		</div>
+		<div id="df-sidebar-page-section">
+			<h2>{% trans "Pages" %}</h2>
+			<div id="df-sidebar-page-tree" class="sidebar-tree">
+				<ul>
+					{% for menu in menus %}
+						<li>
+							<a href="#">{{ menu }}</a>
+							{% show_menu menu 1 999 "all" %}
+						</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+		<div id="df-sidebar-content-section">
+			<h2>{% trans "Content" %}</h2>
+			<div id="df-sidebar-content-tree" class="sidebar-tree">
+				<ul>
+					{% for group in content_groups %}
+						{% if group.content_items %}
+							<li id="content-group-{{ group.title|slugify }}">
+								<a href="#">{{ group.title }}</a>
+								<ul>
+									{% for content_item in group.content_items %}
+										<li data-fiber-data='{"type": "content_item", "id": {{ content_item.id }}, "url": "{{ content_item.get_change_url }}", "used_on_pages": {{ content_item.get_used_on_pages_json|safe|escape_json_for_html }}}'>
+											<a href="#">{{ content_item }}</a>
+										</li>
+									{% endfor %}
+								</ul>
+							</li>
+						{% endif %}
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="df-btn-toggle-sidebar"></div>
+</div>
+
+<div id="df-wpr-busy">
+	<div id="df-busy"></div>
+</div>

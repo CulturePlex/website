@@ -1,16 +1,1 @@
-/*
- * droppable_defaults.js
- */
-
-var droppable_defaults = {
-	accept: '*',
-	activeClass: false,
-	addClasses: true,
-	disabled: false,
-	greedy: false,
-	hoverClass: false,
-	scope: "default",
-	tolerance: "intersect"
-};
-
-commonWidgetTests('droppable', { defaults: droppable_defaults });
+/home/pedro/.venvs/website/local/lib/python2.7/site-packages/fiber/static/fiber/js/jquery-ui-1.9m4/tests/unit/droppable/droppable_defaults.js

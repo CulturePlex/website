@@ -1,0 +1,95 @@
+{% extends 'Mindex.html' %}
+
+{% load thumbnail %}
+{% load i18n %}
+
+{% block content %}
+
+    <div id="content">
+      <div class="container">
+        
+<h2>{% trans "Projects" %}</h2>
+
+<p>{% trans "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et ornare risus. Cras vitae dui diam, et tincidunt libero. Integer eros ligula, ultricies eget consequat non, adipiscing eget odio.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et ornare risus. Cras vitae dui diam, et tincidunt libero. Integer eros ligula, ultricies eget consequat non, adipiscing eget odio." %}</p>
+
+{% for project in projects.object_list %}
+
+<div class="box box-01 with-image">
+  <div class="box-image text-align-center">
+{% if project.image %}
+{% thumbnail project.image "100x100" crop="center" as im %}
+     <img class="block" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+{% endthumbnail %}
+{% else %}
+    <img class="block" src="{{ STATIC_URL }}web/images/content/default-image.png" />
+{% endif %}
+    <a href="/projects/{{ project.id }}/" class="btn primary">{% trans "View project" %}</a>
+  </div>
+  <div class="box-content">
+    <h3 class="box-title">{{ project.name }}</h3>
+
+    <p>{{ project.description }}</p>
+
+    <ul class="data">
+      <li>
+        <strong><span class="icon link"></span> {% trans "URL:" %}</strong> {{ project.url }}
+      </li>
+      <li>
+        <strong><span class="icon tick"></span> {% trans "Active:" %}</strong> {% if project.active %}Yes{% else %}No{% endif %}
+      </li>
+      <li>
+        <strong><span class="icon mail"></span> {% trans "Contact:" %}</strong> {{ project.contact }}
+      </li>
+    </ul>
+
+    <h3><span class="icon users"></span> {% trans "Members" %}</h3>
+    <ul class="members">
+{% for person in project.members.all %}
+      <li>
+        <a href="/persons/{{ person.id }}">
+{% if person.image %}
+{% thumbnail person.image "50x50" crop="center" as im %}
+        <img style="margin:{{ im|margin:"60x60" }}" src="{{ im.url }}" width="{{ im.x }}" height="{{ im.y }}">
+{% endthumbnail %}
+{% else %}
+    <img class="block" src="{{ STATIC_URL }}web/images/content/default-member.png" />
+{% endif %}
+          <strong>{{ person.name }}</strong>
+          <em>{{ person.email }}</em>
+        </a>
+      </li>
+{% endfor %}
+    </ul>
+  </div>
+</div><!-- .box-01 -->
+{% endfor %}
+
+
+<div class="pager">
+  <p>
+    <span class="icon info"></span>
+
+    <strong>{% trans "Showing:" %}</strong> {% trans "Page" %} {{ projects.number }} {% trans "of" %} {{ projects.paginator.num_pages }}.
+    <span class="separator"></span>
+
+    <strong>{% trans "Projects:" %}</strong> {{ projects.paginator.count }}
+  </p>
+
+  <div class="links">
+        {% if projects.has_previous %}
+            <a href="?page={{ projects.previous_page_number }}">{% trans "previous" %}</a>
+        {% endif %}
+
+        <span class="current">
+            {% trans "Page" %} {{ projects.number }} {% trans "of" %} {{ projects.paginator.num_pages }}.
+        </span>
+
+        {% if projects.has_next %}
+            <a href="?page={{ projects.next_page_number }}">{% trans "next" %}</a>
+        {% endif %}
+  </div>
+</div>
+      </div><!-- .container -->
+    </div>
+
+{% endblock %}

@@ -1,4 +1,1 @@
-// Puts the included jQuery into our own namespace
-var django = {
-    "jQuery": jQuery.noConflict(true)
-};
+/home/pedro/.venvs/website/local/lib/python2.7/site-packages/django/contrib/admin/media/js/jquery.init.js

@@ -1,16 +1,1 @@
-/*
- * tooltip_defaults.js
- */
-
-var tooltip_defaults = {
-	disabled: false,
-	items: "[title]",
-	content: $.ui.tooltip.prototype.options.content,
-	position: {
-		my: "left center",
-		at: "right center",
-		offset: "15 0"
-	}
-};
-
-commonWidgetTests('tooltip', { defaults: tooltip_defaults });
+/home/pedro/.venvs/website/local/lib/python2.7/site-packages/fiber/static/fiber/js/jquery-ui-1.9m4/tests/unit/tooltip/tooltip_defaults.js

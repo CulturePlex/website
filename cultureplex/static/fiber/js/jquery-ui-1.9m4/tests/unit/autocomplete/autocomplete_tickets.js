@@ -1,14 +1,1 @@
-/*
- * autocomplete_tickets.js
- */
-(function($) {
-
-module("autocomplete: tickets", {
-	teardown: function() {
-		$( ":ui-autocomplete" ).autocomplete( "destroy" );
-	}
-});
-
-
-
-})(jQuery);
+/home/pedro/.venvs/website/local/lib/python2.7/site-packages/fiber/static/fiber/js/jquery-ui-1.9m4/tests/unit/autocomplete/autocomplete_tickets.js

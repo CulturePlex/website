@@ -1,3 +1,1 @@
-<?php 
-header("HTTP/1.0 404 Not Found");
-?>
+/home/pedro/.venvs/website/local/lib/python2.7/site-packages/fiber/static/fiber/js/jquery-ui-1.9m4/demos/tabs/ajax/content4-broken.php

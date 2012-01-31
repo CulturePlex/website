@@ -1,8 +1,1 @@
-/*
- * draggable_tickets.js
- */
-(function($) {
-
-module("draggable: tickets");
-
-})(jQuery);
+/home/pedro/.venvs/website/local/lib/python2.7/site-packages/fiber/static/fiber/js/jquery-ui-1.9m4/tests/unit/draggable/draggable_tickets.js
