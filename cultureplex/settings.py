@@ -4,8 +4,10 @@ from os import path
 # Django settings for cultureplex project.
 
 DEBUG = True
+PROJECT_ROOT = path.abspath(path.dirname(__file__))
+PROJECT_NAME = "CulturePlex Lab Website"
 
-THUMBNAIL_CAjjssCHE_TIMEOUT = 3600 * 24 * 365
+THUMBNAIL_CACHE_TIMEOUT = 3600 * 24 * 365
 THUMBNAIL_DEBUG = DEBUG
 TEMPLATE_DEBUG = DEBUG
 
@@ -19,7 +21,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'cultureplexweb.db',                      # Or path to database file if using sqlite3.
+        'NAME': path.join(PROJECT_ROOT, 'cultureplexweb.db'),                      # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -34,11 +36,11 @@ DATABASES = {
 # timezone as the operating system.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'America/Chicago'
+TIME_ZONE = 'America/Toronto'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en-ca'
 
 SITE_ID = 1
 
@@ -52,7 +54,7 @@ USE_L10N = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = 'media/'
+MEDIA_ROOT = path.join(PROJECT_ROOT, 'media')
 
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
@@ -120,7 +122,7 @@ TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS + (
 
 )
 
-ROOT_URLCONF = 'cultureplex.urls'
+ROOT_URLCONF = 'urls'
 
 TEMPLATE_DIRS = (
     "/templates/"
@@ -147,10 +149,7 @@ INSTALLED_APPS = (
     'sorl.thumbnail',
 )
 
-import os
-BASE_DIR = os.path.abspath(os.path.dirname(__file__))
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = path.join(PROJECT_ROOT, 'static')
 STATIC_URL = '/static/'
 STATICFILES_FINDERS = DEFAULT_SETTINGS.STATICFILES_FINDERS + (
     'compressor.finders.CompressorFinder',
