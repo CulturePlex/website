@@ -108,7 +108,7 @@ class FiberAdminPageAdmin(fiber_admin.MPTTModelAdmin):
         # remove template choices if there are no choices
         if len(TEMPLATE_CHOICES) == 0:
             self.fieldsets = (
-                (None, {'fields': ('title', 'url', 'redirect_page')}),
+                (None, {'fields': ('title', 'url', 'template_name', 'redirect_page')}),
             )
         else:
             self.fieldsets = (

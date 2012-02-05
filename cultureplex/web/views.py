@@ -25,6 +25,7 @@ def projects(request):
     t = loader.get_template('Mprojects.html')
     c = RequestContext(request,{
         'projects': projects,
+        'current_page': 'projects'
     })
     return HttpResponse(t.render(c))
 
@@ -33,6 +34,7 @@ def project(request, project_id):
     t = loader.get_template('Mproject.html')
     c = RequestContext(request,{
         'project': project,
+        'current_page': 'projects'
     })
     return HttpResponse(t.render(c))
 
@@ -54,6 +56,7 @@ def publications(request):
     t = loader.get_template('Mpublications.html')
     c = RequestContext(request,{
         'publications': publications,
+        'current_page': 'publications'
     })
     return HttpResponse(t.render(c))
 
@@ -62,6 +65,7 @@ def publication(request, publication_id):
     t = loader.get_template('Mpublication.html')
     c = RequestContext(request,{
         'publication': publication,
+        'current_page': 'publications'
     })
     return HttpResponse(t.render(c))
 
@@ -82,6 +86,7 @@ def persons(request):
     t = loader.get_template('Mpersons.html')
     c = RequestContext(request,{
         'persons': persons,
+        'current_page': 'persons'
     })
     return HttpResponse(t.render(c))
 
@@ -94,6 +99,7 @@ def person(request, person_id):
         'person': person,
         'projects': projects,
         'publications': publications,
+        'current_page': 'persons'
     })
     return HttpResponse(t.render(c))
 
