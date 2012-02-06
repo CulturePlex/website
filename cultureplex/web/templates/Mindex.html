@@ -57,21 +57,21 @@
         <ul>
           <li class="item-01">
             <a href="/projects/" {% if current_page == "projects" %}class="current"{% endif %}>
-              {% trans "01. Proyectos" %}
+              {% trans "01. Projects" %}
               <strong>{% trans "Lorem ipsum dolor" %}</strong>
               <span></span>
             </a>
           </li>
           <li class="item-02">
             <a href="/publications/" {% if current_page == "publications" %}class="current"{% endif %}>
-              {% trans "02. Publicaciones" %}
+              {% trans "02. Publications" %}
               <strong>{% trans "Lorem ipsum dolor" %}</strong>
               <span></span>
             </a>
           </li>
           <li class="item-03">
             <a href="/persons/" {% if current_page == "persons" %}class="current"{% endif %}>
-              {% trans "03. Gente" %}
+              {% trans "03. People" %}
               <strong>{% trans "Lorem ipsum dolor" %}</strong>
               <span></span>
             </a>
@@ -92,7 +92,7 @@
       <div class="container">
         <div class="home">
         <div class="scrolli">
-          {% for project in 0|test:"0" %}
+          {% for project in 0|carousel:"0" %}
           <div class="scrolli-element row">
             <div class="span9">
 {% if project.image.width > 500 or project.image.height > 318 %}
@@ -105,8 +105,8 @@
             </div>
             <div class="span6">
               <h2>{{ project.name }}</h2>
-              <p>{{ project.description }}</p>
-              <p><a class="btn primary" href="projects/{{ project.id}}">{% trans "Ver proyecto" %} &raquo;</a></p>
+              <p> {{ project.description|truncatewords_by_chars:600 }}</p>
+              <p><a class="btn primary" href="projects/{{ project.id}}">{% trans "View project" %} &raquo;</a></p>
             </div>
           </div><!-- .scrolli-element -->
           {% endfor %}
