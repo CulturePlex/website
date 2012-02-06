@@ -1,4 +1,0 @@
-include LICENSE.rst
-include README.rst
-recursive-include fiber/templates *
-recursive-include fiber/static *

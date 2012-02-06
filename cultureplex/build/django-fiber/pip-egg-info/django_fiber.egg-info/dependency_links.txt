@@ -1,1 +1,0 @@
-http://bitbucket.org/brodie/django-piston/get/c4e6eb8f7eb5.tar.gz#egg=django-piston-0.2.3rc1
