@@ -17,7 +17,7 @@
 <div class="box box-01 with-image">
   <div class="box-image text-align-center">
 {% if project.image %}
-{% thumbnail project.image "100x100" crop="center" as im %}
+{% thumbnail project.image "203x145" crop="center" as im %}
      <img class="block" src="{{ im.url }}" >
 {% endthumbnail %}
 {% else %}
@@ -49,7 +49,7 @@
         <a href="/persons/{{ person.id }}">
 {% if person.image %}
 {% thumbnail person.image "60x60" crop="center" as im %}
-        <img style="margin:{{ im|margin:"60x60" }}" src="{{ im.url }}" width="{{ im.x }}" height="{{ im.y }}">
+        <img style="margin:{{ im|margin:"70x60" }}" src="{{ im.url }}" width="{{ im.x }}" height="{{ im.y }}">
 {% endthumbnail %}
 {% else %}
     <img class="block" src="{{ STATIC_URL }}web/images/content/default-member.png" />

@@ -25,7 +25,9 @@
     <div class="box box-01">
       <div class="box-content">
 {% if person.image %}
-    <img class="block" src="/media/{{ person.image }}" />
+{% thumbnail person.image "235x201" crop="center" as im %}
+    <img class="black" src="{{ im.url }}" >
+{% endthumbnail %}
 {% else %}
     <img class="block" src="{{ STATIC_URL }}web/images/content/default-member.png" />
 {% endif %}
@@ -86,7 +88,7 @@
     <div class="box box-01 with-image small-image">
       <div class="box-image text-align-center">
 {% if project.image %}
-{% thumbnail project.image "100x100" crop="bottom" as im %}
+{% thumbnail project.image "100x100" crop="center" as im %}
     <img class="black" style="margin:{{ im|margin:"100x100" }}" src="{{ im.url }}" width="{{ im.x }}" height="{{ im.y }}">
 {% endthumbnail %}
 {% else %}
