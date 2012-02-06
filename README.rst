@@ -41,7 +41,7 @@ Enter in the new location and update the virtual environment previously created:
 
   $ cd git/website/cultureplex
   $ workon website
-  $ pip install -U -r requirements.txt
+  $ pip install --no-deps -U -r requirements.txt
 
 Now you have installed the Django project and almost ready to run it. Before that, you must create a database. In developing stage, we use SQLite:
 
