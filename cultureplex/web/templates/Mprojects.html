@@ -17,9 +17,13 @@
 <div class="box box-01 with-image">
   <div class="box-image text-align-center">
 {% if project.image %}
-{% thumbnail project.image "203x145" crop="center" as im %}
+{% if project.image.width > 203 or project.image.height > 145 %}
+{% thumbnail project.image "203x145" crop="center" upscale=False as im %}
      <img class="block" src="{{ im.url }}" >
 {% endthumbnail %}
+{% else %}
+            <img class="block" src="../media/{{ project.image }}">
+{% endif %}
 {% else %}
     <img class="block" src="{{ STATIC_URL }}web/images/content/default-image.png" />
 {% endif %}

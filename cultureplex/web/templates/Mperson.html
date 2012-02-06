@@ -25,9 +25,13 @@
     <div class="box box-01">
       <div class="box-content">
 {% if person.image %}
+{% if person.image.width > 235 or person.image.height > 201 %}
 {% thumbnail person.image "235x201" crop="center" as im %}
     <img class="black" src="{{ im.url }}" >
 {% endthumbnail %}
+{% else %}
+            <img class="block" src="../../media/{{ person.image }}">
+{% endif %}
 {% else %}
     <img class="block" src="{{ STATIC_URL }}web/images/content/default-member.png" />
 {% endif %}
