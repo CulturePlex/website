@@ -1,0 +1,17 @@
+AUTHORS
+LICENSE
+MANIFEST.in
+README.rst
+appconf.py
+setup.cfg
+docs/Makefile
+docs/changelog.rst
+docs/conf.py
+docs/index.rst
+docs/make.bat
+docs/reference.rst
+docs/usage.rst
+pip-egg-info/django_appconf.egg-info/PKG-INFO
+pip-egg-info/django_appconf.egg-info/SOURCES.txt
+pip-egg-info/django_appconf.egg-info/dependency_links.txt
+pip-egg-info/django_appconf.egg-info/top_level.txt

@@ -1,6 +1,7 @@
 {% load fiber_tags %}
 {% load web_extras %}
 {% load i18n %}
+{% load thumbnail %}
 
 {% block header %}
 
@@ -94,7 +95,9 @@
           {% for project in 0|test:"0" %}
           <div class="scrolli-element row">
             <div class="span9">
-              <img src="/media/{{ project.image }}" />
+{% thumbnail project.image "500x318" crop="bottom" as im %}
+            <img class="block" src="{{ im.url }}" width="{{ im.x }}" height="{{ im.y }}">
+{% endthumbnail %}
             </div>
             <div class="span6">
               <h2>{{ project.name }}</h2>

@@ -1,0 +1,8 @@
+exclude .hgignore
+exclude .hgtags
+exclude BUILDME.bat
+exclude make-manifest.py
+exclude SHIP
+exclude SHIP.bat
+recursive-exclude Tests *
+recursive-include docs *.txt
