@@ -70,7 +70,7 @@
       <li>
         <a href="/persons/{{ person.id }}/">
 {% thumbnail person.image "50x50" crop="center" as im %}
-                     <img src="{{ im.url }}" width="{{ im.x }}" height="{{ im.y }}">
+                     <img class="block" src="{{ im.url }}" width="{{ im.x }}" height="{{ im.y }}">
 {% endthumbnail %}
           <strong>{{ person.name }}</strong>
           <em>{{ person.email }}</em>

@@ -47,7 +47,7 @@
         <a href="/persons/{{ person.id }}">
 {% if person.image %}
 {% thumbnail person.image "50x50" crop="center" as im %}
-                     <img src="{{ im.url }}" width="{{ im.x }}" height="{{ im.y }}">
+                     <img class="block" src="{{ im.url }}" width="{{ im.x }}" height="{{ im.y }}">
 {% endthumbnail %}
 {% else %}
     <img class="block" src="{{ STATIC_URL }}web/images/content/default-member.png" />

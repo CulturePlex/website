@@ -92,8 +92,8 @@
     <div class="box box-01 with-image small-image">
       <div class="box-image text-align-center">
 {% if project.image %}
-{% thumbnail project.image "100x100" crop="center" as im %}
-    <img class="black" style="margin:{{ im|margin:"100x100" }}" src="{{ im.url }}" width="{{ im.x }}" height="{{ im.y }}">
+{% thumbnail project.image "100x100" crop="center" upscale=False as im %}
+    <img class="block" style="margin:{{ im|margin:"100x100" }}" src="{{ im.url }}" width="{{ im.x }}" height="{{ im.y }}">
 {% endthumbnail %}
 {% else %}
     <img class="block" src="{{ STATIC_URL }}web/images/content/sample-03.png" />
