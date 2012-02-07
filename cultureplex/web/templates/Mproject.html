@@ -1,5 +1,5 @@
 {% extends 'Mindex.html' %}
-
+{% load web_extras %}
 {% load thumbnail %}
 {% load i18n %}
 
@@ -55,14 +55,14 @@
       <li>
         <a href="/persons/{{ person.id }}">
 {% if person.image %}
-{% thumbnail person.image "50x50" crop="center" as im %}
-        <img class="block" style="margin:{{ im|margin:"60x60" }}" src="{{ im.url }}" width="{{ im.x }}" height="{{ im.y }}">
+{% thumbnail person.image "60x60" crop="center" as im %}
+        <img style="margin:{{ im|margin:"70x62" }}" src="{{ im.url }}" width="{{ im.x }}" height="{{ im.y }}">
 {% endthumbnail %}
 {% else %}
     <img class="block" src="{{ STATIC_URL }}web/images/content/default-member.png" />
 {% endif %}
           <strong>{{ person.name }}</strong>
-          <em>{{ person.email }}</em>
+          <em>{{ person.email|truncatewords_by_chars:17 }}</em>
         </a>
       </li>
       {% endfor %}
