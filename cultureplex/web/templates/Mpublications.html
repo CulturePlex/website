@@ -73,6 +73,11 @@
   </p>
 
   <div class="links">
+            Order by:
+            <a href="?orderby=title">{% trans "title" %}</a>
+            <a href="?orderby=publication_type">{% trans "publication type" %}</a>
+            <a href="?orderby=publication_date">{% trans "publication date" %}</a>
+            <a href="?orderby=acceptance_date">{% trans "acceptance date" %}</a>
         {% if publications.has_previous %}
             <a href="?page={{ publications.previous_page_number }}">{% trans "previous" %}</a>
         {% endif %}

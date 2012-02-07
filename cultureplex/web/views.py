@@ -47,7 +47,17 @@ def project(request, project_id):
     return HttpResponse(t.render(c))
 
 def publications(request):
-    publications_list = Publication.objects.all().order_by('-publication_date')
+    try:
+        order = str(request.GET.get('orderby', '1'))
+    except ValueError:
+        page = 1
+    publications_list = Publication.objects.all().order_by('title','publication_type','-publication_date','-aceptation_date')
+    if order == 'publication_type':
+        publications_list = Publication.objects.all().order_by('publication_type','title','-publication_date','-aceptation_date')
+    if order == 'publication_date':
+        publications_list = Publication.objects.all().order_by('-publication_date','title','publication_type','-aceptation_date')
+    if order == 'acceptance_date':
+        publications_list = Publication.objects.all().order_by('-aceptation_date','title','publication_type','-publication_date')
     paginator = Paginator(publications_list, 4) 
     # Make sure page request is an int. If not, deliver first page.
     try:
