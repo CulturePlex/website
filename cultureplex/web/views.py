@@ -70,7 +70,15 @@ def publication(request, publication_id):
     return HttpResponse(t.render(c))
 
 def persons(request):
-    persons_list = Person.objects.all()
+    try:
+        order = str(request.GET.get('orderby', '1'))
+    except ValueError:
+        page = 1
+    persons_list = Person.objects.all().order_by('-active', 'name', 'position')
+    if order == 'position':
+        persons_list = Person.objects.all().order_by('position', '-active', 'name')
+    if order == 'name':
+        persons_list = Person.objects.all().order_by('name', '-active', 'position')
     paginator = Paginator(persons_list, 4) 
     # Make sure page request is an int. If not, deliver first page.
     try:

@@ -62,8 +62,12 @@
 
     <strong>{% trans "People:" %}</strong> {{ persons.paginator.count }}
   </p>
-
+  
   <div class="links">
+        Order by:
+            <a href="?orderby=active">{% trans "active" %}</a>
+            <a href="?orderby=name">{% trans "name" %}</a>
+            <a href="?orderby=position">{% trans "position" %}</a>
         {% if persons.has_previous %}
             <a href="?page={{ persons.previous_page_number }}">{% trans "previous" %}</a>
         {% endif %}
