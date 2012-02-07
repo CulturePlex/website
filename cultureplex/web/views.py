@@ -9,7 +9,15 @@ from django.template import RequestContext
 
 
 def projects(request):
-    projects_list = Project.objects.all()
+    try:
+        order = str(request.GET.get('orderby', '1'))
+    except ValueError:
+        page = 1
+    projects_list = Project.objects.all().order_by('-active', 'name', 'contact')
+    if order == 'contact':
+        projects_list = Project.objects.all().order_by('contact', '-active', 'name')
+    if order == 'name':
+        projects_list = Project.objects.all().order_by('name', '-active', 'contact')
     paginator = Paginator(projects_list, 4) 
     # Make sure page request is an int. If not, deliver first page.
     try:

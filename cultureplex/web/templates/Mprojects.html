@@ -80,6 +80,10 @@
   </p>
 
   <div class="links">
+            Order by:
+            <a href="?orderby=active">{% trans "active" %}</a>
+            <a href="?orderby=name">{% trans "name" %}</a>
+            <a href="?orderby=contact">{% trans "contact" %}</a>
         {% if projects.has_previous %}
             <a href="?page={{ projects.previous_page_number }}">{% trans "previous" %}</a>
         {% endif %}
