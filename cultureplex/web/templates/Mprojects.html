@@ -18,7 +18,7 @@
   <div class="box-image text-align-center">
 {% if project.image %}
 {% if project.image.width > 203 or project.image.height > 145 %}
-{% thumbnail project.image "203x145" crop="center" upscale=False as im %}
+{% thumbnail project.image "202x145" crop="center" upscale=False as im %}
      <img class="block" src="{{ im.url }}" >
 {% endthumbnail %}
 {% else %}
@@ -36,7 +36,7 @@
 
     <ul class="data">
       <li>
-        <strong><span class="icon link"></span> {% trans "URL:" %}</strong> {{ project.url }}
+        <strong><span class="icon link"></span> {% trans "URL:" %}</strong> <a href="{{ project.url }}">{{ project.url|truncatewords_by_chars:35 }}</a>
       </li>
       <li>
         <strong><span class="icon tick"></span> {% trans "Active:" %}</strong> {% if project.active %}Yes{% else %}No{% endif %}
