@@ -79,7 +79,7 @@
           <li class="item-04">
             <a href="http://blogs.cultureplex.ca/activity/">
               {% trans "04. Blogs" %}
-              <strong>{% trans "We are talking…" %}</strong>
+              <strong>{% trans "We talk about…" %}</strong>
               <span></span>
             </a>
           </li>
@@ -96,7 +96,7 @@
           <div class="scrolli-element row">
             <div class="span9">
 {% if project.image.width > 500 or project.image.height > 318 %}
-{% thumbnail project.image "500x318" crop="center" as im %}
+{% thumbnail project.image "480x318" crop="center" as im %}
             <img class="block" src="{{ im.url }}" width="{{ im.x }}" height="{{ im.y }}">
 {% endthumbnail %}
 {% else %}

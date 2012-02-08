@@ -33,7 +33,8 @@ def projects(request):
     t = loader.get_template('Mprojects.html')
     c = RequestContext(request,{
         'projects': projects,
-        'current_page': 'projects'
+        'current_page': 'projects',
+        'sort_criteria': request.GET.get('orderby')
     })
     return HttpResponse(t.render(c))
 
@@ -74,7 +75,8 @@ def publications(request):
     t = loader.get_template('Mpublications.html')
     c = RequestContext(request,{
         'publications': publications,
-        'current_page': 'publications'
+        'current_page': 'publications',
+        'sort_criteria': request.GET.get('orderby')
     })
     return HttpResponse(t.render(c))
 
@@ -112,7 +114,8 @@ def persons(request):
     t = loader.get_template('Mpersons.html')
     c = RequestContext(request,{
         'persons': persons,
-        'current_page': 'persons'
+        'current_page': 'persons',
+        'sort_criteria': request.GET.get('orderby')
     })
     return HttpResponse(t.render(c))
 

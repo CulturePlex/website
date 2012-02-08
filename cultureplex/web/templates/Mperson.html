@@ -1,5 +1,5 @@
 {% extends 'Mindex.html' %}
-
+{% load web_extras %}
 {% load thumbnail %}
 {% load i18n %}
 
@@ -102,7 +102,7 @@
       <div class="box-content">
         <h3 class="box-title">{{ project.name }}</h3>
 
-        <p>{{ project.description }}</p>
+        <p>{{ project.description|truncatewords_by_chars:140 }}</p>
 
         <a href="/projects/{{ project.id }}/">&gt; {% trans "View project" %}</a>
       </div>
@@ -120,7 +120,7 @@
       <div class="box-content">
         <h3 class="box-title">{{ publication.title }}</h3>
 
-        <p>{{ publication.abstract }}</p>
+        <p>{{ publication.abstract|truncatewords_by_chars:140 }}</p>
 
         <a href="/publications/{{ publication.id }}/">&gt; {% trans "View publication" %}</a>
       </div>

@@ -5,20 +5,15 @@
 
 {% block content %}
 
-
     <div id="content">
       <div class="container">
         
-
-
-
 <h2>
   {{ project.name }}
   <span class="inner-pager">
     <a href="/projects">&lt; {% trans "back to projects" %}</a>
   </span>
 </h2>
-
 
 <div class="row">
   <div class="span5">
@@ -47,27 +42,12 @@
   </div>
   <div class="span11">
     <p>{{ project.description }}</p>
-
-
     <h3 class="box-title">{% trans "Members" %}</h3>
     <ul class="members">
-      {% for person in project.members.all %}
-      <li>
-        <a href="/persons/{{ person.id }}">
-{% if person.image %}
-{% thumbnail person.image "60x60" crop="center" as im %}
-        <img style="margin:{{ im|margin:"70x62" }}" src="{{ im.url }}" width="{{ im.x }}" height="{{ im.y }}">
-{% endthumbnail %}
-{% else %}
-    <img class="block" src="{{ STATIC_URL }}web/images/content/default-member.png" />
-{% endif %}
-          <strong>{{ person.name }}</strong>
-          <em>{{ person.email|truncatewords_by_chars:17 }}</em>
-        </a>
-      </li>
-      {% endfor %}
+{% for person in project.members.all %}
+{% show_person_box person %}
+{% endfor %}
     </ul>
-    
   </div>
 </div>
       </div><!-- .container -->

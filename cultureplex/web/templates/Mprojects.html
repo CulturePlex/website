@@ -32,7 +32,7 @@
   <div class="box-content">
     <h3 class="box-title">{{ project.name }}</h3>
 
-    <p>{{ project.description }}</p>
+    <p>{{ project.description|truncatewords_by_chars:422 }}</p>
 
     <ul class="data">
       <li>
@@ -49,25 +49,12 @@
     <h3><span class="icon users"></span> {% trans "Members" %}</h3>
     <ul class="members">
 {% for person in project.members.all %}
-      <li>
-        <a href="/persons/{{ person.id }}">
-{% if person.image %}
-{% thumbnail person.image "60x60" crop="center" as im %}
-        <img style="margin:{{ im|margin:"70x61" }}" src="{{ im.url }}" width="{{ im.x }}" height="{{ im.y }}">
-{% endthumbnail %}
-{% else %}
-    <img class="block" src="{{ STATIC_URL }}web/images/content/default-member.png" />
-{% endif %}
-          <strong>{{ person.name }}</strong>
-          <em>{{ person.email|truncatewords_by_chars:24 }}</em>
-        </a>
-      </li>
+{% show_person_box person %}
 {% endfor %}
     </ul>
   </div>
 </div><!-- .box-01 -->
 {% endfor %}
-
 
 <div class="pager">
   <p>
@@ -85,7 +72,7 @@
             <a href="?orderby=name">{% trans "name" %}</a>
             <a href="?orderby=contact">{% trans "contact" %}</a>
         {% if projects.has_previous %}
-            <a href="?page={{ projects.previous_page_number }}">{% trans "previous" %}</a>
+            <a href="?page={{ projects.previous_page_number }}&orderby={{ sort_criteria }}">←</a>
         {% endif %}
 
         <span class="current">
@@ -93,7 +80,7 @@
         </span>
 
         {% if projects.has_next %}
-            <a href="?page={{ projects.next_page_number }}">{% trans "next" %}</a>
+            <a href="?page={{ projects.next_page_number }}&orderby={{ sort_criteria }}">→</a>
         {% endif %}
   </div>
 </div>

@@ -1,5 +1,5 @@
 {% extends 'Mindex.html' %}
-
+{% load web_extras %}
 {% load thumbnail %}
 {% load i18n %}
 
@@ -7,8 +7,6 @@
     <div id="content">
       <div class="container">
         
-
-
 
 <h2>{% trans "People" %}</h2>
 
@@ -29,7 +27,7 @@
   <div class="box-content">
     <h3 class="box-title">{{ person.name }}</h3>
 
-    <p>{{ person.bio }}</p>
+    <p>{{ person.bio|truncatewords_by_chars:422 }}</p>
 
     <ul class="data">
 {% if person.phone %}
@@ -64,12 +62,12 @@
   </p>
   
   <div class="links">
-        Order by:
+        Order by :
             <a href="?orderby=active">{% trans "active" %}</a>
             <a href="?orderby=name">{% trans "name" %}</a>
             <a href="?orderby=position">{% trans "position" %}</a>
         {% if persons.has_previous %}
-            <a href="?page={{ persons.previous_page_number }}">{% trans "previous" %}</a>
+            <a href="?page={{ persons.previous_page_number }}&orderby={{ sort_criteria }}">←</a>
         {% endif %}
 
         <span class="current">
@@ -77,7 +75,7 @@
         </span>
 
         {% if persons.has_next %}
-            <a href="?page={{ persons.next_page_number }}">{% trans "next" %}</a>
+            <a href="?page={{ persons.next_page_number }}&orderby={{ sort_criteria }}">→</a>
         {% endif %}
   </div>
 </div>
