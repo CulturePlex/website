@@ -52,8 +52,8 @@ class Publication(models.Model):
         (u'Procceding', u'Procceding'),
     )
     authors = models.ManyToManyField(Person,related_name='-')
-    aceptation_date = models.DateField(blank=True)
-    publication_date = models.DateField(blank=True)
+    aceptation_date = models.DateField(blank=True,null=True)
+    publication_date = models.DateField(blank=True,null=True)
     related_projects = models.ManyToManyField(Project,related_name='-',blank=True)
     abstract = models.TextField(max_length=2000)
     keywords = models.TextField(max_length=2000,blank=True)
