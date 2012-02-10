@@ -106,6 +106,13 @@
             <div class="span6">
               <h2>{{ project.name }}</h2>
               <p> {{ project.description|truncatewords_by_chars:600 }}</p>
+<SCRIPT LANGUAGE="JAVASCRIPT" TYPE="TEXT/JAVASCRIPT">
+<!--
+                if(typeof Fiber!="undefined"){
+                    document.write("<a href='admin/web/project/{{ project.id }}/'>Edit Project<\/a>");
+                }
+//-->
+</SCRIPT>
               <p><a class="btn primary" href="projects/{{ project.id}}">{% trans "View project" %} &raquo;</a></p>
             </div>
           </div><!-- .scrolli-element -->
