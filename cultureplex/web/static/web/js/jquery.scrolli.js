@@ -99,8 +99,8 @@
 
       // 4.- Build arrow pager system
       if (ps.showArrowPager && $elements.length > 1) {
-        $pagerLeft  = $('<a href="#" class="scrolli-pager-left">'+ ps.pagerLeftLabel +'</a>');
-        $pagerRight = $('<a href="#" class="scrolli-pager-right">'+ ps.pagerRightLabel +'</a>');
+        $pagerLeft  = $('<a href="#" class="scrolli-pager-right">'+ ps.pagerRightLabel +'</a>');
+        $pagerRight = $('<a href="#" class="scrolli-pager-left">'+ ps.pagerLeftLabel +'</a>');
 
         $pagerLeft.bind('click', function(e) {
           clear_timer();
