@@ -1,0 +1,94 @@
+{% extends 'index.html' %}
+{% load web_extras %}
+{% load thumbnail %}
+{% load i18n %}
+
+{% block content %}
+
+
+    <div id="content">
+      <div class="container">
+        
+
+
+
+<h2>
+  {{ publication.title }}
+  <span class="inner-pager">
+    <a href="/publications">&lt; {% trans "back to publications" %}</a>
+  </span>
+</h2>
+
+
+<div class="row">
+  <div class="span5">
+    <div class="box box-01">
+      <div class="box-content">
+        <p>
+          <a href="/media/{{ publication.document }}" class="btn primary block">{% trans "Download Publication" %}</a>
+        </p>
+        <ul class="data-02">
+{% if publication.url_hosted_at %}
+          <li>
+            <strong><span class="icon info"></span> {% trans "Host URL:" %}</strong> {{ publication.url_hosted_at }}
+          </li>
+{% endif %}
+{% if publication.aceptation_date %}
+          <li>
+            <strong><span class="icon calendar"></span> {% trans "Acceptation Date:" %}</strong> {{ publication.aceptation_date }}
+          </li>
+{% endif %}
+{% if publication.publication_date %}
+          <li>
+            <strong><span class="icon calendar"></span> {% trans "Publication Date:" %}</strong> {{ publication.publication_date }}
+          </li>
+{% endif %}
+{% if publication.hosted_at %}
+          <li>
+            <strong><span class="icon cloud"></span> {% trans "Hosted at:" %}</strong> {{ publication.hosted_at }}
+          </li>
+{% endif %}
+          <li>
+            <strong><span class="icon book"></span> {% trans "Type:" %}</strong> {{ publication.publication_type }}
+          </li>
+{% if publication.keywords %}
+          <li>
+            <strong><span class="icon tag"></span> {% trans "Keyworkds:" %}</strong> {{ publication.keywords }}
+          </li>
+{% endif %}
+        </ul>
+      </div>
+    </div><!-- .box-01 -->
+  </div>
+  <div class="span11">
+    <p>{{ publication.abstract }}</p>
+
+
+    <h3 class="box-title">{% trans "Authors" %}</h3>
+    <ul class="members">
+      {% for person in publication.authors.all %}
+      {% show_person_box person %}
+      {% endfor %}
+    </ul>
+
+{% if publication.related_projects %}
+    <h3 class="box-title">{% trans "Related projects" %}</h3>
+      {% for project in publication.related_projects.all %}
+    <div class="box box-01">
+      <div class="box-content">
+        <h3 class="box-title">{{ project.name }}</h3>
+
+        <p>{{ project.description|truncatewords_by_chars:140 }}</p>
+
+        <a href="/projects/{{ project.id }}/">&gt; {% trans "View project" %}</a>
+      </div>
+    </div><!-- .box-01 -->
+{% endfor %}
+{% endif %}
+  </div>
+</div>
+      </div><!-- .container -->
+    </div>
+
+
+{% endblock %}

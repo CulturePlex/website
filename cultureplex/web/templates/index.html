@@ -1,0 +1,179 @@
+{% load fiber_tags %}
+{% load web_extras %}
+{% load i18n %}
+{% load thumbnail %}
+
+{% block header %}
+
+<!doctype html>
+<!--[if lt IE 7]><html lang="es-ES" class="ie ie6 ltie9 ltie8 ltie7"><![endif]-->
+<!--[if IE 7]><html lang="es-ES" class="ie ie7 ltie9 ltie8"><![endif]-->
+<!--[if IE 8]><html lang="es-ES" class="ie ie8 ltie9"><![endif]-->
+<!--[if IE 9]><html lang="es-ES" class="ie ie9"><![endif]-->
+<!--[if gt IE 9]><html lang="es-ES" class="ie"><![endif]-->
+<!--[if !IE]><!-->
+<html lang="es-ES">
+<!--<![endif]-->
+<head>
+  <!--[if IE]><![endif]-->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!--[if IE]>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <![endif]-->
+
+  <title>{% trans "Home - The CulturePlex" %} </title>
+
+  <!-- Styles -->
+  <link href="{{ STATIC_URL }}web/css/bootstrap.css" rel="stylesheet" />
+  <link href="{{ STATIC_URL }}web/css/styles.css" rel="stylesheet" />
+  
+
+
+  <!-- Scripts -->
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <script src="{{ STATIC_URL }}web/js/jquery.scrollto.js"></script>
+  
+<script src="{{ STATIC_URL }}web/js/jquery.scrolli.js"></script>
+
+  <script src="{{ STATIC_URL }}web/js/main.js"></script>
+</head>
+<body>
+  <script>
+    jQuery('body:not(.js)').addClass('js');
+  </script>
+  <div id="wrapper">
+    <header>
+      <div class="container">
+        <h1><a href="/">{% trans "Home" %}</a></h1>
+      </div><!-- .container -->
+    </header><!-- header -->
+
+    <nav>
+      <div class="container">
+        <ul>
+          <li class="item-01">
+            <a href="/projects/" {% if current_page == "projects" %}class="current"{% endif %}>
+              {% trans "01. Projects" %}
+              <strong>{% trans "We are working on..." %}</strong>
+              <span></span>
+            </a>
+          </li>
+          <li class="item-02">
+            <a href="/publications/" {% if current_page == "publications" %}class="current"{% endif %}>
+              {% trans "02. Publications" %}
+              <strong>{% trans "What we have done" %}</strong>
+              <span></span>
+            </a>
+          </li>
+          <li class="item-03">
+            <a href="/persons/" {% if current_page == "persons" %}class="current"{% endif %}>
+              {% trans "03. People" %}
+              <strong>{% trans "Who we are" %}</strong>
+              <span></span>
+            </a>
+          </li>
+          <li class="item-04">
+            <a href="http://blogs.cultureplex.ca/activity/">
+              {% trans "04. Blogs" %}
+              <strong>{% trans "We talk about…" %}</strong>
+              <span></span>
+            </a>
+          </li>
+        </ul>
+      </div><!-- .container -->
+    </nav><!-- nav -->
+{% endblock %}
+{% block content %}
+    <div id="content">
+      <div class="container">
+        <div class="home">
+        <div class="scrolli">
+          {% for project in 0|carousel:"0" %}
+          <div class="scrolli-element row">
+            <div class="span9">
+{% if project.image.width > 500 or project.image.height > 318 %}
+{% thumbnail project.image "480x318" crop="center" as im %}
+            <img class="block" src="{{ im.url }}" width="{{ im.x }}" height="{{ im.y }}">
+{% endthumbnail %}
+{% else %}
+            <img class="block" src="media/{{ project.image }}">
+{% endif %}
+            </div>
+            <div class="span6">
+              <h2>{{ project.name }}</h2>
+              <p> {{ project.description|truncatewords_by_chars:600 }}</p>
+<SCRIPT LANGUAGE="JAVASCRIPT" TYPE="TEXT/JAVASCRIPT">
+<!--
+                if(typeof Fiber!="undefined"){
+                    document.write("<a href='admin/web/project/{{ project.id }}/'>Edit Project<\/a>");
+                }
+//-->
+</SCRIPT>
+              <p><a class="btn primary" href="projects/{{ project.id}}">{% trans "View project" %} &raquo;</a></p>
+            </div>
+          </div><!-- .scrolli-element -->
+          {% endfor %}
+        </div><!-- .scrolli -->
+
+<h2>{% show_page_content "welcomeBig" %} <small>{% show_page_content "welcomeSmall" %}</small></h2>
+<p>{% show_page_content "content" %}</p>
+
+<hr class="separator-01" />
+
+<div class="row">
+  
+  <div class="span8">
+    <h2>{% show_page_content "titulobloque1" %}<small class="block">{% show_page_content "subtitulobloque1" %}</small></h2>
+    <p>{% show_page_content "bloque1" %}</p>
+
+      <p class="text-align-center">
+        <a href="#" class="btn primary">Más información</a>
+      </p>
+
+    <hr class="separator-01" />
+  </div>
+  <div class="span8">
+    <h2>{% show_page_content "titulobloque2" %}<small class="block">{% show_page_content "subtitulobloque2" %}</small></h2>
+    <p>{% show_page_content "bloque2" %}</p>
+
+      <p class="text-align-center">
+        <a href="#" class="btn primary">Más información</a>
+      </p>
+
+
+    <hr class="separator-01" />
+  </div>
+</div>
+      </div><!-- .container -->
+    </div>
+{% endblock %}
+{% block footer %}
+
+    <footer>
+      <div class="container">
+        <div class="content">
+          <p>{% trans "Cultural Complexity and Digital Humanities at Western U." %}</p>
+
+          <p><strong>
+            E. contact@cultureplex.ca
+
+            T. (+34) 666 666 666
+          </strong></p>
+        </div>
+
+        <ul>
+          <li class="facebook"><a href="https://www.facebook.com/pages/The-CulturePlex-Laboratory/161299830600396">Facebook</a></li>
+          <li class="twitter"><a href="https://twitter.com/#!/cultureplex">Twitter</a></li>
+          <li class="googleplus"><a href="https://plus.google.com/102578586279160689933/posts">Google+</a></li>
+          <li class="up"><a href="#">Volver arriba</a></li>
+        </ul>
+      </div><!-- .container -->
+    </footer><!-- footer -->
+  </div><!-- #wrapper -->
+</body>
+</html>
+{% endblock %}

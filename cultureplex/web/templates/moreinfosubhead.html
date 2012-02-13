@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+{% load fiber_tags %}
+{% load thumbnail %}
+{% load i18n %}
+
+{% block content %}
+
+    <div id="content">
+      <div class="container">
+        
+
+
+<section id="typography">
+  <!-- Headings & Paragraph Copy -->
+  <div class="row">
+    <div class="span12">
+      <h2>{% show_page_content "titleempty" %}</h2>
+      <h3>{% show_page_content "subtitleempty" %}</h3>
+      {% show_page_content "paragraphempty2" %}
+    </div>
+  </div><!-- /row -->
+
+</section>
+      </div><!-- .container -->
+    </div>
+
+{% endblock %}
