@@ -708,11 +708,18 @@ nav ul li.item-04 a.current span, nav ul li.item-04 a:focus span, nav ul li.item
   font-weight: normal;
 }
 
-#content .home h2 small p{
-	font-size: none;
-	font-weight: normal;
-	line-height: none;
-	margin-bottom: none;
+#content .home h2 small p {
+  font-size: 18px;
+  margin-bottom: 0px;
+  height: 18px;
+  line-height: 17px;
+}
+
+#content .home h2 p {
+  font-size: 25px;
+  margin-bottom: 0px;
+  height: 25px;
+  line-height: 24px;
 }
 
 
