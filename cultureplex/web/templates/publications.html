@@ -60,10 +60,10 @@
 
   <div class="links">
             Order by:
-            <a href="?orderby=title">{% trans "title" %}</a>
-            <a href="?orderby=publication_type">{% trans "publication type" %}</a>
             <a href="?orderby=publication_date">{% trans "publication date" %}</a>
             <a href="?orderby=acceptance_date">{% trans "date of acceptance" %}</a>
+            <a href="?orderby=title">{% trans "title" %}</a>
+            <a href="?orderby=publication_type">{% trans "publication type" %}</a>
         {% if publications.has_previous %}
             <a href="?page={{ publications.previous_page_number }}&orderby={{ sort_criteria }}">←</a>
         {% endif %}

@@ -28,7 +28,7 @@
 {% endif %}
         <ul class="data-02">
           <li>
-            <strong><span class="icon link"></span> {% trans "URL:" %} </strong> <text>  {{ project.url }}</text>
+            <strong><span class="icon link"></span> {% trans "URL:" %} </strong> <text>  <a href="{{ project.url }}">{{ project.url|truncatewords_by_chars:2 }}</a></text>
           </li>
           <li>
             <strong><span class="icon tick"></span> {% trans "Active:" %} </strong>  {% if project.active %}{% trans "Yes" %}{% else %}{% trans "No" %}{% endif %}
