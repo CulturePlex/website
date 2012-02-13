@@ -747,11 +747,11 @@ footer .content {
   color: #565656;
   font-size: .9285em;
   left: 0;
-  padding-left: 160px;
+  padding-left: 300px;
   position: absolute;
   text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25);
   top: 50px;
-  width: 500px;
+  width: 420px;
 }
 footer .content p {
   margin-bottom: 0.5em;
