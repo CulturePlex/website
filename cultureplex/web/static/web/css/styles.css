@@ -707,6 +707,15 @@ nav ul li.item-04 a.current span, nav ul li.item-04 a:focus span, nav ul li.item
   font-size: .72em;
   font-weight: normal;
 }
+
+#content .home h2 small p{
+	font-size: none;
+	font-weight: normal;
+	line-height: none;
+	margin-bottom: none;
+}
+
+
 #content .home h2 small.block {
   display: block;
 }
