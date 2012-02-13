@@ -149,7 +149,7 @@ INSTALLED_APPS = (
     'compressor',
     'fiber',
     'sorl.thumbnail',
-    # 'south',
+    'south',
 )
 
 STATIC_ROOT = path.join(PROJECT_ROOT, 'static')
