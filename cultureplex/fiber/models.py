@@ -15,6 +15,9 @@ import managers
 from utils.fields import FiberURLField, FiberMarkupField, FiberHTMLField
 from utils.json import JSONField
 from utils.urls import get_named_url_from_quoted_url, is_quoted_url
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from sorl.thumbnail import get_thumbnail
 
 
 class ContentItem(models.Model):
@@ -247,3 +250,11 @@ class File(models.Model):
         if self.file.path.startswith(settings.MEDIA_ROOT):
             return self.file.path[len(settings.MEDIA_ROOT):]
         return self.file.path
+
+@receiver(post_save)
+def my_callback(sender, **kwargs):
+     temp = settings.MEDIA_ROOT
+     temp += str(kwargs['instance'])
+     print temp
+#     im = get_thumbnail(image=temp)
+#     print im.url

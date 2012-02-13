@@ -2,7 +2,7 @@ from django.conf import settings
 
 
 DEFAULT_TEMPLATE = getattr(settings, 'FIBER_DEFAULT_TEMPLATE', 'base.html')
-TEMPLATE_CHOICES = getattr(settings, 'FIBER_TEMPLATE_CHOICES', [('base.html','Base'),('Mindex.html','Home'),('Mempty.html','More Info')])
+TEMPLATE_CHOICES = getattr(settings, 'FIBER_TEMPLATE_CHOICES', [('moreinfo.html','More Info'),('twocolumns.html','Two Columns'),('moreinfosubhead.html','More Info with Subhead')])
 EXCLUDE_URLS = getattr(settings, 'FIBER_EXCLUDE_URLS', [])
 
 FILES_DIR = getattr(settings, 'FIBER_FILES_DIR', 'uploads/files')

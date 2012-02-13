@@ -30,7 +30,7 @@ def projects(request):
         projects = paginator.page(page)
     except (EmptyPage, InvalidPage):
         projects = paginator.page(paginator.num_pages)
-    t = loader.get_template('Mprojects.html')
+    t = loader.get_template('projects.html')
     c = RequestContext(request,{
         'projects': projects,
         'current_page': 'projects',
@@ -40,7 +40,7 @@ def projects(request):
 
 def project(request, project_id):
     project = Project.objects.get(pk=project_id)
-    t = loader.get_template('Mproject.html')
+    t = loader.get_template('project.html')
     c = RequestContext(request,{
         'project': project,
         'current_page': 'projects'
@@ -72,7 +72,7 @@ def publications(request):
     except (EmptyPage, InvalidPage):
         publications = paginator.page(paginator.num_pages)
 
-    t = loader.get_template('Mpublications.html')
+    t = loader.get_template('publications.html')
     c = RequestContext(request,{
         'publications': publications,
         'current_page': 'publications',
@@ -82,7 +82,7 @@ def publications(request):
 
 def publication(request, publication_id):
     publication = Publication.objects.get(pk=publication_id)
-    t = loader.get_template('Mpublication.html')
+    t = loader.get_template('publication.html')
     c = RequestContext(request,{
         'publication': publication,
         'current_page': 'publications'
@@ -111,7 +111,7 @@ def persons(request):
         persons = paginator.page(page)
     except (EmptyPage, InvalidPage):
         persons = paginator.page(paginator.num_pages)
-    t = loader.get_template('Mpersons.html')
+    t = loader.get_template('persons.html')
     c = RequestContext(request,{
         'persons': persons,
         'current_page': 'persons',
@@ -123,7 +123,7 @@ def person(request, person_id):
     person = Person.objects.get(pk=person_id)
     projects = Project.objects.filter(members__id=person_id)
     publications = Publication.objects.filter(authors__id=person_id)
-    t = loader.get_template('Mperson.html')
+    t = loader.get_template('person.html')
     c = RequestContext(request,{
         'person': person,
         'projects': projects,
