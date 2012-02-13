@@ -10,9 +10,9 @@ from django.template import RequestContext
 
 def projects(request):
     try:
-        order = str(request.GET.get('orderby', '1'))
+        order = str(request.GET.get('orderby', '-active'))
     except ValueError:
-        page = 1
+        order = '-active'
     projects_list = Project.objects.all().order_by('-active', 'name', 'contact')
     if order == 'contact':
         projects_list = Project.objects.all().order_by('contact', '-active', 'name')
@@ -34,7 +34,7 @@ def projects(request):
     c = RequestContext(request,{
         'projects': projects,
         'current_page': 'projects',
-        'sort_criteria': request.GET.get('orderby')
+        'sort_criteria': order
     })
     return HttpResponse(t.render(c))
 
@@ -49,16 +49,18 @@ def project(request, project_id):
 
 def publications(request):
     try:
-        order = str(request.GET.get('orderby', '1'))
+        order = str(request.GET.get('orderby', '-publication_date'))
     except ValueError:
-        page = 1
-    publications_list = Publication.objects.all().order_by('title','publication_type','-publication_date','-aceptation_date')
+        order = '-publication_date'
+    publications_list = Publication.objects.all().order_by('-publication_date','title','publication_type','-aceptation_date')
     if order == 'publication_type':
         publications_list = Publication.objects.all().order_by('publication_type','title','-publication_date','-aceptation_date')
     if order == 'publication_date':
         publications_list = Publication.objects.all().order_by('-publication_date','title','publication_type','-aceptation_date')
     if order == 'acceptance_date':
         publications_list = Publication.objects.all().order_by('-aceptation_date','title','publication_type','-publication_date')
+    if order == 'title':
+        publications_list = Publication.objects.all().order_by('-publication_date','title','publication_type','-aceptation_date')
     paginator = Paginator(publications_list, 4) 
     # Make sure page request is an int. If not, deliver first page.
     try:
@@ -76,7 +78,7 @@ def publications(request):
     c = RequestContext(request,{
         'publications': publications,
         'current_page': 'publications',
-        'sort_criteria': request.GET.get('orderby')
+        'sort_criteria': order
     })
     return HttpResponse(t.render(c))
 
@@ -91,9 +93,9 @@ def publication(request, publication_id):
 
 def persons(request):
     try:
-        order = str(request.GET.get('orderby', '1'))
+        order = str(request.GET.get('orderby', '-active'))
     except ValueError:
-        page = 1
+        order = '-active'
     persons_list = Person.objects.all().order_by('-active', 'name', 'position')
     if order == 'position':
         persons_list = Person.objects.all().order_by('position', '-active', 'name')
@@ -115,7 +117,7 @@ def persons(request):
     c = RequestContext(request,{
         'persons': persons,
         'current_page': 'persons',
-        'sort_criteria': request.GET.get('orderby')
+        'sort_criteria': order
     })
     return HttpResponse(t.render(c))
 
