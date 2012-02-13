@@ -3355,7 +3355,7 @@
         "parent": 1,
         "title": "Home",
         "url": "/",
-        "template_name": "Mindex.html",
+        "template_name": "index.html",
         "created": "2012-01-19 07:13:15",
         "mark_current_regexes": "",
         "redirect_page": null,
