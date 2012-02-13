@@ -41,7 +41,7 @@
     <h3><span class="icon users"></span> {% trans "Authors" %}</h3>
     <ul class="members">
 {% for person in publication.authors.all %}
-{% show_person_box person %}
+{% show_person_box person 'big' %}
 {% endfor %}
     </ul>
   </div>

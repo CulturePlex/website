@@ -29,8 +29,9 @@ def truncatewords_by_chars(value, arg):
     else:
         return value
 
-def show_person_box(person):
-    return {'person': person}
+def show_person_box(person,width):
+    return {'person': person,
+            'width':width}
 
 register.filter('carousel', carousel)
 register.filter('truncatewords_by_chars', truncatewords_by_chars)

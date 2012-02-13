@@ -11,6 +11,10 @@
   <img class="block" src="{% get_static_prefix %}web/images/content/default-member.png" />
 {% endif %}
   <strong>{{ person.name }}</strong>
-  <em>{{ person.email|truncatewords_by_chars:9 }}</em>
+{% if width == 'big' %}
+  <em>{{ person.email|truncatewords_by_chars:28 }}</em>
+{% else %}
+  <em>{{ person.email|truncatewords_by_chars:17 }}</em>
+{% endif %}
   </a>
 </li>
