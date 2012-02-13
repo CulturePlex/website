@@ -48,7 +48,7 @@
           </li>
 {% endif %}
           <li>
-            <strong><span class="icon mail"></span> {% trans "Contact:" %}</strong> {{ person.email }}
+            <strong><span class="icon mail"></span> {% trans "Contact:" %}</strong> <a href="mailto:{{ person.email}}">{{ person.email|truncatewords_by_chars:23 }}</a>
           </li>
           <li>
             <strong><span class="icon tick"></span> {% trans "Active:" %}</strong> {% if person.active %}Yes{% else %}No{% endif %}
