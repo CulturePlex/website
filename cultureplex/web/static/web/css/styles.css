@@ -410,7 +410,6 @@ ul.numerical li div.content {
   display: inline-block;
   margin: 0 0.5em;
   text-decoration: underline;
-  vertical-align: middle;
 }
 .pager .links a.page {
   background-color: #dadada;
