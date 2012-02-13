@@ -67,7 +67,7 @@
     <h3 class="box-title">{% trans "Authors" %}</h3>
     <ul class="members">
       {% for person in publication.authors.all %}
-      {% show_person_box person %}
+      {% show_person_box person 'small' %}
       {% endfor %}
     </ul>
 

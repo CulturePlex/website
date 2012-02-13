@@ -28,7 +28,7 @@
 {% endif %}
       <li>
 {% if publication.aceptation_date %}
-        <strong><span class="icon calendar"></span> {% trans "Aceptation date:" %}</strong> {{ publication.aceptation_date }}
+        <strong><span class="icon calendar"></span> {% trans "Date of acceptance:" %}</strong> {{ publication.aceptation_date }}
       </li>
 {% endif %}
       <li>
@@ -63,7 +63,7 @@
             <a href="?orderby=title">{% trans "title" %}</a>
             <a href="?orderby=publication_type">{% trans "publication type" %}</a>
             <a href="?orderby=publication_date">{% trans "publication date" %}</a>
-            <a href="?orderby=acceptance_date">{% trans "acceptance date" %}</a>
+            <a href="?orderby=acceptance_date">{% trans "date of acceptance" %}</a>
         {% if publications.has_previous %}
             <a href="?page={{ publications.previous_page_number }}&orderby={{ sort_criteria }}">←</a>
         {% endif %}

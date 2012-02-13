@@ -13,8 +13,12 @@
   <strong>{{ person.name }}</strong>
 {% if width == 'big' %}
   <em>{{ person.email|truncatewords_by_chars:30 }}</em>
-{% else %}
-  <em>{{ person.email|truncatewords_by_chars:17 }}</em>
+{% endif %}
+{% if width == 'medium' %}
+  <em>{{ person.email|truncatewords_by_chars:20 }}</em>
+{% endif %}
+{% if width == 'small' %}
+  <em>{{ person.email|truncatewords_by_chars:15 }}</em>
 {% endif %}
   </a>
 </li>
