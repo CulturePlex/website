@@ -74,7 +74,7 @@ MEDIA_URL = '/media/'
 # URL prefix for admin static files -- CSS, JavaScript and images.
 # Make sure to use a trailing slash.
 # Examples: "http://foo.com/static/admin/", "/static/admin/".
-ADMIN_MEDIA_PREFIX = '/static/media/'
+ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
@@ -149,7 +149,7 @@ INSTALLED_APPS = (
     'compressor',
     'fiber',
     'sorl.thumbnail',
-    'south',
+    # 'south',
 )
 
 STATIC_ROOT = path.join(PROJECT_ROOT, 'static')

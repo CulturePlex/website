@@ -4,8 +4,8 @@ class Person(models.Model):
     POSITION_TYPES = (
         (u'Faculty', u'Faculty'),
         (u'Staff', u'Staff'),
-        (u'PhD Student', u'PhD Student'),
-        (u'MA Student', u'MA Student'),
+        (u'PhD', u'PhD'),
+        (u'Student', u'Student'),
         (u'Undergraduate Student', u'Undergraduate Student'),
         (u'Collaborator', u'Collaborator'),
         (U'Alumnus/a', u'Alumnus/a')
@@ -39,16 +39,14 @@ class Project(models.Model):
         return self.name
 
 class Publication(models.Model):
-    title = models.CharField(max_length=200)
     PUB_TYPES = (
-        (u'Article', u'Article'),
         (u'Paper', u'Paper'),
         (u'PhD Thesis', u'PhD Thesis'),
         (u'Ms Thesis', u'Ms Thesis'),
         (u'Talk', u'Talk'),
         (u'Presentation', u'Presentation'),
         (u'Book', u'Book'),
-        (u'Book Chapter', u'Book Chapter'),
+        (u'Chapter Book', u'Chapter Book'),
         (u'Procceding', u'Procceding'),
     )
     authors = models.ManyToManyField(Person,related_name='-')
@@ -57,6 +55,7 @@ class Publication(models.Model):
     related_projects = models.ManyToManyField(Project,related_name='-',blank=True)
     abstract = models.TextField(max_length=2000)
     keywords = models.TextField(max_length=2000,blank=True)
+    title = models.CharField(max_length=200)
     hosted_at = models.CharField(max_length=200,blank=True)
     url_hosted_at = models.URLField(verify_exists=False,max_length=200,blank=True)
     publication_type = models.CharField(max_length=200, choices=PUB_TYPES)
