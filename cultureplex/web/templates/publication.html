@@ -65,7 +65,6 @@
   <div class="span11">
     <p>{{ publication.abstract }}</p>
 
-
     <h3 class="box-title">{% trans "Authors" %}</h3>
     <ul class="members">
       {% for person in publication.authors.all %}
@@ -73,7 +72,7 @@
       {% endfor %}
     </ul>
 
-{% if publication.related_projects %}
+{% if publication.related_projects.all|length > 0 %}
     <h3 class="box-title">{% trans "Related projects" %}</h3>
       {% for project in publication.related_projects.all %}
     <div class="box box-01">

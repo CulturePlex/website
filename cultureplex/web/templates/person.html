@@ -83,7 +83,7 @@
     <p>{{ person.bio }}</p>
 
 
-
+{% if projects %}
     <h3 class="box-title">{% trans "Projects" %}</h3>
 
 {% for project in projects %}
@@ -106,6 +106,7 @@
       </div>
     </div><!-- .box-01 -->
 {% endfor %}
+{% endif %}
 {% if publications %}
 
     <h3 class="box-title">{% trans "Publications" %}</h3>
