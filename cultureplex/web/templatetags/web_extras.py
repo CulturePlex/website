@@ -42,6 +42,8 @@ def add_http(value):
         return 'http://'+value
 
 def show_title(current_page,args):
+    if current_page == '':
+       current_page = 'Home'
     return current_page+' - The CulturePlex'
 
 register.filter('show_title', show_title)
