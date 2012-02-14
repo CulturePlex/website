@@ -1,5 +1,6 @@
 from django import template
 from web.models import Project
+import re
 
 register = template.Library()
 
@@ -33,6 +34,18 @@ def show_person_box(person,width):
     return {'person': person,
             'width':width}
 
+def add_http(value):
+    """Add http protocol when is missing in a URL."""
+    if re.match('http://\w*', value):
+        return value
+    else:
+        return 'http://'+value
+
+def show_person_box(person,width):
+    return {'person': person,
+            'width':width}
+
+register.filter('add_http', add_http)
 register.filter('carousel', carousel)
 register.filter('truncatewords_by_chars', truncatewords_by_chars)
 register.inclusion_tag('person_box.html')(show_person_box)

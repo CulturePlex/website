@@ -30,7 +30,7 @@
         <ul class="data-02">
 {% if publication.url_hosted_at %}
           <li>
-            <strong><span class="icon info"></span> {% trans "Host URL:" %}</strong> {{ publication.url_hosted_at }}
+            <strong><span class="icon info"></span> {% trans "Host URL:" %}</strong> <text>  <a href="{{ publication.url_hosted_at|add_http }}">{{ publication.url_hosted_at|truncatewords_by_chars:22 }}</a></text>
           </li>
 {% endif %}
 {% if publication.aceptation_date %}

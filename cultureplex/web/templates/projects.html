@@ -36,7 +36,7 @@
 
     <ul class="data">
       <li>
-        <strong><span class="icon link"></span> {% trans "URL:" %}</strong> <a href="{{ project.url }}">{{ project.url|truncatewords_by_chars:35 }}</a>
+        <strong><span class="icon link"></span> {% trans "URL:" %}</strong> <a href="{{ project.url|add_http }}">{{ project.url|truncatewords_by_chars:35 }}</a>
       </li>
       <li>
         <strong><span class="icon tick"></span> {% trans "Active:" %}</strong> {% if project.active %}Yes{% else %}No{% endif %}
