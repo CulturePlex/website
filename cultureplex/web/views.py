@@ -33,7 +33,7 @@ def projects(request):
     t = loader.get_template('projects.html')
     c = RequestContext(request,{
         'projects': projects,
-        'current_page': 'projects',
+        'current_page': 'Projects',
         'sort_criteria': order
     })
     return HttpResponse(t.render(c))
@@ -43,7 +43,7 @@ def project(request, project_id):
     t = loader.get_template('project.html')
     c = RequestContext(request,{
         'project': project,
-        'current_page': 'projects'
+        'current_page': 'Projects'
     })
     return HttpResponse(t.render(c))
 
@@ -77,7 +77,7 @@ def publications(request):
     t = loader.get_template('publications.html')
     c = RequestContext(request,{
         'publications': publications,
-        'current_page': 'publications',
+        'current_page': 'Publications',
         'sort_criteria': order
     })
     return HttpResponse(t.render(c))
@@ -87,7 +87,7 @@ def publication(request, publication_id):
     t = loader.get_template('publication.html')
     c = RequestContext(request,{
         'publication': publication,
-        'current_page': 'publications'
+        'current_page': 'Publications'
     })
     return HttpResponse(t.render(c))
 
@@ -116,7 +116,7 @@ def persons(request):
     t = loader.get_template('persons.html')
     c = RequestContext(request,{
         'persons': persons,
-        'current_page': 'persons',
+        'current_page': 'People',
         'sort_criteria': order
     })
     return HttpResponse(t.render(c))
@@ -130,7 +130,7 @@ def person(request, person_id):
         'person': person,
         'projects': projects,
         'publications': publications,
-        'current_page': 'persons'
+        'current_page': 'People'
     })
     return HttpResponse(t.render(c))
 

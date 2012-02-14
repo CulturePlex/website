@@ -41,10 +41,10 @@ def add_http(value):
     else:
         return 'http://'+value
 
-def show_person_box(person,width):
-    return {'person': person,
-            'width':width}
+def show_title(current_page,args):
+    return current_page+' - The CulturePlex'
 
+register.filter('show_title', show_title)
 register.filter('add_http', add_http)
 register.filter('carousel', carousel)
 register.filter('truncatewords_by_chars', truncatewords_by_chars)
