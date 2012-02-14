@@ -23,7 +23,7 @@
     <ul class="data">
 {% if publication.hosted_at %}
       <li>
-        <strong><span class="icon info"></span> {% trans "Hosted at:" %}</strong> {{ publication.hosted_at }}
+        <strong><span class="icon info"></span> {% trans "Hosted at:" %}</strong> {{ publication.hosted_at|truncatewords_by_chars:62 }}
       </li>
 {% endif %}
       <li>
