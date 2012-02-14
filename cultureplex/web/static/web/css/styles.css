@@ -754,7 +754,7 @@ footer .content {
   width: 420px;
 }
 footer .content p {
-  margin-bottom: 0.5em;
+  margin-bottom: 0.2em;
 }
 footer .content strong {
   color: #777676;
@@ -814,4 +814,7 @@ footer ul li.up a {
 }
 footer ul li.up a:focus, footer ul li.up a:hover {
   background-position: -168px 100%;
+}
+footer .container .content a {
+    color: inherit;
 }
