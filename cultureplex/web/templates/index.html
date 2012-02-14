@@ -94,7 +94,7 @@
           <div class="scrolli-element row">
             <div class="span9">
 {% if project.image.width > 500 or project.image.height > 318 %}
-{% thumbnail project.image "480x318" crop="center" as im %}
+{% thumbnail project.image "480x318" format="PNG" crop="center" as im %}
             <img class="block" src="{{ im.url }}" width="{{ im.x }}" height="{{ im.y }}">
 {% endthumbnail %}
 {% else %}

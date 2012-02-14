@@ -27,7 +27,7 @@
     <div class="box box-01">
       <div class="box-content">
 {% if person.image %}
-{% thumbnail person.image "235x201" upscale=False as im %}
+{% thumbnail person.image "235x201" format="PNG" upscale=False as im %}
     <img class="block" src="{{ im.url }}" >
 {% endthumbnail %}
 {% else %}
@@ -90,7 +90,7 @@
     <div class="box box-01 with-image small-image">
       <div class="box-image text-align-center">
 {% if project.image %}
-{% thumbnail project.image "100x100" upscale=False as im %}
+{% thumbnail project.image "100x100" format="PNG" upscale=False as im %}
     <img class="block" style="margin:{{ im|margin:"100x100" }}" src="{{ im.url }}" width="{{ im.x }}" height="{{ im.y }}">
 {% endthumbnail %}
 {% else %}

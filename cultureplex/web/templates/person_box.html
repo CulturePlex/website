@@ -4,7 +4,7 @@
 <li>
   <a href="/persons/{{ person.id }}">
 {% if person.image %}
-{% thumbnail person.image "60x60" as im %}
+{% thumbnail person.image "60x60" format="PNG" as im %}
   <img style="margin:{{ im|margin:"70x61" }}" src="{{ im.url }}" width="{{ im.x }}" height="{{ im.y }}">
 {% endthumbnail %}
 {% else %}

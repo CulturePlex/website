@@ -22,7 +22,7 @@
     <div class="box box-01">
       <div class="box-content">
 {% if project.image %}
-{% thumbnail project.image "200x300" upscale=False as im %}
+{% thumbnail project.image "200x300" format="PNG" upscale=False as im %}
     <img class="block" src="{{ im.url }}" >
 {% endthumbnail %}
 {% else %}
