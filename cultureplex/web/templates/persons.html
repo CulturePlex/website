@@ -16,7 +16,7 @@
 <div class="box box-01 with-image small-image">
   <div class="box-image text-align-center">
 {% if person.image %}
-{% thumbnail person.image "100x100" as im %}
+{% thumbnail person.image "100x100" upscale=False as im %}
             <img class="block" src="{{ im.url }}" width="{{ im.x }}" height="{{ im.y }}">
 {% endthumbnail %}
 {% else %}

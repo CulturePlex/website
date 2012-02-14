@@ -25,7 +25,7 @@
     <div class="box box-01">
       <div class="box-content">
 {% if person.image %}
-{% thumbnail person.image "235x201" as im %}
+{% thumbnail person.image "235x201" upscale=False as im %}
     <img class="block" src="{{ im.url }}" >
 {% endthumbnail %}
 {% else %}
