@@ -2,9 +2,7 @@
 {% load web_extras %}
 {% load i18n %}
 {% load thumbnail %}
-
 {% block header %}
-
 <!doctype html>
 <!--[if lt IE 7]><html lang="es-ES" class="ie ie6 ltie9 ltie8 ltie7"><![endif]-->
 <!--[if IE 7]><html lang="es-ES" class="ie ie7 ltie9 ltie8"><![endif]-->
@@ -12,7 +10,7 @@
 <!--[if IE 9]><html lang="es-ES" class="ie ie9"><![endif]-->
 <!--[if gt IE 9]><html lang="es-ES" class="ie"><![endif]-->
 <!--[if !IE]><!-->
-<html lang="es-ES">
+<html lang="en">
 <!--<![endif]-->
 <head>
   <!--[if IE]><![endif]-->
@@ -27,7 +25,7 @@
   <!-- Styles -->
   <link href="{{ STATIC_URL }}web/css/bootstrap.css" rel="stylesheet" />
   <link href="{{ STATIC_URL }}web/css/styles.css" rel="stylesheet" />
-  
+  <link rel="shortcut icon" href="{{ STATIC_URL }}web/images/layout/favicon.ico" >
 
 
   <!-- Scripts -->
@@ -56,30 +54,30 @@
       <div class="container">
         <ul>
           <li class="item-01">
-            <a href="/projects/" {% if current_page == "projects" %}class="current"{% endif %}>
+            <a href="{% url web.views.projects %}" {% if current_page == "projects" %}class="current"{% endif %}>
               {% trans "01. Projects" %}
-              <strong>{% trans "We are working on..." %}</strong>
+              <strong>{% trans "We are working on…" %}</strong>
               <span></span>
             </a>
           </li>
           <li class="item-02">
-            <a href="/publications/" {% if current_page == "publications" %}class="current"{% endif %}>
+            <a href="{% url web.views.publications %}" {% if current_page == "publications" %}class="current"{% endif %}>
               {% trans "02. Publications" %}
-              <strong>{% trans "What we have done" %}</strong>
+              <strong>{% trans "What we have done…" %}</strong>
               <span></span>
             </a>
           </li>
           <li class="item-03">
-            <a href="/persons/" {% if current_page == "persons" %}class="current"{% endif %}>
+            <a href="{% url web.views.persons %}" {% if current_page == "persons" %}class="current"{% endif %}>
               {% trans "03. People" %}
-              <strong>{% trans "Who we are" %}</strong>
+              <strong>{% trans "Who we are…" %}</strong>
               <span></span>
             </a>
           </li>
           <li class="item-04">
             <a href="http://blogs.cultureplex.ca/activity/">
               {% trans "04. Blogs" %}
-              <strong>{% trans "We talk about…" %}</strong>
+              <strong>{% trans "We are talking about…" %}</strong>
               <span></span>
             </a>
           </li>
@@ -104,15 +102,10 @@
 {% endif %}
             </div>
             <div class="span6">
-              <h2>{{ project.name }}</h2>
+              <h2>{{ project.name }}{% if request.user.is_authenticated %}
+              | <a href="{% url admin:web_project_change project.id %}" title="{% trans "Edit" %}"></a>
+              {% endif %}</h2>
               <p> {{ project.description|truncatewords_by_chars:600 }}</p>
-<SCRIPT LANGUAGE="JAVASCRIPT" TYPE="TEXT/JAVASCRIPT">
-<!--
-                if(typeof Fiber!="undefined"){
-                    document.write("<a href='admin/web/project/{{ project.id }}/'>Edit Project<\/a>");
-                }
-//-->
-</SCRIPT>
               <p><a class="btn primary" href="projects/{{ project.id}}">{% trans "View project" %} &raquo;</a></p>
             </div>
           </div><!-- .scrolli-element -->
@@ -164,7 +157,7 @@
           <p><strong>
             E. <a href="mailto:contact@cultureplex.ca">contact@cultureplex.ca</a>
             ─ 
-            T. <a href="tel:+15196612111">+1 (519) 661-2111 x89252
+            T. <a href="tel:+15196612111">+1 (519) 661-2111 x89252</a>
           </strong></p>
         </div>
 
@@ -172,7 +165,7 @@
           <li class="facebook"><a href="https://www.facebook.com/pages/The-CulturePlex-Laboratory/161299830600396">Facebook</a></li>
           <li class="twitter"><a href="https://twitter.com/#!/cultureplex">Twitter</a></li>
           <li class="googleplus"><a href="https://plus.google.com/102578586279160689933/posts">Google+</a></li>
-          <li class="up"><a href="#">Volver arriba</a></li>
+          <li class="up"><a href="#">{% trans "Top" %}</a></li>
         </ul>
       </div><!-- .container -->
     </footer><!-- footer -->

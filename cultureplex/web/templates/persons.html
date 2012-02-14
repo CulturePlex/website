@@ -25,23 +25,25 @@
     <a href="/persons/{{ person.id }}/" class="btn primary">{% trans "View details" %}</a>
   </div>
   <div class="box-content">
-    <h3 class="box-title">{{ person.name }}</h3>
+    <h3 class="box-title">{{ person.name }}{% if request.user.is_authenticated %}
+        | <a href="{% url admin:web_person_change person.id %}" title="{% trans "Edit" %}"></a>
+    {% endif %}</h3>
 
     <p>{{ person.bio|truncatewords_by_chars:422 }}</p>
 
     <ul class="data">
 {% if person.phone %}
       <li>
-        <strong><span class="icon phone"></span> {% trans "Phone:" %}</strong> {{ person.phone }}
+        <strong><span class="icon phone"></span> {% trans "Phone:" %}</strong> <a href="tel:{{ person.phone }}">{{ person.phone }}</a>
       </li>
 {% endif %}
 {% if person.mobile %}
       <li>
-        <strong><span class="icon mobile"></span> {% trans "Mobile:" %}</strong> {{ person.mobile }}
+        <strong><span class="icon mobile"></span> {% trans "Mobile:" %}</strong> <a href="tel:{{ person.mobile }}">{{ person.mobile }}</a>
       </li>
 {% endif %}
       <li>
-        <strong><span class="icon mail"></span> {% trans "Email:" %}</strong> <a href="#">{{ person.email }}</a>
+        <strong><span class="icon mail"></span> {% trans "Email:" %}</strong> <a href="mailto:{{ person.email }}">{{ person.email }}</a>
       </li>
       <li>
         <strong><span class="icon tick"></span> {% trans "Active:" %}</strong> {% if person.active %}{% trans "Yes" %}{% else %}{% trans "No" %}{% endif %}

@@ -13,7 +13,9 @@
 
 
 <h2>
-  {{ publication.title }}
+  {{ publication.title }}{% if request.user.is_authenticated %}
+        | <a href="{% url admin:web_publication_change publication.id %}" title="{% trans "Edit" %}"></a>
+    {% endif %}
   <span class="inner-pager">
     <a href="/publications">&lt; {% trans "back to publications" %}</a>
   </span>
@@ -28,11 +30,6 @@
           <a href="/media/{{ publication.document }}" class="btn primary block">{% trans "Download Publication" %}</a>
         </p>
         <ul class="data-02">
-{% if publication.url_hosted_at %}
-          <li>
-            <strong><span class="icon info"></span> {% trans "Host URL:" %}</strong> <text>  <a href="{{ publication.url_hosted_at|add_http }}">{{ publication.url_hosted_at|truncatewords_by_chars:22 }}</a></text>
-          </li>
-{% endif %}
 {% if publication.aceptation_date %}
           <li>
             <strong><span class="icon calendar"></span> {% trans "Acceptation Date:" %}</strong> {{ publication.aceptation_date }}
@@ -46,6 +43,11 @@
 {% if publication.hosted_at %}
           <li>
             <strong><span class="icon cloud"></span> {% trans "Hosted at:" %}</strong> {{ publication.hosted_at }}
+          </li>
+{% endif %}
+{% if publication.url_hosted_at %}
+          <li>
+            <strong><span class="icon info"></span> {% trans "Host URL:" %}</strong> <text>  <a href="{{ publication.url_hosted_at|add_http }}">{{ publication.url_hosted_at|truncatewords_by_chars:22 }}</a></text>
           </li>
 {% endif %}
           <li>
@@ -80,7 +82,7 @@
 
         <p>{{ project.description|truncatewords_by_chars:140 }}</p>
 
-        <a href="/projects/{{ project.id }}/">&gt; {% trans "View project" %}</a>
+        <a href="/projects/{{ project.id }}/" class="btn primary">{% trans "View project" %}</a>
       </div>
     </div><!-- .box-01 -->
 {% endfor %}

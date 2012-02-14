@@ -30,7 +30,9 @@
     <a href="/projects/{{ project.id }}/" class="btn primary">{% trans "View project" %}</a>
   </div>
   <div class="box-content">
-    <h3 class="box-title">{{ project.name }}</h3>
+    <h3 class="box-title">{{ project.name }}{% if request.user.is_authenticated %}
+        | <a href="{% url admin:web_project_change project.id %}" title="{% trans "Edit" %}"></a>
+    {% endif %}</h3>
 
     <p>{{ project.description|truncatewords_by_chars:422 }}</p>
 
@@ -42,7 +44,7 @@
         <strong><span class="icon tick"></span> {% trans "Active:" %}</strong> {% if project.active %}Yes{% else %}No{% endif %}
       </li>
       <li>
-        <strong><span class="icon mail"></span> {% trans "Contact:" %}</strong> {{ project.contact }}
+        <strong><span class="icon mail"></span> {% trans "Contact:" %}</strong> <a href="{% url web.views.person project.contact.id %}">{{ project.contact }}</a>
       </li>
     </ul>
 

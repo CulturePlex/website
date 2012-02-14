@@ -596,7 +596,7 @@ nav ul li a strong {
   margin-top: 0.25em;
 }
 nav ul li.item-01 {
-  width: 240px;
+  width: 235px;
 }
 nav ul li.item-01 a span {
   background-position: 4px -330px;
@@ -605,7 +605,7 @@ nav ul li.item-01 a.current span, nav ul li.item-01 a:focus span, nav ul li.item
   background-position: -46px -330px;
 }
 nav ul li.item-02 {
-  width: 270px;
+  width: 260px;
 }
 nav ul li.item-02 a span {
   background-position: 4px -410px;
@@ -614,7 +614,7 @@ nav ul li.item-02 a.current span, nav ul li.item-02 a:focus span, nav ul li.item
   background-position: -46px -410px;
 }
 nav ul li.item-03 {
-  width: 215px;
+  width: 210px;
 }
 nav ul li.item-03 a span {
   background-position: 4px -515px;
@@ -623,7 +623,7 @@ nav ul li.item-03 a.current span, nav ul li.item-03 a:focus span, nav ul li.item
   background-position: -46px -515px;
 }
 nav ul li.item-04 {
-  width: 215px;
+  width: 235px;
 }
 nav ul li.item-04 a span {
   background-position: 4px -615px;

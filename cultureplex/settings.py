@@ -158,6 +158,10 @@ STATICFILES_FINDERS = DEFAULT_SETTINGS.STATICFILES_FINDERS + (
     'compressor.finders.CompressorFinder',
 )
 
+PROJECTS_LISTING = 10
+PUBLICATIONS_LISTING = 10
+PERSONS_LISTING = 10
+
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error.
