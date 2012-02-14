@@ -1,3 +1,4 @@
+ # -*- coding: utf-8 -*-
 from django import template
 from web.models import Project
 import re
@@ -44,7 +45,7 @@ def add_http(value):
 def show_title(current_page,args):
     if current_page == '':
        current_page = 'Home'
-    return current_page+' - The CulturePlex'
+    return 'The CulturePlex ─ '+current_page
 
 register.filter('show_title', show_title)
 register.filter('add_http', add_http)
