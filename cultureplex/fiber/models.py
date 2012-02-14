@@ -250,11 +250,3 @@ class File(models.Model):
         if self.file.path.startswith(settings.MEDIA_ROOT):
             return self.file.path[len(settings.MEDIA_ROOT):]
         return self.file.path
-
-@receiver(post_save)
-def my_callback(sender, **kwargs):
-     temp = settings.MEDIA_ROOT
-     temp += str(kwargs['instance'])
-     print temp
-#     im = get_thumbnail(image=temp)
-#     print im.url
