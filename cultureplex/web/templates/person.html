@@ -13,7 +13,9 @@
 
 
 <h2>
-  {{ person.name }}
+  {{ person.name }}{% if request.user.is_authenticated %}
+        | <a href="{% url admin:web_person_change person.id %}" title="{% trans "Edit" %}"></a>
+    {% endif %}
   <span class="inner-pager">
     <a href="/persons">&lt; {% trans "back to people" %}</a>
   </span>
@@ -35,12 +37,12 @@
         <ul class="data-02">
           <li>
 {% if person.phone %}
-            <strong><span class="icon phone"></span> {% trans "Phone:" %}</strong> {{ person.phone }}
+            <strong><span class="icon phone"></span> {% trans "Phone:" %}</strong> <a href="tel:{{ person.phone }}">{{ person.phone }}</a>
           </li>
 {% endif %}
 {% if person.mobile %}
           <li>
-            <strong><span class="icon mobile"></span> {% trans "Mobile:" %}</strong> {{ person.mobile }}
+            <strong><span class="icon mobile"></span> {% trans "Mobile:" %}</strong> <a href="tel:{{ person.mobile }}">{{ person.mobile }}</a>
           </li>
 {% endif %}
           <li>
@@ -51,7 +53,7 @@
           </li>
 {% if person.blog %}
           <li>
-            <strong><span class="icon bubble"></span> {% trans "Blog:" %}</strong> <a href="{{ person.blog }}">{{ person.blog }}</a>
+            <strong><span class="icon bubble"></span> {% trans "Blog:" %}</strong> <a href="{{ person.blog }}">{{ person.blog|truncatewords_by_chars:23 }}</a>
           </li>
 {% endif %}
           <li>
@@ -100,7 +102,7 @@
 
         <p>{{ project.description|truncatewords_by_chars:140 }}</p>
 
-        <a href="/projects/{{ project.id }}/">&gt; {% trans "View project" %}</a>
+        <a href="/projects/{{ project.id }}/" class="btn primary">{% trans "View project" %}</a>
       </div>
     </div><!-- .box-01 -->
 {% endfor %}
@@ -118,7 +120,7 @@
 
         <p>{{ publication.abstract|truncatewords_by_chars:140 }}</p>
 
-        <a href="/publications/{{ publication.id }}/">&gt; {% trans "View publication" %}</a>
+        <a href="/publications/{{ publication.id }}/" class="btn primary">{% trans "View publication" %}</a>
       </div>
     </div><!-- .box-01 -->
 {% endfor %}

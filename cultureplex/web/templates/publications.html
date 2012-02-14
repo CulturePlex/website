@@ -14,7 +14,9 @@
 {% for publication in publications.object_list %}
 <div class="box box-01">
   <div class="box-content">
-    <h3 class="box-title">{{ publication.title }}</h3>
+    <h3 class="box-title">{{ publication.title }}{% if request.user.is_authenticated %}
+        | <a href="{% url admin:web_publication_change publication.id %}" title="{% trans "Edit" %}"></a>
+    {% endif %}</h3>
 
     <p>{{ publication.abstract|truncatewords_by_chars:422 }}</p>
 

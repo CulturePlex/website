@@ -1,11 +1,11 @@
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
+from django.conf import settings
+from django.http import HttpResponse
+from django.template import Context, RequestContext, loader
 
-from django.template import Context, loader
 from web.models import Project
 from web.models import Publication
 from web.models import Person
-from django.http import HttpResponse
-from django.template import RequestContext
 
 
 def projects(request):
@@ -18,7 +18,7 @@ def projects(request):
         projects_list = Project.objects.all().order_by('contact', '-active', 'name')
     if order == 'name':
         projects_list = Project.objects.all().order_by('name', '-active', 'contact')
-    paginator = Paginator(projects_list, 4) 
+    paginator = Paginator(projects_list, settings.PROJECTS_LISTING)
     # Make sure page request is an int. If not, deliver first page.
     try:
         page = int(request.GET.get('page', '1'))
@@ -61,7 +61,7 @@ def publications(request):
         publications_list = Publication.objects.all().order_by('-aceptation_date','title','publication_type','-publication_date')
     if order == 'title':
         publications_list = Publication.objects.all().order_by('-publication_date','title','publication_type','-aceptation_date')
-    paginator = Paginator(publications_list, 4) 
+    paginator = Paginator(publications_list, settings.PUBLICATIONS_LISTING)
     # Make sure page request is an int. If not, deliver first page.
     try:
         page = int(request.GET.get('page', '1'))
@@ -101,7 +101,7 @@ def persons(request):
         persons_list = Person.objects.all().order_by('position', '-active', 'name')
     if order == 'name':
         persons_list = Person.objects.all().order_by('name', '-active', 'position')
-    paginator = Paginator(persons_list, 4) 
+    paginator = Paginator(persons_list, settings.PERSONS_LISTING)
     # Make sure page request is an int. If not, deliver first page.
     try:
         page = int(request.GET.get('page', '1'))
