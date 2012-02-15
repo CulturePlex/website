@@ -5,7 +5,7 @@ from os import path
 
 DEBUG = True
 PROJECT_ROOT = path.abspath(path.dirname(__file__))
-PROJECT_NAME = "CulturePlex Lab Website"
+PROJECT_NAME = "The CulturePlex"
 
 THUMBNAIL_CACHE_TIMEOUT = 3600 * 24 * 365
 THUMBNAIL_DEBUG = DEBUG
