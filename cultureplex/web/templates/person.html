@@ -80,7 +80,7 @@
     </div><!-- .box-01 -->
   </div>
   <div class="span11">
-    <p>{{ person.bio }}</p>
+    <p>{% autoescape off %}{{ person.bio }}{% endautoescape %}</p>
 
 
 {% if projects %}
@@ -100,7 +100,7 @@
       <div class="box-content">
         <h3 class="box-title">{{ project.name }}</h3>
 
-        <p>{{ project.description|truncatewords_by_chars:140 }}</p>
+        <p>{% autoescape off %}{{ project.description|truncatewords_by_chars:140 }}{% endautoescape %}</p>
 
         <a href="{{ project.get_absolute_url }}" class="btn primary">{% trans "View project" %}</a>
       </div>
@@ -119,7 +119,7 @@
       <div class="box-content">
         <h3 class="box-title">{{ publication.title }}</h3>
 
-        <p>{{ publication.abstract|truncatewords_by_chars:140 }}</p>
+        <p>{% autoescape off %}{{ publication.abstract|truncatewords_by_chars:140 }}{% endautoescape %}</p>
 
         <a href="{{ publication.get_absolute_url }}" class="btn primary">{% trans "View publication" %}</a>
       </div>

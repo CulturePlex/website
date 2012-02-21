@@ -43,7 +43,7 @@
     </div><!-- .box-01 -->
   </div>
   <div class="span11">
-    <p>{{ project.description }}</p>
+    <p>{% autoescape off %}{{ project.description }}{% endautoescape %}</p>
     <h3 class="box-title">{% trans "Members" %}</h3>
     <ul class="members">
 {% for person in project.members.all %}

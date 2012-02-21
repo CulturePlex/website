@@ -18,7 +18,7 @@
         | <a href="{% url admin:web_publication_change publication.id %}" title="{% trans "Edit" %}"></a>
     {% endif %}</h3>
 
-    <p>{{ publication.abstract|truncatewords_by_chars:422 }}</p>
+    <p>{% autoescape off %}{{ publication.abstract|truncatewords_by_chars:422 }}{% endautoescape %}</p>
 
     <p><a href="{{ publication.get_absolute_url }}" class="btn primary">{% trans "View Publication" %}</a></p>
 

@@ -30,7 +30,7 @@
         | <a href="{% url admin:web_project_change project.id %}" title="{% trans "Edit" %}"></a>
     {% endif %}</h3>
 
-    <p>{{ project.description|truncatewords_by_chars:422 }}</p>
+    <p>{% autoescape off %}{{ project.description|truncatewords_by_chars:422 }}{% endautoescape %}</p>
 
     <ul class="data">
       <li>

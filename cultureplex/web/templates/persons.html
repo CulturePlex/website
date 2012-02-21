@@ -29,7 +29,7 @@
         | <a href="{% url admin:web_person_change person.id %}" title="{% trans "Edit" %}"></a>
     {% endif %}</h3>
 
-    <p>{{ person.bio|truncatewords_by_chars:422 }}</p>
+    <p>{% autoescape off %}{{ person.bio|truncatewords_by_chars:422 }}{% endautoescape %}</p>
 
     <ul class="data">
 {% if person.phone %}

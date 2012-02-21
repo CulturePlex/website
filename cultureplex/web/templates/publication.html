@@ -63,7 +63,7 @@
     </div><!-- .box-01 -->
   </div>
   <div class="span11">
-    <p>{{ publication.abstract }}</p>
+    <p>{% autoescape off %}{{ publication.abstract }}{% endautoescape %}</p>
 
     <h3 class="box-title">{% trans "Authors" %}</h3>
     <ul class="members">
@@ -79,7 +79,7 @@
       <div class="box-content">
         <h3 class="box-title">{{ project.name }}</h3>
 
-        <p>{{ project.description|truncatewords_by_chars:140 }}</p>
+        <p>{% autoescape off %}{{ project.description|truncatewords_by_chars:140 }}{% endautoescape %}</p>
 
         <a href="{{ project.get_absolute_url }}" class="btn primary">{% trans "View project" %}</a>
       </div>
