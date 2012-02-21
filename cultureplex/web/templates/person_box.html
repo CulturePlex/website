@@ -2,7 +2,7 @@
 {% load web_extras %}
 {% load static %}
 <li>
-  <a href="/persons/{{ person.id }}">
+  <a href="{{ person.get_absolute_url }}">
 {% if person.image %}
 {% thumbnail person.image "60x60" format="PNG" as im %}
   <img style="margin:{{ im|margin:"70x61" }}" src="{{ im.url }}" width="{{ im.x }}" height="{{ im.y }}">

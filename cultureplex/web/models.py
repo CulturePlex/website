@@ -4,11 +4,12 @@ from PIL import Image as PILImage
 
 from django.core.files.base import ContentFile
 from django.db import models
-from django.db.models.signals import pre_save, post_save
+from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 from fiber.models import Image
-from sorl.thumbnail import get_thumbnail
+
+from web.fields import AutoSlugField
 
 
 class Person(models.Model):
@@ -34,6 +35,12 @@ class Person(models.Model):
     position = models.CharField(max_length=200, choices=POSITION_TYPES)
     image = models.ImageField(upload_to='persons_images', blank=True)
     active = models.BooleanField()
+    slug = AutoSlugField(populate_from=['name'], max_length=100,
+                         editable=False)
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ('web.views.person', [str(self.slug)])
 
     def __unicode__(self):
         return self.name
@@ -48,6 +55,12 @@ class Project(models.Model):
     image = models.ImageField(upload_to='projects_images', blank=True)
     active = models.BooleanField()
     incarousel = models.BooleanField()
+    slug = AutoSlugField(populate_from=['name'], max_length=100,
+                         editable=False)
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ('web.views.project', [str(self.slug)])
 
     def __unicode__(self):
         return self.name
@@ -69,13 +82,21 @@ class Publication(models.Model):
     authors = models.ManyToManyField(Person, related_name='-')
     aceptation_date = models.DateField(default=None, blank=True, null=True)
     publication_date = models.DateField(blank=True, null=True)
-    related_projects = models.ManyToManyField(Project, related_name='-', blank=True)
+    related_projects = models.ManyToManyField(Project, related_name='-',
+                                              blank=True)
     abstract = models.TextField(max_length=2000)
     keywords = models.TextField(max_length=2000, blank=True)
     hosted_at = models.CharField(max_length=200, blank=True)
-    url_hosted_at = models.URLField(verify_exists=False, max_length=200, blank=True)
+    url_hosted_at = models.URLField(verify_exists=False, max_length=200,
+                                    blank=True)
     publication_type = models.CharField(max_length=200, choices=PUB_TYPES)
     document = models.FileField(upload_to='publications')
+    slug = AutoSlugField(populate_from=['title'], max_length=100,
+                         editable=False)
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ('web.views.publication', [str(self.slug)])
 
     def __unicode__(self):
         return self.title
@@ -87,7 +108,7 @@ def resize_as_a_new_fiber_image(*args, **kwargs):
     max_width = 450
     max_height = 300
     if im.image.width > max_width or im.image.height > max_height:
-        size =  (max_width, max_height)
+        size = (max_width, max_height)
         image = PILImage.open(im.image.path)
         xxx, image_name = path.split(im.image.path)
         if "." in image_name:

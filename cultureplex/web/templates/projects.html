@@ -23,7 +23,7 @@
 {% else %}
     <img class="block" src="{{ STATIC_URL }}web/images/content/default-image.png" />
 {% endif %}
-    <a href="/projects/{{ project.id }}/" class="btn primary">{% trans "View project" %}</a>
+    <a href="{{ project.get_absolute_url }}" class="btn primary">{% trans "View project" %}</a>
   </div>
   <div class="box-content">
     <h3 class="box-title">{{ project.name }}{% if request.user.is_authenticated %}
@@ -40,7 +40,7 @@
         <strong><span class="icon tick"></span> {% trans "Active:" %}</strong> {% if project.active %}Yes{% else %}No{% endif %}
       </li>
       <li>
-        <strong><span class="icon mail"></span> {% trans "Contact:" %}</strong> <a href="{% url web.views.person project.contact.id %}">{{ project.contact }}</a>
+        <strong><span class="icon mail"></span> {% trans "Contact:" %}</strong> <a href="{{ project.contact.get_absolute_url }}">{{ project.contact }}</a>
       </li>
     </ul>
 

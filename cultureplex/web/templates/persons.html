@@ -22,7 +22,7 @@
 {% else %}
     <img class="block" src="{{ STATIC_URL }}web/images/content/default-member.png" />
 {% endif %}
-    <a href="/persons/{{ person.id }}/" class="btn primary">{% trans "View details" %}</a>
+    <a href="{{ person.get_absolute_url }}" class="btn primary">{% trans "View details" %}</a>
   </div>
   <div class="box-content">
     <h3 class="box-title">{{ person.name }}{% if request.user.is_authenticated %}

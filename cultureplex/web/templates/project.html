@@ -13,7 +13,7 @@
         | <a href="{% url admin:web_project_change project.id %}" title="{% trans "Edit" %}"></a>
     {% endif %}
   <span class="inner-pager">
-    <a href="/projects">&lt; {% trans "back to projects" %}</a>
+    <a href="{% url web.views.projects %}">&lt; {% trans "back to projects" %}</a>
   </span>
 </h2>
 
@@ -36,7 +36,7 @@
             <strong><span class="icon tick"></span> {% trans "Active:" %} </strong>  {% if project.active %}{% trans "Yes" %}{% else %}{% trans "No" %}{% endif %}
           </li>
           <li>
-            <strong><span class="icon mail"></span> {% trans "Contact:" %} </strong> <a href="{% url web.views.person project.contact.id %}">{{ project.contact }}</a>
+            <strong><span class="icon mail"></span> {% trans "Contact:" %} </strong> <a href="{% url web.views.person project.contact.slug %}">{{ project.contact }}</a>
           </li>
         </ul>
       </div>

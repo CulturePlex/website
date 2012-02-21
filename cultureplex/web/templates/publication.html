@@ -17,7 +17,7 @@
         | <a href="{% url admin:web_publication_change publication.id %}" title="{% trans "Edit" %}"></a>
     {% endif %}
   <span class="inner-pager">
-    <a href="/publications">&lt; {% trans "back to publications" %}</a>
+    <a href="{% url web.views.publications %}">&lt; {% trans "back to publications" %}</a>
   </span>
 </h2>
 
@@ -81,7 +81,7 @@
 
         <p>{{ project.description|truncatewords_by_chars:140 }}</p>
 
-        <a href="/projects/{{ project.id }}/" class="btn primary">{% trans "View project" %}</a>
+        <a href="{{ project.get_absolute_url }}" class="btn primary">{% trans "View project" %}</a>
       </div>
     </div><!-- .box-01 -->
 {% endfor %}

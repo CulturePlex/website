@@ -12,15 +12,15 @@ urlpatterns = patterns('',
 
     #Projects:
     url(r'^projects/$', 'web.views.projects'),
-    url(r'^projects/(?P<project_id>\d+)/$', 'web.views.project'),
+    url(r'^projects/(?P<project_slug>[-\w]+)/$', 'web.views.project'),
 
     #Publications:
     url(r'^publications/$', 'web.views.publications'),
-    url(r'^publications/(?P<publication_id>\d+)/$', 'web.views.publication'),
+    url(r'^publications/(?P<publication_slug>[-\w]+)/$', 'web.views.publication'),
 
     #People:
-    url(r'^persons/$', 'web.views.persons'),
-    url(r'^persons/(?P<person_id>\d+)/$', 'web.views.person'),
+    url(r'^people/$', 'web.views.persons'),
+    url(r'^people/(?P<person_slug>[-\w]+)/$', 'web.views.person'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
      url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

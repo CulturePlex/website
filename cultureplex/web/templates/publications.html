@@ -20,7 +20,7 @@
 
     <p>{{ publication.abstract|truncatewords_by_chars:422 }}</p>
 
-    <p><a href="/publications/{{ publication.id }}/" class="btn primary">{% trans "View Publication" %}</a></p>
+    <p><a href="{{ publication.get_absolute_url }}" class="btn primary">{% trans "View Publication" %}</a></p>
 
     <ul class="data">
 {% if publication.hosted_at %}

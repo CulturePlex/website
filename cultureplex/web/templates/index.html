@@ -106,7 +106,7 @@
               | <a href="{% url admin:web_project_change project.id %}" title="{% trans "Edit" %}"></a>
               {% endif %}</h2>
               <p> {{ project.description|truncatewords_by_chars:600 }}</p>
-              <p><a class="btn primary" href="projects/{{ project.id}}">{% trans "View project" %} &raquo;</a></p>
+              <p><a class="btn primary" href="{{ project.get_absolute_url }}">{% trans "View project" %} &raquo;</a></p>
             </div>
           </div><!-- .scrolli-element -->
           {% endfor %}

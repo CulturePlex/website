@@ -38,8 +38,8 @@ def projects(request):
     })
     return HttpResponse(t.render(c))
 
-def project(request, project_id):
-    project = Project.objects.get(pk=project_id)
+def project(request, project_slug):
+    project = Project.objects.get(slug=project_slug)
     t = loader.get_template('project.html')
     c = RequestContext(request,{
         'project': project,
@@ -82,8 +82,8 @@ def publications(request):
     })
     return HttpResponse(t.render(c))
 
-def publication(request, publication_id):
-    publication = Publication.objects.get(pk=publication_id)
+def publication(request, publication_slug):
+    publication = Publication.objects.get(slug=publication_slug)
     t = loader.get_template('publication.html')
     c = RequestContext(request,{
         'publication': publication,
@@ -121,10 +121,10 @@ def persons(request):
     })
     return HttpResponse(t.render(c))
 
-def person(request, person_id):
-    person = Person.objects.get(pk=person_id)
-    projects = Project.objects.filter(members__id=person_id)
-    publications = Publication.objects.filter(authors__id=person_id)
+def person(request, person_slug):
+    person = Person.objects.get(slug=person_slug)
+    projects = Project.objects.filter(members__id=person.id)
+    publications = Publication.objects.filter(authors__id=person.id)
     t = loader.get_template('person.html')
     c = RequestContext(request,{
         'person': person,
