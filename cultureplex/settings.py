@@ -149,6 +149,7 @@ INSTALLED_APPS = (
     'compressor',
     'fiber',
     'sorl.thumbnail',
+    'django_extensions',
     'south',
 )
 

@@ -69,7 +69,7 @@ def _slug_strip(value, separator=None):
 class AutoSlugField(fields.SlugField):
     """Auto slug field, creates unique slug for model."""
 
-    def __init__(self, prepopulate_from, *args, **kwargs):
+    def __init__(self, populate_from, *args, **kwargs):
         """Create auto slug field.
 
         If field is unique, the uniqueness of the slug is ensured from existing
@@ -79,13 +79,13 @@ class AutoSlugField(fields.SlugField):
         the slug, just set it :const:`None` or :const:`""` so it will be re-
         generated automatically.
 
-        :param prepopulate_from: Must be assigned to list of field names which
+        :param populate_from: Must be assigned to list of field names which
             are used to prepopulate automatically.
 
-        :type prepopulate_from: sequence
+        :type populate_from: sequence
         """
-        self.prepopulate_separator = kwargs.get("prepopulate_separator", u"-")
-        self.prepopulate_from = prepopulate_from
+        self.populate_separator = kwargs.get("populate_separator", u"-")
+        self.populate_from = populate_from
         kwargs["blank"] = True
         super(fields.SlugField, self).__init__(*args, **kwargs)
 
@@ -98,9 +98,9 @@ class AutoSlugField(fields.SlugField):
         if not (current_slug is None or current_slug == ""):
             slug = current_slug
         else:
-            slug = self.prepopulate_separator.\
+            slug = self.populate_separator.\
                         join(unicode(getattr(model_instance, prepop))
-                             for prepop in self.prepopulate_from)
+                             for prepop in self.populate_from)
 
         if self.unique:
             return _unique_slugify(model_instance, value=slug,
