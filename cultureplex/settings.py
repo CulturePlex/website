@@ -151,6 +151,7 @@ INSTALLED_APPS = (
     'sorl.thumbnail',
     'django_extensions',
     'south',
+    'django_wysiwyg',
 )
 
 STATIC_ROOT = path.join(PROJECT_ROOT, 'static')
