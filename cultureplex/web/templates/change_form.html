@@ -23,19 +23,11 @@
 {% endblock %}
 
 {% block content %}
-sdfsdffsdfsd
 	{{ block.super }}
 
 	{# Replace XXXXXXXX with field name: #}
 	{% wysiwyg_editor "id_bio"%}
 	{% wysiwyg_editor "id_description" %}
 	{% wysiwyg_editor "id_abstract" %}
-<script>
-</script>
-	{% wysiwyg_editor "id_bio_editor" "{ toolbar: 'compact_toolbar' }" %}
-
-	{# ... add more here... #}
 
 {% endblock %}
-
-
