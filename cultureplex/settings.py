@@ -100,7 +100,6 @@ TEMPLATE_LOADERS = (
 #     'django.template.loaders.eggs.Loader',
 )
 
-
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -121,6 +120,8 @@ TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS + (
     'django.contrib.messages.context_processors.messages',
     'django.core.context_processors.request',
     'fiber.context_processors.page_info',
+    "web.context_processors.api_keys",
+    "web.context_processors.project_name",
 
 )
 
@@ -163,6 +164,7 @@ STATICFILES_FINDERS = DEFAULT_SETTINGS.STATICFILES_FINDERS + (
 PROJECTS_LISTING = 10
 PUBLICATIONS_LISTING = 10
 PERSONS_LISTING = 10
+GOOGLE_ANALYTICS = u"UA-1613313-8"
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
