@@ -162,7 +162,7 @@
         </div>
 
         <ul>
-          <li class="facebook"><a href="https://www.facebook.com/pages/The-CulturePlex-Laboratory/161299830600396">Facebook</a></li>
+          <li class="facebook"><a href="https://www.facebook.com/pages/The-CulturePlex-Laboratory/109575249172016">Facebook</a></li>
           <li class="twitter"><a href="https://twitter.com/#!/cultureplex">Twitter</a></li>
           <li class="googleplus"><a href="https://plus.google.com/102578586279160689933/posts">Google+</a></li>
           <li class="up"><a href="#">{% trans "Top" %}</a></li>
@@ -171,5 +171,15 @@
     </footer><!-- footer -->
   </div><!-- #wrapper -->
 </body>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', "{{ GOOGLE_ANALYTICS }}"]);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
 </html>
 {% endblock %}
