@@ -6,6 +6,9 @@ django-compressor==1.1.2
 django-extensions==0.7.1
 django-fiber==0.9.6.2
 django-mptt==0.5.1
+# django-pisto produces an error. You can fix it by creating a __init__.py file
+# in whatever directory piston is in.
+# http://stackoverflow.com/questions/12540257/django-module-object-has-no-attribute-file
 django-piston==0.2.3
 django-wysiwyg==0.4.1
 sorl-thumbnail==11.05.2
