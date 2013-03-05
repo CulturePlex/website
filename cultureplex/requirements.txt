@@ -6,7 +6,7 @@ django-compressor==1.1.2
 django-extensions==0.7.1
 django-fiber==0.9.6.2
 django-mptt==0.5.1
-django-piston==0.2.3rc1
+django-piston==0.2.3
 django-wysiwyg==0.4.1
 sorl-thumbnail==11.05.2
 wsgiref==0.1.2
