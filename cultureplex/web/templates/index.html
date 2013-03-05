@@ -34,7 +34,7 @@
   <![endif]-->
   <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
   <script src="{{ STATIC_URL }}web/js/jquery.scrollto.js"></script>
-  
+
 <script src="{{ STATIC_URL }}web/js/jquery.scrolli.js"></script>
 
   <script src="{{ STATIC_URL }}web/js/main.js"></script>
@@ -48,6 +48,11 @@
       <div class="container">
         <h1><a href="/">{% trans "Home" %}</a></h1>
       </div><!-- .container -->
+      <div class="courses-ribbon-wrapper">
+        <a class="courses-ribbon" href="http://courses.cultureplex.ca/" title="{% trans "Browse our courses" %}">
+          {% trans "CulturePlex Courses" %}
+        </a>
+      </div>
     </header><!-- header -->
 
     <nav>
@@ -55,28 +60,28 @@
         <ul>
           <li class="item-01">
             <a href="{% url web.views.projects %}" {% if current_page == "Projects" %}class="current"{% endif %}>
-              {% trans "01. Projects" %}
+              {% trans "Projects" %}
               <strong>{% trans "We are working on…" %}</strong>
               <span></span>
             </a>
           </li>
           <li class="item-02">
             <a href="{% url web.views.publications %}" {% if current_page == "Publications" %}class="current"{% endif %}>
-              {% trans "02. Publications" %}
+              {% trans "Publications" %}
               <strong>{% trans "What we have done…" %}</strong>
               <span></span>
             </a>
           </li>
           <li class="item-03">
             <a href="{% url web.views.persons %}" {% if current_page == "People" %}class="current"{% endif %}>
-              {% trans "03. People" %}
+              {% trans "People" %}
               <strong>{% trans "Who we are…" %}</strong>
               <span></span>
             </a>
           </li>
           <li class="item-04">
             <a href="http://blogs.cultureplex.ca/activity/">
-              {% trans "04. Blogs" %}
+              {% trans "Blogs" %}
               <strong>{% trans "We are talking about…" %}</strong>
               <span></span>
             </a>
@@ -118,7 +123,7 @@
 <hr class="separator-01" />
 
 <div class="row">
-  
+
   <div class="span8">
     <h2>{% show_page_content "titulobloque1" %}<small class="block">{% show_page_content "subtitulobloque1" %}</small></h2>
     <p>{% show_page_content "bloque1" %}</p>
@@ -156,7 +161,7 @@
 
           <p><strong>
             E. <a href="mailto:contact@cultureplex.ca">contact@cultureplex.ca</a>
-            ─ 
+            ─
             T. <a href="tel:+15196612111">+1 (519) 661-2111 x89252</a>
           </strong></p>
         </div>
